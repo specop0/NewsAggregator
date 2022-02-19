@@ -2,12 +2,13 @@ namespace Parser
 {
     using System;
     using System.Collections.Generic;
-    using System.Drawing;
-    using System.Drawing.Imaging;
     using System.IO;
     using System.Linq;
     using System.Text.RegularExpressions;
     using HtmlAgilityPack;
+    using SixLabors.ImageSharp;
+    using SixLabors.ImageSharp.Formats.Jpeg;
+    using SixLabors.ImageSharp.Processing;
 
     public class Parser
     {
@@ -31,38 +32,35 @@ namespace Parser
             try
             {
                 var imageData = this.Browser.GetData(newsEntry.ImageUrl);
-                var imageString = System.Text.Encoding.UTF8.GetString(imageData);
                 if (imageData == null)
                 {
                     return;
                 }
 
                 using (var inputStream = new MemoryStream(imageData))
-                using (var inputImage = Image.FromStream(inputStream))
+                using (var inputImage = Image.Load(inputStream))
                 using (var outputStream = new MemoryStream())
                 {
                     var resizedImage = inputImage;
-                    if (inputImage.Size.Width > 450 || inputImage.Size.Height > 450)
+
+                    var width = inputImage.Width;
+                    var height = inputImage.Height;
+                    var maxLength = Math.Max(width, height);
+                    if (maxLength > 450)
                     {
-                        var maxLength = inputImage.Size.Width > inputImage.Size.Height
-                            ? inputImage.Size.Width
-                            : inputImage.Size.Height;
                         var scalingFactor = 450d / maxLength;
                         var newSize = new Size(
-                            (int)Math.Round(inputImage.Size.Width * scalingFactor),
-                            (int)Math.Round(inputImage.Size.Height * scalingFactor));
-                        resizedImage = new Bitmap(inputImage, newSize);
+                            (int)Math.Round(width * scalingFactor),
+                            (int)Math.Round(height * scalingFactor));
+                        resizedImage = inputImage.Clone(imageContext => imageContext.Resize(newSize));
                     }
-
-                    var codec = ImageCodecInfo.GetImageEncoders().FirstOrDefault(x => x.FormatID == ImageFormat.Jpeg.Guid);
-
-                    var parameters = new EncoderParameters(1);
-                    parameters.Param[0] = new EncoderParameter(Encoder.Quality, 70L);
 
                     resizedImage.Save(
                         outputStream,
-                        codec,
-                        parameters
+                        new JpegEncoder
+                        {
+                            Quality = 70
+                        }
                     );
 
                     var convertedImageData = outputStream.ToArray();
