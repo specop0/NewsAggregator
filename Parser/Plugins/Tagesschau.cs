@@ -66,7 +66,15 @@ namespace Parser.Plugins
 
             if (url.StartsWith("/"))
             {
-                url = "https://www.tagesschau.de" + url;
+
+                if (url.StartsWith("//wetter.tagesschau.de"))
+                {
+                    url = $"https:{url}";
+                }
+                else
+                {
+                    url = "https://www.tagesschau.de" + url;
+                }
             }
 
             if (imageUrl.StartsWith("/"))
