@@ -19,13 +19,13 @@ namespace Parser.Plugins
                 .Descendants("div")
                 .Where(x => x.HasClass("teaser"))
                 .Select(this.ParseArticle)
-                .Where(x => x != null)
+                .OfType<NewsEntry>()
                 .ToList();
 
             return newsEntries;
         }
 
-        protected NewsEntry ParseArticle(HtmlNode article)
+        protected NewsEntry? ParseArticle(HtmlNode article)
         {
             var titleNodeA = article.Descendants().FirstOrDefault(x => x.HasClass("teaser__topline"));
             var titleNodeB = article.Descendants().FirstOrDefault(x => x.HasClass("teaser__headline"));

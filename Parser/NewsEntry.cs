@@ -1,16 +1,15 @@
-using System;
-using System.Diagnostics.CodeAnalysis;
-
 namespace Parser
 {
+    using System;
     public class NewsEntry : IEquatable<NewsEntry>
     {
-        public NewsEntry(string url, string title, string summary, string imageUrl)
+        public NewsEntry(string? url, string? title, string? summary, string? imageUrl)
         {
             this.Url = url ?? string.Empty;
             this.Title = (title ?? string.Empty).Trim();
             this.Summary = (summary ?? string.Empty).Trim();
             this.ImageUrl = imageUrl ?? string.Empty;
+            this.ImageData = string.Empty;
         }
 
         public string Url { get; }
@@ -32,7 +31,7 @@ namespace Parser
                 this.ImageUrl);
         }
 
-        public NewsEntry FromString(string value)
+        public NewsEntry? FromString(string value)
         {
             var values = value.Split(new[] { Separator }, StringSplitOptions.None);
             if (values.Length == 4)
@@ -52,7 +51,7 @@ namespace Parser
             return null;
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj is NewsEntry other)
             {
@@ -62,7 +61,7 @@ namespace Parser
             return false;
         }
 
-        public bool Equals([AllowNull] NewsEntry other)
+        public bool Equals(NewsEntry? other)
         {
             if (object.ReferenceEquals(other, null))
             {
@@ -74,22 +73,12 @@ namespace Parser
                 && this.Summary == other.Summary;
         }
 
-        private static bool Equals(NewsEntry left, NewsEntry right)
-        {
-            if (object.ReferenceEquals(left, null) && object.ReferenceEquals(right, null))
-            {
-                return true;
-            }
-
-            return object.ReferenceEquals(right, null) ? left.Equals(right) : right.Equals(left);
-        }
-
-        public static bool operator ==(NewsEntry left, NewsEntry right)
+        public static bool operator ==(NewsEntry? left, NewsEntry? right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(NewsEntry left, NewsEntry right)
+        public static bool operator !=(NewsEntry? left, NewsEntry? right)
         {
             return !Equals(left, right);
         }

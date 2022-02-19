@@ -34,7 +34,7 @@ namespace Parser
             application.UseMvcWithDefaultRoute();
 
             applicationLifetime.ApplicationStopping.Register(
-                () => application.ApplicationServices.GetService<Database>().Save());
+                () => application.ApplicationServices.GetRequiredService<Database>().Save());
         }
     }
 }

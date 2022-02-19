@@ -36,12 +36,12 @@ namespace Parser.Plugins
             var articles = page.DocumentNode
                 .Descendants("article")
                 .Select(this.ParseArticle)
-                .Where(x => x != null)
+                .OfType<NewsEntry>()
                 .ToList();
             return articles;
         }
 
-        protected NewsEntry ParseArticle(HtmlNode article)
+        protected NewsEntry? ParseArticle(HtmlNode article)
         {
             var urlNode = article.Descendants("a").FirstOrDefault();
             var url = urlNode?.GetAttributeValue("href", string.Empty) ?? string.Empty;

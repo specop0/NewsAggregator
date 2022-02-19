@@ -22,7 +22,7 @@ namespace Parser
             Assert.AreEqual(imageUrl, expected.ImageUrl);
 
             var json = JsonConvert.SerializeObject(expected);
-            var actual = JsonConvert.DeserializeObject<NewsEntry>(json);
+            var actual = JsonConvert.DeserializeObject<NewsEntry>(json) ?? throw new NullReferenceException();
             Assert.AreEqual(url, actual.Url);
             Assert.AreEqual(title, actual.Title);
             Assert.AreEqual(summary, actual.Summary);
@@ -81,10 +81,10 @@ namespace Parser
         }
 
         [Test]
-        public void TestEuqlaityNullSafe()
+        public void TestEuqalityNullSafe()
         {
             var entry = new NewsEntry(null, null, null, null);
-            NewsEntry nullEntry = null;
+            NewsEntry? nullEntry = null;
 
             Assert.AreNotEqual(entry, nullEntry);
             Assert.AreEqual(entry, entry);

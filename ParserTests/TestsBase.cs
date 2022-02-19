@@ -15,7 +15,7 @@ namespace ParserTests
 
         protected virtual void SetUp() { }
 
-        protected string GetUniqueName(string prefix = null)
+        protected string GetUniqueName(string? prefix = null)
         {
             if (string.IsNullOrEmpty(prefix))
             {
@@ -27,7 +27,7 @@ namespace ParserTests
         protected string GetResource(params string[] path)
         {
             var name = "ParserTests.Resources." + string.Join(".", path);
-            var stream = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream(name);
+            var stream = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream(name) ?? throw new NullReferenceException();
             var reader = new StreamReader(stream);
             var content = reader.ReadToEnd();
             return content;

@@ -23,13 +23,13 @@ namespace Parser.Plugins
                 .Descendants("div")
                 .Where(x => x.HasClass("row"))
                 .Select(x => this.ParseArticle(x))
-                .Where(x => x != null)
+                .OfType<NewsEntry>()
                 .ToList();
 
             return newsEntries;
         }
 
-        protected NewsEntry ParseArticle(HtmlNode article)
+        protected NewsEntry? ParseArticle(HtmlNode article)
         {
             var titleNode = article.Descendants("h4").FirstOrDefault();
             if (titleNode == null)

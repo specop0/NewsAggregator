@@ -17,7 +17,7 @@ namespace Parser
         {
             if (File.Exists(JsonStorageFile))
             {
-                var existingEntries = JsonConvert.DeserializeObject<NewsEntry[]>(File.ReadAllText(JsonStorageFile));
+                var existingEntries = JsonConvert.DeserializeObject<NewsEntry[]>(File.ReadAllText(JsonStorageFile)) ?? new NewsEntry[0];
                 existingEntries = existingEntries.Take(MaxEntries).ToArray();
                 this.ExistingEntries.AddRange(existingEntries);
                 this.NewDatabaseEntries.AddRange(this.ExistingEntries);
@@ -29,7 +29,7 @@ namespace Parser
             return this.ExistingEntries.Take(70).ToList();
         }
 
-        public ICollection<NewsEntry> ParseEntries(IBrowser browser)
+        public ICollection<NewsEntry?> ParseEntries(IBrowser browser)
         {
             var allParsedEntries = new List<NewsEntry>();
             var plugins = Plugins.Plugins.GetPlugins();
@@ -45,7 +45,7 @@ namespace Parser
                 }
             }
 
-            var entries = new List<NewsEntry>();
+            var entries = new List<NewsEntry?>();
             var isFirstNewEntry = true;
             foreach (var newEntry in allParsedEntries.AsEnumerable().Reverse())
             {

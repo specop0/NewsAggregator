@@ -12,31 +12,25 @@ namespace Parser
             this.Client = new HttpClient();
         }
 
-        public HtmlDocument GetPage(string url)
+        public HtmlDocument GetPage(string? url)
         {
             var response = this.Client.GetAsync(url).Result;
 
-            if (response.IsSuccessStatusCode)
-            {
-                var content = response.Content.ReadAsStringAsync().Result;
-                var document = new HtmlDocument();
-                document.LoadHtml(content);
-                return document;
-            }
+            response.EnsureSuccessStatusCode();
 
-            return null;
+            var content = response.Content.ReadAsStringAsync().Result;
+            var document = new HtmlDocument();
+            document.LoadHtml(content);
+            return document;
         }
 
-        public byte[] GetData(string url)
+        public byte[] GetData(string? url)
         {
             var response = this.Client.GetAsync(url).Result;
 
-            if (response.IsSuccessStatusCode)
-            {
-                return response.Content.ReadAsByteArrayAsync().Result;
-            }
+            response.EnsureSuccessStatusCode();
 
-            return null;
+            return response.Content.ReadAsByteArrayAsync().Result;
         }
     }
 }

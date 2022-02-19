@@ -1,5 +1,6 @@
 namespace ParserTests
 {
+    using System;
     using System.Linq;
     using HtmlAgilityPack;
     using Newtonsoft.Json;
@@ -11,6 +12,12 @@ namespace ParserTests
 
     public class PluginTests : TestsBase
     {
+        public PluginTests()
+        {
+            // TODO: NUnit setup vs non nullable property
+            this.Browser = Substitute.For<IBrowser>();
+        }
+
         public IBrowser Browser { get; set; }
 
         protected override void SetUp()
@@ -82,7 +89,7 @@ namespace ParserTests
         {
             // Arrange
             var jImage = JObject.Parse(this.GetResource("image.json"));
-            var inputString = jImage.Value<string>("input");
+            var inputString = jImage.Value<string>("input") ?? throw new NullReferenceException();
             var inputData = System.Convert.FromBase64String(inputString);
             this.Browser.GetData(null).ReturnsForAnyArgs(inputData);
 

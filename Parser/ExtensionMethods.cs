@@ -30,7 +30,7 @@ namespace Parser
             }
         }
 
-        public static string ToHtml(this System.Collections.Generic.IEnumerable<NewsEntry> newsEntries)
+        public static string ToHtml(this System.Collections.Generic.IEnumerable<NewsEntry?> newsEntries)
         {
             var builder = new System.Text.StringBuilder();
             var htmlDocument = new HtmlDocument();
@@ -96,11 +96,6 @@ namespace Parser
 
         public static byte[] ResizeImageIfTooLarge(this byte[] imageData, int maxWidthOrHeight)
         {
-            if (imageData == null)
-            {
-                return null;
-            }
-
             using (var inputStream = new MemoryStream(imageData))
             using (var inputImage = Image.Load(inputStream))
             using (var outputStream = new MemoryStream())

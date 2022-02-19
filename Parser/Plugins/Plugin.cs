@@ -16,7 +16,7 @@ namespace Parser.Plugins
         public abstract ICollection<NewsEntry> GetNews(IBrowser browser);
 
 
-        private Regex unnecessaryWhitespace;
+        private Regex? unnecessaryWhitespace;
         protected Regex UnnecessaryWhitespace => this.unnecessaryWhitespace ?? (this.unnecessaryWhitespace = new Regex("[ ]+$"));
 
     }
