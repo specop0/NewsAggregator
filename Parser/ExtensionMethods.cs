@@ -1,7 +1,6 @@
 namespace Parser
 {
     using System;
-    using System.Collections.Generic;
     using System.IO;
     using HtmlAgilityPack;
     using SixLabors.ImageSharp;
@@ -9,27 +8,6 @@ namespace Parser
     using SixLabors.ImageSharp.Processing;
     public static class ExtensionMethods
     {
-        public static bool TryGetValue(this HtmlAttributeCollection attributes, string key, out string value)
-        {
-            value = string.Empty;
-
-            if (attributes.Contains(key))
-            {
-                value = attributes[key].Value;
-                return true;
-            }
-
-            return false;
-        }
-
-        public static void AddRange<T>(this HashSet<T> target, IEnumerable<T> source)
-        {
-            foreach (var item in source)
-            {
-                target.Add(item);
-            }
-        }
-
         public static string ToHtml(this System.Collections.Generic.IEnumerable<NewsEntry?> newsEntries)
         {
             var builder = new System.Text.StringBuilder();
