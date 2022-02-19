@@ -1,0 +1,14 @@
+[Unit]
+Description=News Aggregator
+
+[Service]
+WorkingDirectory=/home/pi/Sources/NewsAggregator/Parser/
+ExecStart=/usr/bin/dotnet bin/publish/Parser.dll
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=news-aggregator
+User=pi
+
+[Install]
+WantedBy=multi-user.target

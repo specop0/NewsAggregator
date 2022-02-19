@@ -1,0 +1,2699 @@
+﻿<!DOCTYPE html>
+<html lang="de" data-responsive="" data-consentmanagement="">
+  <!-- hf-2022-02-12T08:45:35 --><head>
+    <script>performance.mark('HEAD Anfang');</script>
+    
+
+    
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title></title>
+
+<link rel="dns-prefetch" href="//heise.cloudimg.io">
+<link rel="dns-prefetch" href="//de.ioam.de">
+<link rel="dns-prefetch" href="//responder.wt.heise.de">
+<link rel="dns-prefetch" href="//prophet.heise.de">
+
+<link rel="preconnect" href="//heise.cloudimg.io">
+<link rel="preconnect" href="//de.ioam.de">
+<link rel="preconnect" href="//responder.wt.heise.de">
+<link rel="preconnect" href="//prophet.heise.de">
+
+<script>performance.mark('CSS-Crit Anfang');</script>
+  
+    <style type="text/css">
+      a-ad{box-sizing:border-box;position:relative;display:flex;flex-direction:column;margin-bottom:1.5rem;background-color:#f2f2f2}a-ad *,a-ad :after,a-ad :before{box-sizing:inherit}a-ad[is-empty]{display:none!important}a-ad[layout=fixed]{background:none}a-ad[layout=responsive]{align-items:center}a-ad iframe[width="0"]{width:100%}a-ad[sticky]{position:sticky;top:0}.a-ad-label{font-size:.75rem;font-weight:400;line-height:2;color:#323232}.a-ad-inner{margin-top:.25rem;margin-bottom:.75rem}.a-size-defined{position:absolute;top:0;right:0;bottom:0;left:0}a-ad[layout=fixed]:not([is-acceptable]) .a-ad-label{display:none}a-ad[layout=fixed]:not([is-acceptable]) .a-ad-inner{margin:0}a-img{box-sizing:border-box;position:relative;display:block;overflow:hidden;width:100%;height:0;padding-top:calc(var(--aspect-ratio-height, 9)/var(--aspect-ratio-width, 16)*100%)}a-img *,a-img :after,a-img :before{box-sizing:inherit}a-img[box] img{width:auto;max-height:100%;margin:auto}a-img img{position:absolute;top:0;left:0;width:100%;max-width:100%;height:auto}</style>
+  
+<script>
+  performance.mark('CSS-Crit Ende');
+  performance.measure('CSS-Crit', 'CSS-Crit Anfang', 'CSS-Crit Ende');
+</script>
+  
+    <link as="font" crossorigin="crossorigin" href="/assets/styles/fonts/ssp4.96b.ltc.woff2" rel="preload" type="font/woff2">
+  
+    <link as="font" crossorigin="crossorigin" href="/assets/styles/fonts/ssp6.bd6.ltc.woff2" rel="preload" type="font/woff2">
+  
+  
+    <link as="image" href="/assets/heise/images/comments_outline.9878.ltc.svg" rel="preload">
+  
+    <link as="image" href="/icons/svg/icons/svg/qwant_q.svg" rel="preload">
+  
+    <link as="image" href="/assets/heise/images/video_outline.5f13.ltc.svg" rel="preload">
+
+<script>performance.mark('JS-Inline Anfang');</script>
+
+<script>!function(e){var t={};function o(n){if(t[n])return t[n].exports;var i=t[n]={i:n,l:!1,exports:{}};return e[n].call(i.exports,i,i.exports,o),i.l=!0,i.exports}o.m=e,o.c=t,o.d=function(e,t,n){o.o(e,t)||Object.defineProperty(e,t,{configurable:!1,enumerable:!0,get:n})},o.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return o.d(t,"a",t),t},o.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},o.p="/assets/heise/",o(o.s=474)}({342:function(e,t,o){"use strict";(function(t){var o=function(){function e(e,t){for(var o=0;o<t.length;o++){var n=t[o];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,o,n){return o&&e(t.prototype,o),n&&e(t,n),t}}();e.exports=function(){function e(){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),this.desktopUserAgents=/(Macintosh|X11|Windows NT|iPad|Tablet|Nexus 10|KF.*Silk)/i}return o(e,[{key:"forceDesktop",value:function(){return 1===parseInt(this.store.mobile_detect_force_desktop)}},{key:"forceMobile",value:function(){return 1===parseInt(this.store.mobile_detect_force_mobile)}},{key:"isDesktop",value:function(){return!/Windows Phone 10/.test(this.userAgent)&&(this.portraitWidth>640||!(!this.desktopUserAgents.test(this.userAgent)||/(ZuneWP7|Mobile Safari)/.test(this.userAgent)))}},{key:"isMobile",value:function(){return!!/Windows Phone 10/.test(this.userAgent)||!(this.portraitWidth>640)&&(!!/(Android|Phone|Mobile|iPod|ZuneWP7|NokiaN97)/i.test(this.userAgent)||!this.desktopUserAgents.test(this.userAgent))}},{key:"persistForce",value:function(){var e=t.window.document.location;"mobile_detect_force_desktop"===e.hash.slice(1)?(this.store.mobile_detect_force_desktop=1,this.store.mobile_detect_force_mobile=0):"unset_mobile_detect_force_desktop"===e.hash.slice(1)&&(this.store.mobile_detect_force_desktop=0),"mobile_detect_force_mobile"===e.hash.slice(1)?(this.store.mobile_detect_force_mobile=1,this.store.mobile_detect_force_desktop=0):"unset_mobile_detect_force_mobile"===e.hash.slice(1)&&(this.store.mobile_detect_force_mobile=0)}},{key:"userAgent",get:function(){return t.window.navigator.userAgent}},{key:"width",get:function(){return t.window.screen.width}},{key:"height",get:function(){return t.window.screen.height}},{key:"portraitWidth",get:function(){return Math.min(this.width,this.height)}},{key:"store",get:function(){return t.window.localStorage}}]),e}()}).call(t,o(43))},43:function(e,t,o){"use strict";var n,i="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};n=function(){return this}();try{n=n||Function("return this")()||(0,eval)("this")}catch(e){"object"===("undefined"==typeof window?"undefined":i(window))&&(n=window)}e.exports=n},474:function(e,t,o){"use strict";var n=function(e){return e&&e.__esModule?e:{default:e}}(o(475));document.documentElement.setAttribute("data-device",n.default)},475:function(e,t,o){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=new(function(e){return e&&e.__esModule?e:{default:e}}(o(342)).default),i="desktop",r=window.matchMedia("(max-width: 768px)").matches,s=document.querySelector("html[data-responsive]");(n.isMobile()||r&&s)&&(i="mobile"),t.default=i}});</script>
+
+
+  <script>performance.mark('JS-Kamel Anfang');</script>
+  <script id="kameleoon-js">
+  var ls = JSON.parse(window.localStorage.getItem('akwaConfig-v2'))
+  if (ls.consent && ls.consent[820]) {
+    (function(){var a=1000;window.kameleoonQueue=window.kameleoonQueue||[];window.kameleoonStartLoadTime=new Date().getTime();if(!document.getElementById("kameleoonLoadingStyleSheet")&&!window.kameleoonDisplayPageTimeOut){var b=document.getElementsByTagName("script")[0];var c="* { visibility: hidden !important; background-image: none !important; }";var d=document.createElement("style");d.type="text/css";d.id="kameleoonLoadingStyleSheet";if(d.styleSheet){d.styleSheet.cssText=c}else{d.appendChild(document.createTextNode(c))}b.parentNode.insertBefore(d,b);window.kameleoonDisplayPage=function(e){if(!e){window.kameleoonTimeout=true}if(d.parentNode){d.parentNode.removeChild(d)}};window.kameleoonDisplayPageTimeOut=window.setTimeout(window.kameleoonDisplayPage,a)};
+  window.kameleoonIframeURL="https://www.heise.de/kameleoon-iframe.html";var f=document.createElement("a");window.kameleoonLightIframe=false;f.href=window.kameleoonIframeURL;window.kameleoonIframeOrigin=f.origin||(f.protocol+"//"+f.hostname);if(location.href.indexOf(window.kameleoonIframeOrigin)!=0){window.kameleoonLightIframe=true;var g=function(event){if(window.kameleoonIframeOrigin==event.origin&&event.data.slice&&event.data.slice(0,9)=="Kameleoon"){window.removeEventListener("message",g);window.kameleoonExternalIFrameLoaded=true;if(window.Kameleoon){eval(event.data);Kameleoon.Analyst.load()}else{window.kameleoonExternalIFrameLoadedData=event.data}}};if(window.addEventListener){window.addEventListener("message",g,false)}var h=document.createElement("iframe");h.src=kameleoonIframeURL;h.id="kameleoonExternalIframe";h.style="float: left !important; opacity: 0.0 !important; width: 0px !important; height: 0px !important;";document.head.appendChild(h)};})();
+    var kameleoonScript = document.createElement('script');
+    kameleoonScript.async = true;
+    kameleoonScript.src = '//yxsu5ufd2m.kameleoon.eu/kameleoon.js';
+    document.getElementsByTagName('head')[0].appendChild(kameleoonScript);
+  }
+  </script>
+  <script>
+    performance.mark('JS-Kamel Ende');
+    performance.measure('JS-Kamel', 'JS-Kamel Anfang', 'JS-Kamel Ende');
+  </script>
+
+<script>performance.mark('JS-Cmp Anfang');</script>
+
+  <script type="text/javascript">
+    !function () { var e = function () { var e, t = "__tcfapiLocator", a = [], n = window; for (; n;) { try { if (n.frames[t]) { e = n; break } } catch (e) { } if (n === window.top) break; n = n.parent } e || (!function e() { var a = n.document, r = !!n.frames[t]; if (!r) if (a.body) { var i = a.createElement("iframe"); i.style.cssText = "display:none", i.name = t, a.body.appendChild(i) } else setTimeout(e, 5); return !r }(), n.__tcfapi = function () { for (var e, t = arguments.length, n = new Array(t), r = 0; r < t; r++)n[r] = arguments[r]; if (!n.length) return a; if ("setGdprApplies" === n[0]) n.length > 3 && 2 === parseInt(n[1], 10) && "boolean" == typeof n[3] && (e = n[3], "function" == typeof n[2] && n[2]("set", !0)); else if ("ping" === n[0]) { var i = { gdprApplies: e, cmpLoaded: !1, cmpStatus: "stub" }; "function" == typeof n[2] && n[2](i) } else a.push(n) }, n.addEventListener("message", (function (e) { var t = "string" == typeof e.data, a = {}; try { a = t ? JSON.parse(e.data) : e.data } catch (e) { } var n = a.__tcfapiCall; n && window.__tcfapi(n.command, n.version, (function (a, r) { var i = { __tcfapiReturn: { returnValue: a, success: r, callId: n.callId } }; t && (i = JSON.stringify(i)), e.source.postMessage(i, "*") }), n.parameter) }), !1)) }; "undefined" != typeof module ? module.exports = e : e() }();
+  </script>
+
+  <script>
+    window._sp_ = {
+      config: {
+        accountId: 1603,
+        baseEndpoint: 'https://cmp.heise.de'
+      }
+    }
+  </script>
+  <script src="https://cmp.heise.de/wrapperMessagingWithoutDetection.js" async=""></script>
+
+<script>
+  performance.mark('JS-Cmp Ende');
+  performance.measure('JS-Cmp', 'JS-Cmp Anfang', 'JS-Cmp Ende');
+</script>
+
+<script type="application/json" data-akwa-config="">
+  {
+      "cam": {
+        "enabled": true
+      }
+  }
+</script>
+<script>
+  performance.mark('JS-Inline Ende');
+  performance.measure('JS-Inline', 'JS-Inline Anfang', 'JS-Inline Ende');
+</script>
+
+<script>performance.mark('CSS Anfang');</script>
+  
+    <link href="/assets/akwa/v24/css/akwa.css?.ltc.bbf6f7a215047e92ba7e" media="print" onload="this.media='all'" rel="stylesheet" type="text/css">
+    <noscript>
+    <link href="/assets/akwa/v24/css/akwa.css?.ltc.bbf6f7a215047e92ba7e" rel="stylesheet" type="text/css">
+    </noscript>
+  
+    <noscript>
+    </noscript>
+  
+    <link href="/assets/heise/hobell/css/hobell.css?.ltc.3bb161fefb1cfb1210a3" media="print" onload="this.media='all'" rel="stylesheet" type="text/css">
+  
+    <noscript>
+    </noscript>
+  
+  
+    <noscript>
+    </noscript>
+  
+    <link href="/assets/heise/ho/css/ho.css?.ltc.c0d1f1d0234c786e8aa4" rel="stylesheet" type="text/css">
+  
+<script>
+  performance.mark('CSS Ende');
+  performance.measure('CSS', 'CSS Anfang', 'CSS Ende');
+</script>
+
+<script>performance.mark('JS Anfang');</script>
+<script defer="" src="/assets/akwa/v24/js/akwa.js?.ltc.8d1663a910a5a9dda7f9"></script>
+
+
+<script>
+  performance.mark('JS Ende');
+  performance.measure('JS', 'JS Anfang', 'JS Ende');
+</script>
+
+<script>performance.mark('Meta Anfang');</script>
+<link rel="author" title="Kontakt" href="mailto:kontakt%40heise.de?subject=heise%20online">
+<link rel="search" title="Suche" href="https://www.heise.de/suche/">
+  
+    <link href="/icons/ho/touch-icons/site.webmanifest" rel="manifest">
+  
+    <link color="#323232" href="/icons/ho/touch-icons/safari-pinned-tab.svg" rel="mask-icon">
+  
+    <link href="/icons/ho/touch-icons/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180">
+  
+    <link href="/icons/ho/touch-icons/apple-touch-icon-precomposed.png" rel="apple-touch-icon-precomposed" sizes="180x180">
+  
+    <link href="https://www.heise.de/rss/heise-atom.xml" rel="alternate" title="Aktuelle News von heise online" type="application/atom+xml">
+  
+    <link href="https://www.heise.de/rss/heise.rdf" rel="alternate" title="Aktuelle News von heise online (für ältere RSS-Reader)" type="application/rss+xml">
+  
+    <link href="/favicon.ico?v=JykvN0w9Ye" rel="icon">
+  
+    <link href="/icons/ho/favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+  
+    <link href="/icons/ho/favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+  <!--googleon: all-->
+  
+  <!--googleoff: all-->
+  
+    <meta content="heise online" name="application-name">
+  
+    <meta content="heise online" name="msapplication-tooltip">
+  
+    <meta content="https://www.heise.de" name="msapplication-starturl">
+  
+    <meta content="#323232" name="msapplication-TileColor">
+  
+    <meta content="/icons/ho/touch-icons/mstile-144x144.png" name="msapplication-TileImage">
+  
+    <meta content="/icons/ho/touch-icons/browserconfig.xml" name="msapplication-config">
+  
+    <meta content="#ffffff" name="theme-color">
+  
+    <meta content="heise online" name="DC.creator">
+  
+  
+  
+
+
+
+
+<meta name="publisher" content="Heise Medien">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+
+
+
+
+
+<meta property="article:content_tier" content="free">
+
+
+<meta property="article:opinion" content="false">
+
+
+
+
+  <meta name="robots" content="noindex">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta name="description" content="News und Foren zu Computer, IT, Wissenschaft, Medien und Politik. Preisvergleich von Hardware und Software sowie Downloads bei Heise Medien.">
+
+
+
+
+
+
+
+<meta property="fb:pages" content="333992367317">
+  <meta property="og:image" content="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/icons/ho/opengraph/opengraph.png">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="heise online">
+  <meta property="og:title" content="heise online">
+  <meta property="og:type" content="website">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:image" content="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/icons/ho/opengraph/opengraph.png">
+  <meta property="twitter:site" content="@heiseonline">
+  <meta property="twitter:title" content="heise online">
+
+
+
+
+
+<link rel="home" type="text/html" title="Startseite" href="/">
+<link rel="copyright" title="Copyright" href="/impressum.html">
+<meta name="generator" content="InterRed V21.3.6, http://www.interred.de/, InterRed GmbH">
+
+<meta data-embetty-server="https://api.heise.de/svc/embetty">
+
+<script>
+  performance.mark('Meta Ende');
+  performance.measure('Meta', 'Meta Anfang', 'Meta Ende');
+</script>
+  <script>performance.mark('App-Adds Anfang');</script>
+  <link href="/assets/styles/index.css" rel="stylesheet" type="text/css">
+
+
+  <script>
+    performance.mark('App-Adds Ende');
+    performance.measure('App-Adds', 'App-Adds Anfang', 'App-Adds Ende');
+  </script>
+
+
+
+    <style type="text/css">
+  
+  @media screen and (min-width: 768px) {
+    a-collapse .header__content {
+      height: auto !important;
+    }
+
+    a-menu:not([disabled]) [data-collapse-target]:not([is-open]) {
+      height: 0;
+      overflow: hidden;
+    }
+
+    
+    a-paternoster[media="(min-width: 320px) and (max-width: 767px)"] {
+      display: none;
+    }
+    
+    .perf-cls-reduc-leaderboard {
+      min-height: 90px;
+    }
+
+    .perf-cls-reduc-rectangle {
+      min-height: 290px;
+      margin-bottom: 3rem;
+    }
+  }
+
+  a-pur-indicator {
+    display: block;
+    border-top-width: 5px;
+    border-top-style: solid;
+  }
+
+  .a-login__link:link {
+    color: #323232;
+    text-decoration: none;
+  }
+
+  body {
+    overflow-y: scroll;
+  }
+
+  @media screen and (max-width: 767px) {
+    a-collapse:not([disabled]) [data-collapse-target]:not([is-open]) {
+      height: 0;
+      overflow: hidden;
+    }
+
+    .a-ad--leaderboard,
+    .a-ad--skyscraper {
+      display: none;
+    }
+  }
+
+  
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    a-paternoster[media="(min-width: 320px) and (max-width: 767px)"] {
+      display: block;
+      min-height: 306px;
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+
+  @media screen and (min-width: 992px) {
+    #wtma_teaser_ho_vertrieb_mini_1 {
+      min-height: 500px;
+    }
+  }
+
+  .legacy-img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+  .article-image {
+    margin-bottom: 1.5rem;
+  }
+
+  a-paid-content-teaser {
+    display: none;
+  }
+</style>
+
+    <script>
+      performance.mark('HEAD Ende');
+      performance.measure('HEAD', 'HEAD Anfang', 'HEAD Ende');
+    </script>
+  </head>
+
+  <body class="ho a-theme a-theme--ho " data-ad-unit="/6514/www.heise.de/homepage">
+    <script>performance.mark('BODY Anfang');</script>
+    
+
+  <a-analytics type="webtrekk">
+    <script type="application/json">
+      {"options":{},"vars":{"contentGroup":{"1":"www.heise.de","10":"startseite","2":"startseite","3":"startseite","4":"seite-3","9":"seite-3"},"contentId":"www.heise.de.startseite.startseite.seite.seite-3","customEcommerceParameter":{},"customParameter":{"26":"v5"},"tiDomain":"responder.wt.heise.de","tiId":"288689636920174"}}
+    </script>
+  </a-analytics>
+
+
+<a-analytics type="infonline-base">
+  <script type="application/json">
+    {
+      "vars": {
+        "cp":"newsticker",
+        "co":"%3Furl%3D",
+        "dg": true 
+      },
+      "options": {
+        "disableSurvey": false
+      }
+    }
+    </script>
+</a-analytics>
+
+
+  
+  <a-analytics type="upscore">
+    <script type="application/json">
+      {
+        "options": {
+          "enableRecommendations": true
+        },
+        "vars": {
+          "config": {
+            "article": "",
+            "track_positions": true
+          },
+          "data": {
+            "section": "ho",
+            "object_id": "3753660",
+            "pubdate": "",
+            "object_type": "landingpage",
+"content_type":0}
+        }
+      }
+    </script>
+  </a-analytics>
+
+
+
+                
+        
+    
+
+
+    <div class="
+    topnavigation
+    
+
+    
+    
+  ">
+    <header role="banner" class="topnavigation__header">
+
+      <div class="topnavigation__content">
+        <figure class="topnavigation__logo">
+
+          <a href="/" title="heise online" name="topnavi.ho.news" data-google-interstitial="false" class="topnavigation__logo-link
+          topnavigation__item">
+             
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 193 36" role="img" preserveaspectratio="xMinYMin" class="heise-online-logo topnavigation__heiseonline-logo">
+  <title>heiseframe_title</title>
+  <g id="heise_online_svg__heise_online" fill="#323232"><path id="heise_online_svg__logo" d="M31.09 28.57l.75 1.11A18.12 18.12 0 0118.43 36C8.34 36 0 28.69 0 18.36A17.79 17.79 0 0117.24 0h1c8.76 0 16 5.49 16 14.66A13.76 13.76 0 0130 24.09L28.68 23a12.06 12.06 0 002.6-7.21c0-7.53-5.91-12.43-13.22-12.43-9.78 0-13.22 7.71-13.22 16.31a13.5 13.5 0 0013.07 13.89h.34a19.16 19.16 0 0011.05-3.48 13.62 13.62 0 001.79-1.51zm-11.55-.75a2 2 0 002.65-1l4-9a2 2 0 00-1-2.65 2 2 0 00-2.65 1l-4 9a2 2 0 001 2.65zm.78-20.64a2 2 0 00-2.62 1l-7.52 17a2 2 0 001 2.64 2 2 0 002.62-1l7.52-17a2 2 0 00-1-2.64z"></path><path id="heise_online_svg__heise" d="M54.39 14.54a7.28 7.28 0 011.07 4.3V28H52v-8.72a4.59 4.59 0 00-.53-2.55 2 2 0 00-1.72-.73 3.16 3.16 0 00-1.68.46 11.22 11.22 0 00-1.65 1.36V28H43V7h3.42v5.41l-.12 2.83a11.81 11.81 0 012-1.53A5 5 0 0151 13a3.9 3.9 0 013.39 1.54zm16.45 2.66a9.85 9.85 0 01.38 2.8v1a6.36 6.36 0 01-.11.71h-9.29a4.72 4.72 0 001.38 3 4.15 4.15 0 002.92 1.05 5.38 5.38 0 001.77-.28 7.73 7.73 0 001.61-.79l1.16 2.14a10.87 10.87 0 01-2.32 1.13 8.15 8.15 0 01-2.66.44 7.48 7.48 0 01-2.82-.52 6.47 6.47 0 01-2.28-1.5A6.6 6.6 0 0159.05 24a8.73 8.73 0 01-.55-3.22 8.73 8.73 0 01.56-3.2 7.58 7.58 0 011.5-2.41 6.7 6.7 0 012.15-1.51 6.23 6.23 0 012.49-.53 6.43 6.43 0 012.61.5A5 5 0 0169.69 15a6.18 6.18 0 011.15 2.2zm-2.58 2.14a4.36 4.36 0 00-.73-2.66 2.63 2.63 0 00-2.24-1 3.19 3.19 0 00-2.28.92 4.37 4.37 0 00-1.22 2.7zM76.2 7a2.13 2.13 0 00-1.51.55A1.8 1.8 0 0074.1 9a1.77 1.77 0 00.59 1.39 2.42 2.42 0 003 0A1.78 1.78 0 0078.31 9a1.81 1.81 0 00-.6-1.41A2.11 2.11 0 0076.2 7zm-1.72 21h3.41V13.44h-3.41zm16.15-7.12a6.28 6.28 0 00-1.35-.88c-.5-.22-1-.43-1.48-.61s-.8-.24-1.15-.39a7.19 7.19 0 01-1-.45A2.3 2.3 0 0185 18a1.22 1.22 0 01-.25-.76 1.45 1.45 0 01.52-1.14 2.37 2.37 0 011.62-.46 4 4 0 011.64.34 8.26 8.26 0 011.56.9l1.57-2.07a10 10 0 00-2.1-1.22 6.85 6.85 0 00-2.73-.53A5.81 5.81 0 0083 14.29a4 4 0 00-1.42 3.15 3.16 3.16 0 00.33 1.56 4.33 4.33 0 001 1.18 5.89 5.89 0 001.32.86c.49.23 1 .44 1.45.62l1.13.46a7.3 7.3 0 011 .49 2.65 2.65 0 01.71.6 1.24 1.24 0 01.27.79 1.6 1.6 0 01-.57 1.26 2.59 2.59 0 01-1.75.49 5 5 0 01-2.09-.43 9.56 9.56 0 01-1.94-1.2l-1.6 2.19a9.24 9.24 0 002.53 1.44 8 8 0 003 .58 7.68 7.68 0 002.38-.33 5 5 0 001.77-1 4 4 0 001.09-1.42 4.35 4.35 0 00.39-1.74 3.65 3.65 0 00-1.35-3zM106.8 20v1c0 .35-.07.53-.1.71h-9.3a4.72 4.72 0 001.38 3 4.15 4.15 0 002.92 1.05 5.34 5.34 0 001.77-.28 7.73 7.73 0 001.61-.79l1.16 2.14a10.78 10.78 0 01-2.31 1.13 8.21 8.21 0 01-2.67.44 7.48 7.48 0 01-2.82-.52 6.47 6.47 0 01-2.28-1.5A6.87 6.87 0 0194.63 24a8.73 8.73 0 01-.55-3.22 8.53 8.53 0 01.57-3.2 7.39 7.39 0 011.49-2.41 6.82 6.82 0 012.15-1.51 6.23 6.23 0 012.49-.53 6.43 6.43 0 012.61.5 5.16 5.16 0 011.89 1.37 6.33 6.33 0 011.14 2.19 9.85 9.85 0 01.38 2.81zm-3-.65a4.29 4.29 0 00-.73-2.66 2.62 2.62 0 00-2.24-1 3.19 3.19 0 00-2.28.92 4.37 4.37 0 00-1.22 2.7z"></path><path id="heise_online_svg__brand" d="M115 20.73c0-4.86 3.29-7.65 6.91-7.65s6.94 2.79 6.94 7.65-3.29 7.62-6.94 7.62-6.91-2.79-6.91-7.62zm10.35 0c0-2.94-1.31-4.86-3.44-4.86s-3.41 1.92-3.41 4.86 1.27 4.83 3.41 4.83 3.44-1.92 3.44-4.83zm6.65-7.3h2.82l.23 2h.12a6.8 6.8 0 014.83-2.35c3.11 0 4.47 2.1 4.47 5.78V28H141v-8.69c0-2.41-.68-3.3-2.28-3.3-1.27 0-2.1.63-3.32 1.81V28H132zm16.5 10.83V7.06h3.41v17.38c0 .83.39 1.12.74 1.12a2 2 0 00.53-.06l.45 2.55a4.63 4.63 0 01-1.81.3c-2.43 0-3.32-1.57-3.32-4.09zM156.6 9a2.11 2.11 0 112.1 1.92A2 2 0 01156.6 9zm.4 4.47h3.41V28H157zm7.46 0h2.82l.24 2h.11a6.8 6.8 0 014.78-2.31c3.11 0 4.48 2.1 4.48 5.78V28h-3.41v-8.69c0-2.41-.69-3.3-2.29-3.3-1.27 0-2.1.63-3.32 1.81V28h-3.41zm15.35 7.3c0-4.75 3.3-7.65 6.71-7.65 3.94 0 6 2.85 6 6.91a7.9 7.9 0 01-.15 1.66h-9.25a4.16 4.16 0 004.3 4.06 6 6 0 003.38-1.07l1.2 2.1a9.16 9.16 0 01-5 1.57c-4 0-7.19-2.82-7.19-7.62zm9.76-1.39c0-2.26-1-3.62-3-3.62-1.72 0-3.21 1.27-3.5 3.62z"></path></g>
+</svg>
+
+
+          </a>
+
+          <a href="/plus/" title="heise+ - Immer mehr Wissen." name="topnavi.ho.heiseplus" data-google-interstitial="false" class="topnavigation__logo-link
+            topnavigation__item">
+            <svg class="topnavigation__heiseplus-logo" viewbox="0 0 192 60">
+              <use href="/icons/common-icons.svg#heiseplus-logo"></use>
+            </svg>
+          </a>
+
+        </figure>
+
+        <div class="topnavigation__actions">
+
+          <section class="
+    topnavigation-login
+    topnavigation__item
+    topnavigation__item
+  ">
+  <svg class="topnavigation-login__icon">
+    <use href="/icons/common-icons.svg#login"></use>
+  </svg>
+  <a-login label="" class="topnavigation-login__link">
+    <a href="/sso/login/" class="a-login__link a-login__link--sso">Anmelden</a>
+  </a-login>
+</section>
+
+          <form accept-charset="utf-8" method="get" action="/suche/" class="topnavigation-search" role="search" id="heisetopnavi_search">
+    <input type="text" class="topnavigation-search__input" value="" name="q" placeholder="Suchen mit Qwant" data-autocomplete="true" autocomplete="on" spellcheck="false" data-searchpath="/suche/" role="textbox" aria-autocomplete="list" aria-label="Suchen mit Qwant">
+    <input type="hidden" name="sort_by" value="date">
+    <button class="topnavigation-search__button" type="submit" aria-label="suchen">
+      <svg class="topnavigation-search__search-icon">
+        <use href="/icons/common-icons.svg#search"></use>
+      </svg>
+    </button>
+    <input type="hidden" class="search_hidden" value="search" name="rm">
+</form>
+
+
+          <a href="#topnavigation__sub" class="
+              topnavigation-menu
+              js-topnavigation-menu
+              topnavigation-menu
+            " aria-controls="topnavigation__sub">
+            <span class="a-u-show-from-desktop">Menü</span>
+            <svg class="topnavigation-menu__icon js-topnavigation-menu__icon">
+              <use href="/icons/common-icons.svg#menu"></use>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div id="topnavigation__sub" class="topnavigation__sub js-topnavigation__sub">
+
+        
+
+
+
+<div class="magazine-nav a-u-mb-3">
+  <ul class="magazine-nav__items a-u-remove-list-style">
+    
+      <li class="
+          magazine-nav__item
+          magazine-nav__item--ct
+          a-theme
+          a-theme--ct
+        ">
+        <a href="/ct/" title="c't – Magazin für Computertechnik" name="topnavi.ho.magazine-nav.ct" data-google-interstitial="false" class="magazine-nav__link magazine-nav__link--ct">
+          <span class="magazine-nav__title">
+            c't – Magazin für Computertechnik
+          </span>
+        </a>
+      </li>
+    
+      <li class="
+          magazine-nav__item
+          magazine-nav__item--ix
+          a-theme
+          a-theme--ix
+        ">
+        <a href="/ix/" title="iX – Magazin für professionelle Informationstechnik" name="topnavi.ho.magazine-nav.ix" data-google-interstitial="false" class="magazine-nav__link magazine-nav__link--ix">
+          <span class="magazine-nav__title">
+            iX – Magazin für professionelle Informationstechnik
+          </span>
+        </a>
+      </li>
+    
+      <li class="
+          magazine-nav__item
+          magazine-nav__item--tr
+          a-theme
+          a-theme--tr
+        ">
+        <a href="/tr/" title="MIT Technology Review – Das Magazin für Innovation von Heise" name="topnavi.ho.magazine-nav.tr" data-google-interstitial="false" class="magazine-nav__link magazine-nav__link--tr">
+          <span class="magazine-nav__title">
+            MIT Technology Review – Das Magazin für Innovation von Heise
+          </span>
+        </a>
+      </li>
+    
+      <li class="
+          magazine-nav__item
+          magazine-nav__item--foto
+          a-theme
+          a-theme--foto
+        ">
+        <a href="/foto/" title="c't Fotografie - Das Magazin rund ums digitale Bild" name="topnavi.ho.magazine-nav.foto" data-google-interstitial="false" class="magazine-nav__link magazine-nav__link--foto">
+          <span class="magazine-nav__title">
+            c't Fotografie - Das Magazin rund ums digitale Bild
+          </span>
+        </a>
+      </li>
+    
+      <li class="
+          magazine-nav__item
+          magazine-nav__item--macandi
+          a-theme
+          a-theme--macandi
+        ">
+        <a href="/mac-and-i/" title="Mac &amp; i – Nachrichten, Tests, Tipps und Meinungen rund um Apple" name="topnavi.ho.magazine-nav.macandi" data-google-interstitial="false" class="magazine-nav__link magazine-nav__link--macandi">
+          <span class="magazine-nav__title">
+            Mac &amp; i – Nachrichten, Tests, Tipps und Meinungen rund um Apple
+          </span>
+        </a>
+      </li>
+    
+      <li class="
+          magazine-nav__item
+          magazine-nav__item--make
+          a-theme
+          a-theme--make
+        ">
+        <a href="/make/" title="Make – Kreativ mit Technik" name="topnavi.ho.magazine-nav.make" data-google-interstitial="false" class="magazine-nav__link magazine-nav__link--make">
+          <span class="magazine-nav__title">
+            Make – Kreativ mit Technik
+          </span>
+        </a>
+      </li>
+    
+      <li class="
+          magazine-nav__item
+          magazine-nav__item--select
+          a-theme
+          a-theme--select
+        ">
+        <a href="/select/" title="Alle Magazine im Browser lesen" name="topnavi.ho.magazine-nav.select" data-google-interstitial="false" class="magazine-nav__link magazine-nav__link--select">
+          <span class="magazine-nav__title">
+            Alle Magazine im Browser lesen
+          </span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+        
+<nav class="sitemap topnavigation__sitemap" aria-label="Sitemap">
+
+  
+
+<a-collapse class="sitemap-group " has-indicator="" media="(max-width: 929px)" toggle-attr-on-media="disabled">
+    
+    <div class="
+        sitemap-group__header
+        
+      " data-collapse-trigger="">
+      IT News
+    </div>
+    
+
+    <div class="sitemap-group__content" data-collapse-target="">
+      <ul class="sitemap-group__items ">
+        
+          <li class="sitemap-group__item sitemap-group__item--newsticker">
+            <a href="/newsticker/" title="heise online" name="topnavi.ho.sitemap.newsticker" data-google-interstitial="false" class="sitemap-group__link ">
+              Newsticker
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--developer">
+            <a href="/developer/" title="heise Developer – Informationen für Entwickler" name="topnavi.ho.sitemap.developer" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Developer
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--netze">
+            <a href="/thema/netze/" title="Themenseite Netze" name="topnavi.ho.sitemap.netze" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Netze
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--open">
+            <a href="/thema/linux-und-open-source/" title="Themenseite Linux und Open Source" name="topnavi.ho.sitemap.open" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Open Source
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--security">
+            <a href="/security/" title="heise Security – News, Dienste und Foren zum Thema Computer-Sicherheit" name="topnavi.ho.sitemap.security" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Security
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </a-collapse>
+
+
+  
+
+<a-collapse class="sitemap-group " has-indicator="" media="(max-width: 929px)" toggle-attr-on-media="disabled">
+    
+    <div class="
+        sitemap-group__header
+        
+      " data-collapse-trigger="">
+      Online-Magazine
+    </div>
+    
+
+    <div class="sitemap-group__content" data-collapse-target="">
+      <ul class="sitemap-group__items ">
+        
+          <li class="sitemap-group__item sitemap-group__item--heiseplus">
+            <a href="/plus/" title="heise+ - Immer mehr Wissen." name="topnavi.ho.sitemap.heiseplus" data-google-interstitial="false" class="sitemap-group__link sitemap-group__link--heiseplus">
+              heise<span class="sitemap_group__heiseplus-icon">+</span>
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--tp">
+            <a href="/tp/" title="Telepolis" name="topnavi.ho.sitemap.tp" data-google-interstitial="false" class="sitemap-group__link ">
+              Telepolis
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--autos">
+            <a href="/autos/" title="heise Autos – News, Tests, Technik, Service rund ums Auto" name="topnavi.ho.sitemap.autos" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Autos
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--techstage">
+            <a href="https://www.techstage.de/" title="TechStage – News, Tests &amp; Praxis zu Smartphones und Tablets mit Android, iOS, Windows Phone &amp; Co." name="topnavi.ho.sitemap.techstage" data-google-interstitial="false" class="sitemap-group__link ">
+              TechStage
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--tipps-tricks">
+            <a href="/tipps-tricks/" title="tipps+tricks" name="topnavi.ho.sitemap.tipps-tricks" data-google-interstitial="false" class="sitemap-group__link ">
+              tipps+tricks
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </a-collapse>
+
+
+  
+
+<a-collapse class="sitemap-group sitemap-group--2-col" has-indicator="" media="(max-width: 929px)" toggle-attr-on-media="disabled">
+    
+    <div class="
+        sitemap-group__header
+        
+      " data-collapse-trigger="">
+      Services
+    </div>
+    
+
+    <div class="sitemap-group__content" data-collapse-target="">
+      <ul class="sitemap-group__items ">
+        
+          <li class="sitemap-group__item sitemap-group__item--jobs">
+            <a href="/jobs/" title="heise jobs – Jobbörse für qualifizierte Fach- und Führungskräfte aus der IT-Branche" name="topnavi.ho.sitemap.jobs" data-google-interstitial="false" class="sitemap-group__link ">
+              Stellenmarkt heise Jobs
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--bildung">
+            <a href="https://bildung.heise.de/" title="Weiterbildung für alle - Entdecken Sie, was möglich ist" name="topnavi.ho.sitemap.bildung" data-google-interstitial="false" class="sitemap-group__link ">
+              Weiterbildung
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--download">
+            <a href="/download/" title="heise Download – Software zum Download für Windows, Mac, Linux, iPhone, Symbian, Android" name="topnavi.ho.sitemap.download" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Download
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--produkte">
+            <a href="/preisvergleich/" title="Preisvergleich – Günstige Preise, Meinungen und Bewertungen zu vielen Produkten" name="topnavi.ho.sitemap.produkte" data-google-interstitial="false" class="sitemap-group__link ">
+              Preisvergleich
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--whitepapers">
+            <a href="https://business-services.heise.de/" title="heise Business Services – Produkte und Lösungen namhafter IT-Hersteller" name="topnavi.ho.sitemap.whitepapers" data-google-interstitial="false" class="sitemap-group__link ">
+              Whitepaper/Webcasts
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--tarifrechner">
+            <a href="https://tarifrechner.heise.de/dsl/" title="DSL-Vergleich" name="topnavi.ho.sitemap.tarifrechner" data-google-interstitial="false" class="sitemap-group__link ">
+              DSL-Vergleich
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--tools">
+            <a href="/tools/" title="Netzwerk-Tools" name="topnavi.ho.sitemap.tools" data-google-interstitial="false" class="sitemap-group__link ">
+              Netzwerk-Tools
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--spiele">
+            <a href="https://spiele.heise.de" title="Spielen bei Heise" name="topnavi.ho.sitemap.spiele" data-google-interstitial="false" class="sitemap-group__link ">
+              Spielen bei Heise
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--loseblattwerke">
+            <a href="/loseblattwerke/" title="Loseblattwerke" name="topnavi.ho.sitemap.loseblattwerke" data-google-interstitial="false" class="sitemap-group__link ">
+              Loseblattwerke
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--imonitor">
+            <a href="/netze/netzwerk-tools/imonitor-internet-stoerungen/" title="heise iMonitor" name="topnavi.ho.sitemap.imonitor" data-google-interstitial="false" class="sitemap-group__link ">
+              iMonitor
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--itmarkt">
+            <a href="/itmarkt/" title="IT-Markt – Branchenverzeichnis der IT-Fachhändler" name="topnavi.ho.sitemap.itmarkt" data-google-interstitial="false" class="sitemap-group__link ">
+              IT-Markt
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </a-collapse>
+
+
+  
+
+<a-collapse class="sitemap-group " has-indicator="" media="(max-width: 929px)" toggle-attr-on-media="disabled">
+    
+    <div class="
+        sitemap-group__header
+        
+      " data-collapse-trigger="">
+      Heise Medien
+    </div>
+    
+
+    <div class="sitemap-group__content" data-collapse-target="">
+      <ul class="sitemap-group__items ">
+        
+          <li class="sitemap-group__item sitemap-group__item--shop">
+            <a href="https://shop.heise.de" title="heise Shop – IT Fachzeitschriften, Bücher, CD/DVD/Blu-ray" name="topnavi.ho.sitemap.shop" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Shop
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--abo">
+            <a href="https://abo.heise.de/" title="Abo – c't, iX, MIT Technology Review, c't Fotografie, Mac &amp; i, Make" name="topnavi.ho.sitemap.abo" data-google-interstitial="false" class="sitemap-group__link ">
+              Abo
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--events">
+            <a href="/events/" title="heise Events – Konferenzen, Seminare, Workshops" name="topnavi.ho.sitemap.events" data-google-interstitial="false" class="sitemap-group__link ">
+              Veranstaltungen
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--hmg">
+            <a href="https://heise-gruppe.de/-1812545" title="Arbeiten bei heise – Heise als Arbeitgeber" name="topnavi.ho.sitemap.hmg" data-google-interstitial="false" class="sitemap-group__link ">
+              Arbeiten bei Heise
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--mediadaten">
+            <a href="/mediadaten/" title="Mediadaten Heise Medien" name="topnavi.ho.sitemap.mediadaten" data-google-interstitial="false" class="sitemap-group__link ">
+              Mediadaten
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--presse">
+            <a href="https://www.heise-gruppe.de/presse/" title="Presse Informationen" name="topnavi.ho.sitemap.presse" data-google-interstitial="false" class="sitemap-group__link ">
+              Presse
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </a-collapse>
+
+</nav>
+
+
+        <div class="topnavigation__footer">
+          
+
+    
+
+<div class="topnavigation__brandworld">
+    
+
+<span class="wrbg-note topnavigation__brandworld-label">
+  Anzeige
+</span>
+
+
+        
+
+<a href="https://www.heise.de/brandworlds/go-schule-morgen/" class="
+    link
+    topnavigation__brandworld-link
+  " name="dachzeile.ho.nativelink" rel="nofollow" target="_blank">
+
+    
+      <span>
+        Go! Schule morgen
+      </span>
+</a>
+
+
+</div>
+
+
+
+          
+
+
+
+<div class="
+    notification-links
+    
+  ">
+  
+
+<a href="/newsletter/" class="
+    link
+    notification-links__link
+  " name="topnavi.ho.sitemap.newsletter" data-google-interstitial="false">
+      
+
+
+<svg class="link__svg" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="xMinYMin" viewbox="0 0 24 24">
+  <path id="paper-plane-outline" d="M24,3,0,10l7.92,4.4L8,20l3.78-3.46L18,20ZM17,17.34l-5.48-3L20.85,6.4ZM20.46,5.9,9.6,13.25,4.66,10.51Z" transform="translate(0)"></path>
+</svg>
+
+
+
+    
+      <span>
+        Newsletter
+      </span>
+</a>
+
+    
+
+<a href="/benachrichtigungen/heise-bot/" class="
+    link
+    notification-links__link
+  " name="topnavi.ho.sitemap.heisebotti" data-google-interstitial="false">
+      
+
+
+
+
+<svg id="logo-botti" xmlns="http://www.w3.org/2000/svg" class="link__svg" viewbox="0 0 24 24">
+  <title>heiseframe_title</title>
+  <path d="M9.3,17.66c-.24.56-.62,1.21-1.32,1.21A.89.89,0,0,1,7.05,18a3,3,0,0,1,.36-1.14l3.18-7.26c.24-.55.55-.95,1.18-.95a.86.86,0,0,1,.89.89A3.36,3.36,0,0,1,12.25,11Zm2.76,1.21c.71,0,1.08-.63,1.34-1.2L14.58,15A3.74,3.74,0,0,0,15,13.59a.86.86,0,0,0-.89-.89c-.64,0-.94.43-1.19,1l-1.42,3.2A2.65,2.65,0,0,0,11.16,18,.86.86,0,0,0,12.06,18.87ZM23.64,8.3a1,1,0,0,0-1.53,1.08A9.42,9.42,0,0,1,19,10.68c-.52-4.49-4.34-7.14-8.87-7.14A10.33,10.33,0,0,0,4.4,5.22,11.49,11.49,0,0,1,2.09,1.78,1,1,0,0,0,2.51.91,1,1,0,0,0,.56,1a1,1,0,0,0,1,.91,15.71,15.71,0,0,1,1,4.84,10.36,10.36,0,0,0-2.58,7c0,5.77,4.64,9.85,10.27,9.85a10.08,10.08,0,0,0,7.47-3.53l-.42-.63a7.92,7.92,0,0,1-1,.86,10.65,10.65,0,0,1-6.16,1.94A7.51,7.51,0,0,1,2.7,14.53c0-4.82,1.92-9.13,7.37-9.13,4.07,0,7.37,2.74,7.37,7a6.65,6.65,0,0,1-1.46,4l.72.62a7.79,7.79,0,0,0,2.23-3.91,16,16,0,0,1,3.51-3.27,1,1,0,0,0,1.35-.17A1,1,0,0,0,23.64,8.3ZM10.08,21c.39.09.18-.36.48-.56s.75-.39.81-.69a1.58,1.58,0,0,1-.93.05,6.43,6.43,0,0,1-1.27-.49,2,2,0,0,0,.15,1A1,1,0,0,0,10.08,21Z" transform="translate(0 0)"></path>
+</svg>
+
+
+
+    
+      <span>
+        heise-Bot
+      </span>
+</a>
+
+    
+
+<a href="/benachrichtigungen" class="
+    link
+    notification-links__link
+  " name="topnavi.ho.sitemap.pushnachrichten" data-google-interstitial="false">
+      
+
+
+
+
+<svg id="cp-bell-outline" xmlns="http://www.w3.org/2000/svg" class="link__svg" viewbox="0 0 24 24">
+  <title>heiseframe_title</title>
+  <path d="M15,20.9c0,1.6-1.3,2.9-3,3c-1.6-0.1-2.9-1.4-3-3h1.7c0,0,0,0,0,0.1c0,0.7,0.6,1.3,1.3,1.3 c0.7,0,1.3-0.6,1.3-1.3c0,0,0,0,0-0.1H15z M21.9,17.2v1.7H2.1v-1.7C6.9,15.6,4.2,6.7,8.9,4c0.6-0.4,1-1.1,1-1.8l0,0 c0-1,0.7-2,1.7-2.2C11.9,0,12.1,0,12.4,0c1,0.2,1.7,1.1,1.7,2.1l0,0c0,0.7,0.4,1.4,1,1.8C19.7,6.7,17.1,15.6,21.9,17.2z M19.2,16.9 c-4-2-1.4-9.6-5.8-12.2c-0.1-0.1-0.2-0.1-0.4-0.2c-0.3-0.2-0.6-0.3-1-0.3c-0.3,0-0.6,0.1-0.9,0.2c-0.2,0.1-0.3,0.1-0.5,0.2 C6.1,7.4,8.8,14.9,4.8,16.9H19.2z"></path>
+</svg>
+
+
+
+    
+      <span class="a-u-hide-from-tablet">
+        Push
+      </span>
+      <span class="a-u-show-from-tablet">
+        Push-Nachrichten
+      </span>
+    
+</a>
+
+
+</div>
+
+
+        </div>
+      </div>
+
+    </header>
+    
+</div>
+
+    <template id="upscore-reco-template-free">
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<article class="
+    a-article-teaser
+    a-article-teaser--mobile-in-list
+    a-theme
+    
+  " data-upscore-object-id="${object_id}" data-cid="${object_id}">
+
+    <a href="${url}" title="${title}" class="
+        a-article-teaser__link
+      " data-upscore-url="">
+
+    
+
+    
+  
+
+<figure class=" a-article-teaser__image-container">
+
+  <div>
+      
+
+
+
+<a-img width="16" height="9" layout="responsive" src="${image}" alt="${title}" quality="70" high-dpi-quality="50" style="aspect-ratio: 16 / 9;">
+  <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='696px' height='391px' viewBox='0 0 696 391'%3E%3Crect x='0' y='0' width='696' height='391' fill='%23f2f2f2'%3E%3C/rect%3E%3C/svg%3E" width="16" height="9" alt="${title}" style="aspect-ratio: 16 / 9; object-fit: cover;">
+</a-img>
+
+<noscript>
+  
+
+
+
+<img src="https://heise.cloudimg.io/width/16/q50.png-lossy-50.webp-lossy-50.foil1/_www-heise-de_/$%7Bimage%7D" srcset="
+    https://heise.cloudimg.io/width/336/q30.png-lossy-30.webp-lossy-30.foil1/_www-heise-de_/$%7Bimage%7D 336w,
+    https://heise.cloudimg.io/width/1008/q30.png-lossy-30.webp-lossy-30.foil1/_www-heise-de_/$%7Bimage%7D 1008w,
+    https://heise.cloudimg.io/width/32/q30.png-lossy-30.webp-lossy-30.foil1/_www-heise-de_/$%7Bimage%7D 2x
+  " alt="${title}" width="16" height="9" class="legacy-img " loading="lazy" decoding="async">
+
+</noscript>
+
+
+  </div>
+
+</figure>
+
+
+
+
+  <div class="
+      a-article-teaser__content-container
+      
+    ">
+    <header>
+      <h1 class="
+          a-article-teaser__title
+            
+        ">
+          <span class="
+              a-article-teaser__kicker
+              
+            ">
+            ${intro}
+          </span>
+
+        <span class="a-article-teaser__title-text" data-upscore-title="">
+          ${title}
+        </span>
+      </h1>
+    </header>
+
+    
+    <p class="
+      a-article-teaser__synopsis
+      
+      ">${lead}    </p>
+
+    
+
+    
+
+
+  </div>
+
+  </a>
+
+      
+
+
+
+  
+
+</article>
+
+
+
+
+
+</template>
+
+<template id="upscore-reco-template-premium">
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<article class="
+    a-article-teaser
+    a-article-teaser--mobile-in-list
+    a-theme
+    
+  " data-upscore-object-id="${object_id}" data-cid="${object_id}">
+
+    <a href="${url}" title="${title}" class="
+        a-article-teaser__link
+      " data-upscore-url="" data-google-interstitial="false">
+
+    
+
+    
+  
+
+<figure class=" a-article-teaser__image-container">
+
+  <div>
+      
+
+
+
+<a-img width="16" height="9" layout="responsive" src="${image}" alt="${title}" quality="70" high-dpi-quality="50" style="aspect-ratio: 16 / 9;">
+  <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='696px' height='391px' viewBox='0 0 696 391'%3E%3Crect x='0' y='0' width='696' height='391' fill='%23f2f2f2'%3E%3C/rect%3E%3C/svg%3E" width="16" height="9" alt="${title}" style="aspect-ratio: 16 / 9; object-fit: cover;">
+</a-img>
+
+<noscript>
+  
+
+
+
+<img src="https://heise.cloudimg.io/width/16/q50.png-lossy-50.webp-lossy-50.foil1/_www-heise-de_/$%7Bimage%7D" srcset="
+    https://heise.cloudimg.io/width/336/q30.png-lossy-30.webp-lossy-30.foil1/_www-heise-de_/$%7Bimage%7D 336w,
+    https://heise.cloudimg.io/width/1008/q30.png-lossy-30.webp-lossy-30.foil1/_www-heise-de_/$%7Bimage%7D 1008w,
+    https://heise.cloudimg.io/width/32/q30.png-lossy-30.webp-lossy-30.foil1/_www-heise-de_/$%7Bimage%7D 2x
+  " alt="${title}" width="16" height="9" class="legacy-img " loading="lazy" decoding="async">
+
+</noscript>
+
+
+  </div>
+
+</figure>
+
+
+
+
+  <div class="
+      a-article-teaser__content-container
+      
+    ">
+    <header>
+      <h1 class="
+          a-article-teaser__title
+            
+        ">
+          <span class="
+              a-article-teaser__kicker
+              
+            ">
+            ${intro}
+          </span>
+
+        <span class="a-article-teaser__title-text" data-upscore-title="">
+          ${title}
+        </span>
+      </h1>
+    </header>
+
+    
+    <p class="
+      a-article-teaser__synopsis
+      
+      ">${lead}    </p>
+
+    
+
+    
+  <footer class="
+      a-article-meta
+      
+      a-article-teaser__meta
+    ">
+      <svg class="a-article-meta__heiseplus-logo" viewbox="0 0 192 60">
+        <use href="/icons/common-icons.svg#heiseplus-logo-small"></use>
+      </svg>
+    
+
+
+
+
+
+
+
+    
+
+  </footer>
+
+
+  </div>
+
+  </a>
+
+      
+
+
+
+  
+
+</article>
+
+
+
+
+
+</template>
+
+<template id="upscore-reco-template-wrapper-homepage">
+  <div class="teaser-grid teaser-grid--3 top-stage__row">${content}</div>
+</template>
+
+
+<template id="upscore-reco-template-wrapper-article-premium">
+  <aside class="stage stage--channel a-u-grid-pullout-mobile a-u-grid-pushin-mobile" aria-role="complementary">
+    <header class="a-container-header stage__header stage__header--no-mobile-padding a-container-header--bordered a-container-header--one-row">
+      <a href="/plus/" class="a-container-header__link">
+        <h2 class="
+            a-container-header__heading
+            a-container-header__heading--small
+          ">
+          <span class="
+              a-container-header__logo
+              a-container-header__logo--heiseplus
+              a-container-header__logo--margin
+            ">
+            heise+
+          </span>
+          <span class="a-container-header__slug">
+            Das Beste aus heise+
+          </span>
+        </h2>
+        <nav class="a-container-header__more">
+          <span class="
+              a-container-header__more-text
+              a-u-show-from-tablet
+            ">
+            Zur heise+ Startseite
+          </span>
+          <span class="a-container-header__more-icon"></span>
+        </nav>
+      </a>
+    </header>
+    <div class="
+        teaser-grid
+        teaser-grid--h-gutter
+        teaser-grid--4
+        channel_ho
+      ">
+      ${content}
+    </div>
+  </aside>
+</template>
+
+
+<template id="upscore-reco-template-wrapper-article">
+  <aside class="stage stage--channel a-u-grid-pullout-mobile a-u-grid-pushin-mobile" aria-role="complementary">
+    <header class="a-container-header stage__header stage__header--no-mobile-padding a-container-header--bordered a-container-header--one-row">
+      <a href="/" class="a-container-header__link">
+        <h2 class="
+            a-container-header__heading
+            a-container-header__heading--small
+          ">
+          <span class="
+              a-container-header__logo
+              a-container-header__logo--ho
+              a-container-header__logo--margin
+            ">
+            heise online
+          </span>
+          <span class="a-container-header__slug">
+            Top-Beiträge von heise online
+          </span>
+        </h2>
+        <nav class="a-container-header__more">
+          <span class="
+              a-container-header__more-text
+              a-u-show-from-tablet
+            ">
+            Zur heise online Startseite
+          </span>
+          <span class="a-container-header__more-icon"></span>
+        </nav>
+      </a>
+    </header>
+    <div class="
+        teaser-grid
+        teaser-grid--h-gutter
+        teaser-grid--4
+        channel_ho
+      ">
+      ${content}
+    </div>
+  </aside>
+</template>
+
+
+    
+
+      <div class="a-layout a-layout--transparent a-u-no-margin-bottom">
+        <div class=" a-layout__container a-layout__container--full-width">
+          <div class="a-layout__item a-layout__item--full-width">
+            <div class="ldb-container">
+              <script>performance.mark('FRAME-Ads Anfang');</script>
+              <div class="perf-cls-reduc-leaderboard">
+                  
+
+
+
+
+
+  <a-ad width="970" height="90" layout="fixed" instant="" class="a-ad a-ad--leaderboard" sizes="728x90,800x250,960x250,970x250,1104x90,1104x250" targeting="{&quot;cms&quot;:3753660,&quot;kw&quot;:[],&quot;pos&quot;:[&quot;top&quot;],&quot;themenhub&quot;:&quot;yes&quot;}" unit="/6514/www.heise.de/homepage" type="gpt" preload-distance="200" media="(min-width: 1240px)"></a-ad>
+
+
+
+
+
+
+  <a-ad width="970" height="90" layout="fixed" instant="" class="a-ad a-ad--leaderboard" sizes="728x90,800x250,960x250,970x250" targeting="{&quot;cms&quot;:3753660,&quot;kw&quot;:[],&quot;pos&quot;:[&quot;top&quot;],&quot;themenhub&quot;:&quot;yes&quot;}" unit="/6514/www.heise.de/homepage" type="gpt" preload-distance="200" media="(min-width: 1024px) and (max-width: 1239px)"></a-ad>
+
+
+
+
+
+
+  <a-ad width="728" height="90" layout="fixed" instant="" class="a-ad a-ad--leaderboard" sizes="728x90" targeting="{&quot;cms&quot;:3753660,&quot;kw&quot;:[],&quot;pos&quot;:[&quot;top&quot;],&quot;themenhub&quot;:&quot;yes&quot;}" unit="/6514/www.heise.de/homepage" type="gpt" preload-distance="200" media="(min-width: 768px) and (max-width: 1023px)"></a-ad>
+
+
+
+
+
+
+
+
+  <a-ad width="300" height="250" layout="fixed" instant="" class="a-ad a-ad--mleaderboard" sizes="300x50,300x75,300x100,300x150,300x250,320x50,320x75,320x100,320x250,fluid" targeting="{&quot;cms&quot;:3753660,&quot;kw&quot;:[],&quot;mpos&quot;:[&quot;top&quot;],&quot;themenhub&quot;:&quot;yes&quot;}" unit="/6514/www.heise.de/homepage" type="gpt" preload-distance="200" media="(min-width: 320px) and (max-width: 767px)"></a-ad>
+
+
+
+                
+
+
+
+
+
+  <a-ad width="728" layout="fixed" acceptable="" instant="" class="a-ad a-ad--leaderboard" sizes="728x90" targeting="{&quot;cms&quot;:3753660,&quot;kw&quot;:[],&quot;pos&quot;:[&quot;top&quot;],&quot;themenhub&quot;:&quot;yes&quot;}" unit="/6514/www.heise.de/homepage" type="gpt" preload-distance="200" media="(min-width: 768px)"></a-ad>
+
+
+              </div>
+                
+
+
+
+
+
+  <a-ad width="200" height="800" layout="fixed" instant="" class="a-ad a-ad--skyscraper" sizes="120x600,120x800,160x600,160x800,200x600,200x800" targeting="{&quot;cms&quot;:3753660,&quot;kw&quot;:[],&quot;pos&quot;:[&quot;top&quot;],&quot;themenhub&quot;:&quot;yes&quot;}" unit="/6514/www.heise.de/homepage" type="gpt" preload-distance="200" media="(min-width: 1310px)"></a-ad>
+
+
+              <script>
+                performance.mark('FRAME-Ads Ende');
+                performance.measure('FRAME-Ads', 'FRAME-Ads Anfang', 'FRAME-Ads Ende');
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="a-layout a-u-mb-4 " id="bottom-up">
+
+        <script>performance.mark('HEADER Anfang');</script>
+        <div class="a-layout__container a-layout__container--full-width">
+          <div class="a-layout__item a-layout__item--full-width">
+
+            
+
+<header class="header ">
+  <a-collapse media="(max-width: 767px)" toggle-attr-on-media="disabled">
+    <div class="header__menu">
+      
+
+<figure class="header-logo ">
+  <a href="/" title="heise online" data-google-interstitial="false">
+    
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 193 36" role="img" preserveaspectratio="xMinYMin" class="heise-online-logo header-logo__svg header-logo__svg--mobile">
+  <title>heiseframe_title</title>
+  <g id="heise_online_svg__heise_online" fill="#323232"><path id="heise_online_svg__logo" d="M31.09 28.57l.75 1.11A18.12 18.12 0 0118.43 36C8.34 36 0 28.69 0 18.36A17.79 17.79 0 0117.24 0h1c8.76 0 16 5.49 16 14.66A13.76 13.76 0 0130 24.09L28.68 23a12.06 12.06 0 002.6-7.21c0-7.53-5.91-12.43-13.22-12.43-9.78 0-13.22 7.71-13.22 16.31a13.5 13.5 0 0013.07 13.89h.34a19.16 19.16 0 0011.05-3.48 13.62 13.62 0 001.79-1.51zm-11.55-.75a2 2 0 002.65-1l4-9a2 2 0 00-1-2.65 2 2 0 00-2.65 1l-4 9a2 2 0 001 2.65zm.78-20.64a2 2 0 00-2.62 1l-7.52 17a2 2 0 001 2.64 2 2 0 002.62-1l7.52-17a2 2 0 00-1-2.64z"></path><path id="heise_online_svg__heise" d="M54.39 14.54a7.28 7.28 0 011.07 4.3V28H52v-8.72a4.59 4.59 0 00-.53-2.55 2 2 0 00-1.72-.73 3.16 3.16 0 00-1.68.46 11.22 11.22 0 00-1.65 1.36V28H43V7h3.42v5.41l-.12 2.83a11.81 11.81 0 012-1.53A5 5 0 0151 13a3.9 3.9 0 013.39 1.54zm16.45 2.66a9.85 9.85 0 01.38 2.8v1a6.36 6.36 0 01-.11.71h-9.29a4.72 4.72 0 001.38 3 4.15 4.15 0 002.92 1.05 5.38 5.38 0 001.77-.28 7.73 7.73 0 001.61-.79l1.16 2.14a10.87 10.87 0 01-2.32 1.13 8.15 8.15 0 01-2.66.44 7.48 7.48 0 01-2.82-.52 6.47 6.47 0 01-2.28-1.5A6.6 6.6 0 0159.05 24a8.73 8.73 0 01-.55-3.22 8.73 8.73 0 01.56-3.2 7.58 7.58 0 011.5-2.41 6.7 6.7 0 012.15-1.51 6.23 6.23 0 012.49-.53 6.43 6.43 0 012.61.5A5 5 0 0169.69 15a6.18 6.18 0 011.15 2.2zm-2.58 2.14a4.36 4.36 0 00-.73-2.66 2.63 2.63 0 00-2.24-1 3.19 3.19 0 00-2.28.92 4.37 4.37 0 00-1.22 2.7zM76.2 7a2.13 2.13 0 00-1.51.55A1.8 1.8 0 0074.1 9a1.77 1.77 0 00.59 1.39 2.42 2.42 0 003 0A1.78 1.78 0 0078.31 9a1.81 1.81 0 00-.6-1.41A2.11 2.11 0 0076.2 7zm-1.72 21h3.41V13.44h-3.41zm16.15-7.12a6.28 6.28 0 00-1.35-.88c-.5-.22-1-.43-1.48-.61s-.8-.24-1.15-.39a7.19 7.19 0 01-1-.45A2.3 2.3 0 0185 18a1.22 1.22 0 01-.25-.76 1.45 1.45 0 01.52-1.14 2.37 2.37 0 011.62-.46 4 4 0 011.64.34 8.26 8.26 0 011.56.9l1.57-2.07a10 10 0 00-2.1-1.22 6.85 6.85 0 00-2.73-.53A5.81 5.81 0 0083 14.29a4 4 0 00-1.42 3.15 3.16 3.16 0 00.33 1.56 4.33 4.33 0 001 1.18 5.89 5.89 0 001.32.86c.49.23 1 .44 1.45.62l1.13.46a7.3 7.3 0 011 .49 2.65 2.65 0 01.71.6 1.24 1.24 0 01.27.79 1.6 1.6 0 01-.57 1.26 2.59 2.59 0 01-1.75.49 5 5 0 01-2.09-.43 9.56 9.56 0 01-1.94-1.2l-1.6 2.19a9.24 9.24 0 002.53 1.44 8 8 0 003 .58 7.68 7.68 0 002.38-.33 5 5 0 001.77-1 4 4 0 001.09-1.42 4.35 4.35 0 00.39-1.74 3.65 3.65 0 00-1.35-3zM106.8 20v1c0 .35-.07.53-.1.71h-9.3a4.72 4.72 0 001.38 3 4.15 4.15 0 002.92 1.05 5.34 5.34 0 001.77-.28 7.73 7.73 0 001.61-.79l1.16 2.14a10.78 10.78 0 01-2.31 1.13 8.21 8.21 0 01-2.67.44 7.48 7.48 0 01-2.82-.52 6.47 6.47 0 01-2.28-1.5A6.87 6.87 0 0194.63 24a8.73 8.73 0 01-.55-3.22 8.53 8.53 0 01.57-3.2 7.39 7.39 0 011.49-2.41 6.82 6.82 0 012.15-1.51 6.23 6.23 0 012.49-.53 6.43 6.43 0 012.61.5 5.16 5.16 0 011.89 1.37 6.33 6.33 0 011.14 2.19 9.85 9.85 0 01.38 2.81zm-3-.65a4.29 4.29 0 00-.73-2.66 2.62 2.62 0 00-2.24-1 3.19 3.19 0 00-2.28.92 4.37 4.37 0 00-1.22 2.7z"></path><path id="heise_online_svg__brand" d="M115 20.73c0-4.86 3.29-7.65 6.91-7.65s6.94 2.79 6.94 7.65-3.29 7.62-6.94 7.62-6.91-2.79-6.91-7.62zm10.35 0c0-2.94-1.31-4.86-3.44-4.86s-3.41 1.92-3.41 4.86 1.27 4.83 3.41 4.83 3.44-1.92 3.44-4.83zm6.65-7.3h2.82l.23 2h.12a6.8 6.8 0 014.83-2.35c3.11 0 4.47 2.1 4.47 5.78V28H141v-8.69c0-2.41-.68-3.3-2.28-3.3-1.27 0-2.1.63-3.32 1.81V28H132zm16.5 10.83V7.06h3.41v17.38c0 .83.39 1.12.74 1.12a2 2 0 00.53-.06l.45 2.55a4.63 4.63 0 01-1.81.3c-2.43 0-3.32-1.57-3.32-4.09zM156.6 9a2.11 2.11 0 112.1 1.92A2 2 0 01156.6 9zm.4 4.47h3.41V28H157zm7.46 0h2.82l.24 2h.11a6.8 6.8 0 014.78-2.31c3.11 0 4.48 2.1 4.48 5.78V28h-3.41v-8.69c0-2.41-.69-3.3-2.29-3.3-1.27 0-2.1.63-3.32 1.81V28h-3.41zm15.35 7.3c0-4.75 3.3-7.65 6.71-7.65 3.94 0 6 2.85 6 6.91a7.9 7.9 0 01-.15 1.66h-9.25a4.16 4.16 0 004.3 4.06 6 6 0 003.38-1.07l1.2 2.1a9.16 9.16 0 01-5 1.57c-4 0-7.19-2.82-7.19-7.62zm9.76-1.39c0-2.26-1-3.62-3-3.62-1.72 0-3.21 1.27-3.5 3.62z"></path></g>
+</svg>
+
+
+  </a>
+
+  
+   <a href="/plus/" title="heise+ - Immer mehr Wissen." class="header-logo__link" name="header.ho.heiseplus" data-google-interstitial="false">
+      <svg class="header-logo__heiseplus-logo" viewbox="0 0 192 60">
+        <use href="/icons/common-icons.svg#heiseplus-logo"></use>
+      </svg>
+    </a>
+  
+</figure>
+
+      <div class="header__collapse-toggle" data-collapse-trigger="" title="Menü auf-/zuklappen">
+        <svg class="menu-icon header__menu_mobile-icon">
+          <use href="/icons/common-icons.svg#menu-mobile"></use>
+        </svg>
+      </div>
+    </div>
+
+    <div class="header__content" data-collapse-target="">
+
+      <form accept-charset="utf-8" method="get" action="/suche/" class="a-form header__search" role="search" id="volltextsuche">
+  <input type="search" class="
+      a-form__input
+      header__search-input
+    " value="" name="q" placeholder="Suchen mit Qwant" data-autocomplete="true" data-searchpath="/suche/" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" aria-label="Suchen mit Qwant" spellcheck="false">
+  <input type="hidden" name="sort_by" value="relevance">
+</form>
+
+
+
+      
+      <a-collapse-group target="a-menu">
+        <div class="header__nav">
+          
+
+          
+
+
+
+<div class="magazine-nav header__magazine-nav">
+  <ul class="magazine-nav__items a-u-remove-list-style">
+    
+      <li class="
+          magazine-nav__item
+          magazine-nav__item--ct
+          a-theme
+          a-theme--ct
+        ">
+        <a href="/ct/" title="c't – Magazin für Computertechnik" name="topnavi.ho.magazine-nav.ct" data-google-interstitial="false" class="magazine-nav__link magazine-nav__link--ct">
+          <span class="magazine-nav__title">
+            c't – Magazin für Computertechnik
+          </span>
+        </a>
+      </li>
+    
+      <li class="
+          magazine-nav__item
+          magazine-nav__item--ix
+          a-theme
+          a-theme--ix
+        ">
+        <a href="/ix/" title="iX – Magazin für professionelle Informationstechnik" name="topnavi.ho.magazine-nav.ix" data-google-interstitial="false" class="magazine-nav__link magazine-nav__link--ix">
+          <span class="magazine-nav__title">
+            iX – Magazin für professionelle Informationstechnik
+          </span>
+        </a>
+      </li>
+    
+      <li class="
+          magazine-nav__item
+          magazine-nav__item--tr
+          a-theme
+          a-theme--tr
+        ">
+        <a href="/tr/" title="MIT Technology Review – Das Magazin für Innovation von Heise" name="topnavi.ho.magazine-nav.tr" data-google-interstitial="false" class="magazine-nav__link magazine-nav__link--tr">
+          <span class="magazine-nav__title">
+            MIT Technology Review – Das Magazin für Innovation von Heise
+          </span>
+        </a>
+      </li>
+    
+      <li class="
+          magazine-nav__item
+          magazine-nav__item--foto
+          a-theme
+          a-theme--foto
+        ">
+        <a href="/foto/" title="c't Fotografie - Das Magazin rund ums digitale Bild" name="topnavi.ho.magazine-nav.foto" data-google-interstitial="false" class="magazine-nav__link magazine-nav__link--foto">
+          <span class="magazine-nav__title">
+            c't Fotografie - Das Magazin rund ums digitale Bild
+          </span>
+        </a>
+      </li>
+    
+      <li class="
+          magazine-nav__item
+          magazine-nav__item--macandi
+          a-theme
+          a-theme--macandi
+        ">
+        <a href="/mac-and-i/" title="Mac &amp; i – Nachrichten, Tests, Tipps und Meinungen rund um Apple" name="topnavi.ho.magazine-nav.macandi" data-google-interstitial="false" class="magazine-nav__link magazine-nav__link--macandi">
+          <span class="magazine-nav__title">
+            Mac &amp; i – Nachrichten, Tests, Tipps und Meinungen rund um Apple
+          </span>
+        </a>
+      </li>
+    
+      <li class="
+          magazine-nav__item
+          magazine-nav__item--make
+          a-theme
+          a-theme--make
+        ">
+        <a href="/make/" title="Make – Kreativ mit Technik" name="topnavi.ho.magazine-nav.make" data-google-interstitial="false" class="magazine-nav__link magazine-nav__link--make">
+          <span class="magazine-nav__title">
+            Make – Kreativ mit Technik
+          </span>
+        </a>
+      </li>
+    
+      <li class="
+          magazine-nav__item
+          magazine-nav__item--select
+          a-theme
+          a-theme--select
+        ">
+        <a href="/select/" title="Alle Magazine im Browser lesen" name="topnavi.ho.magazine-nav.select" data-google-interstitial="false" class="magazine-nav__link magazine-nav__link--select">
+          <span class="magazine-nav__title">
+            Alle Magazine im Browser lesen
+          </span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+          
+
+<nav class="navigation " aria-label="heiseonline-Navigation" role="navigation">
+
+  <ul class="navigation__list navigation__list--two-cols">
+
+    
+    
+
+    
+
+    <li class="navigation__item">
+        <a href="/newsticker/it/" class="navigation__head " name="rubriknavi.ho.it">IT</a>
+      
+    </li>
+
+    
+    
+
+    
+
+    <li class="navigation__item">
+        <a href="/newsticker/wissen/" class="navigation__head " name="rubriknavi.ho.wissen">Wissen</a>
+      
+    </li>
+
+    
+    
+
+    
+
+    <li class="navigation__item">
+        <a href="/newsticker/mobiles/" class="navigation__head " name="rubriknavi.ho.mobiles">Mobiles</a>
+      
+    </li>
+
+    
+    
+
+    
+
+    <li class="navigation__item">
+        <a href="/security/" class="navigation__head " name="rubriknavi.ho.security">Security</a>
+      
+    </li>
+
+    
+    
+
+    
+
+    <li class="navigation__item">
+        <a href="/developer/" class="navigation__head " name="rubriknavi.ho.developer">Developer</a>
+      
+    </li>
+
+    
+    
+
+    
+
+    <li class="navigation__item">
+        <a href="/newsticker/entertainment/" class="navigation__head " name="rubriknavi.ho.entertainment">Entertainment</a>
+      
+    </li>
+
+    
+    
+
+    
+
+    <li class="navigation__item">
+        <a href="/newsticker/netzpolitik/" class="navigation__head " name="rubriknavi.ho.netzpolitik">Netzpolitik</a>
+      
+    </li>
+
+    
+    
+
+    
+
+    <li class="navigation__item">
+        <a href="/newsticker/wirtschaft/" class="navigation__head " name="rubriknavi.ho.wirtschaft">Wirtschaft</a>
+      
+    </li>
+
+    
+    
+
+    
+
+    <li class="navigation__item">
+        <a href="/newsticker/journal/" class="navigation__head " name="rubriknavi.ho.journal">Journal</a>
+      
+    </li>
+  </ul>
+    <div class="navigation__list navigation__list--horizontal">
+
+      
+
+<a href="/newsticker/" class="
+    link
+    navigation__item
+  " name="header.ho.newstickerdropdown.siebentage">
+
+    
+      <span>
+        Newsticker
+      </span>
+</a>
+
+
+      
+
+<a href="/forum/" class="
+    link
+    navigation__item
+  " name="header.ho.forum">
+
+    
+      <span>
+        Foren
+      </span>
+</a>
+
+
+    </div>
+</nav>
+
+
+        </div>
+
+        
+  <nav class="top-topics">
+    <div class="top-topics__section">
+      <span class="top-topics__label">
+        Topthemen:
+      </span>
+
+      
+
+<ul class="topics top-topics__list">
+    <li class="topics__item top-topics__item">
+      <a class="a-tag" href="/thema/Log4j" name="themen.ho.Log4j" title="News und Artikel zum Thema Log4j">
+        Log4j
+      </a>
+    </li>
+    <li class="topics__item top-topics__item">
+      <a class="a-tag" href="/thema/Metaverse" name="themen.ho.Metaverse" title="News und Artikel zum Thema Metaverse">
+        Metaverse
+      </a>
+    </li>
+    <li class="topics__item top-topics__item">
+      <a class="a-tag" href="/thema/Windows" name="themen.ho.Windows 11" title="News und Artikel zum Thema Windows 11">
+        Windows 11
+      </a>
+    </li>
+    <li class="topics__item top-topics__item">
+      <a class="a-tag" href="/thema/Kryptow%C3%A4hrung" name="themen.ho.Kryptowährungen" title="News und Artikel zum Thema Kryptowährungen">
+        Kryptowährungen
+      </a>
+    </li>
+    <li class="topics__item top-topics__item">
+      <a class="a-tag" href="/thema/Reparatur" name="themen.ho.Reparatur" title="News und Artikel zum Thema Reparatur">
+        Reparatur
+      </a>
+    </li>
+    <li class="topics__item top-topics__item">
+      <a class="a-tag" href="/podcasts" name="themen.ho.Podcasts🎙" title="News und Artikel zum Thema Podcasts🎙">
+        Podcasts🎙
+      </a>
+    </li>
+
+  
+
+</ul>
+
+    </div>
+
+    
+
+    
+
+<div class="top-topics__section top-topics__ad">
+    
+
+<span class="wrbg-note top-topics__label">
+  Anzeige:
+</span>
+
+
+        
+
+<a href="https://www.heise.de/brandworlds/go-schule-morgen/" class="
+    link
+    a-tag top-topics__item top-topics__item--mr
+  " name="themen.ho.nativelink" rel="nofollow" target="_blank">
+
+    
+      <span>
+        Go! Schule morgen
+      </span>
+</a>
+
+
+</div>
+
+
+
+  </nav>
+
+      </a-collapse-group>
+
+      
+
+      
+
+
+
+<div class="
+    notification-links
+    navigation__list navigation__list--horizontal a-u-hide-from-tablet
+  ">
+  
+
+<a href="/newsletter/" class="
+    link
+    navigation__item notification-links__link
+  " name="header.ho.newstickerdropdown.newsletter" data-google-interstitial="false">
+      
+
+
+<svg class="link__svg" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="xMinYMin" viewbox="0 0 24 24">
+  <path id="paper-plane-outline" d="M24,3,0,10l7.92,4.4L8,20l3.78-3.46L18,20ZM17,17.34l-5.48-3L20.85,6.4ZM20.46,5.9,9.6,13.25,4.66,10.51Z" transform="translate(0)"></path>
+</svg>
+
+
+
+    
+      <span>
+        Newsletter
+      </span>
+</a>
+
+    
+
+<a href="/benachrichtigungen/heise-bot/" class="
+    link
+    navigation__item notification-links__link
+  " name="header.ho.newstickerdropdown.heisebotti" data-google-interstitial="false">
+      
+
+
+
+
+<svg id="logo-botti" xmlns="http://www.w3.org/2000/svg" class="link__svg" viewbox="0 0 24 24">
+  <title>heiseframe_title</title>
+  <path d="M9.3,17.66c-.24.56-.62,1.21-1.32,1.21A.89.89,0,0,1,7.05,18a3,3,0,0,1,.36-1.14l3.18-7.26c.24-.55.55-.95,1.18-.95a.86.86,0,0,1,.89.89A3.36,3.36,0,0,1,12.25,11Zm2.76,1.21c.71,0,1.08-.63,1.34-1.2L14.58,15A3.74,3.74,0,0,0,15,13.59a.86.86,0,0,0-.89-.89c-.64,0-.94.43-1.19,1l-1.42,3.2A2.65,2.65,0,0,0,11.16,18,.86.86,0,0,0,12.06,18.87ZM23.64,8.3a1,1,0,0,0-1.53,1.08A9.42,9.42,0,0,1,19,10.68c-.52-4.49-4.34-7.14-8.87-7.14A10.33,10.33,0,0,0,4.4,5.22,11.49,11.49,0,0,1,2.09,1.78,1,1,0,0,0,2.51.91,1,1,0,0,0,.56,1a1,1,0,0,0,1,.91,15.71,15.71,0,0,1,1,4.84,10.36,10.36,0,0,0-2.58,7c0,5.77,4.64,9.85,10.27,9.85a10.08,10.08,0,0,0,7.47-3.53l-.42-.63a7.92,7.92,0,0,1-1,.86,10.65,10.65,0,0,1-6.16,1.94A7.51,7.51,0,0,1,2.7,14.53c0-4.82,1.92-9.13,7.37-9.13,4.07,0,7.37,2.74,7.37,7a6.65,6.65,0,0,1-1.46,4l.72.62a7.79,7.79,0,0,0,2.23-3.91,16,16,0,0,1,3.51-3.27,1,1,0,0,0,1.35-.17A1,1,0,0,0,23.64,8.3ZM10.08,21c.39.09.18-.36.48-.56s.75-.39.81-.69a1.58,1.58,0,0,1-.93.05,6.43,6.43,0,0,1-1.27-.49,2,2,0,0,0,.15,1A1,1,0,0,0,10.08,21Z" transform="translate(0 0)"></path>
+</svg>
+
+
+
+    
+      <span>
+        heise-Bot
+      </span>
+</a>
+
+    
+
+<a href="/benachrichtigungen" class="
+    link
+    navigation__item notification-links__link
+  " name="header.ho.newstickerdropdown.pushnachrichten" data-google-interstitial="false">
+      
+
+
+
+
+<svg id="cp-bell-outline" xmlns="http://www.w3.org/2000/svg" class="link__svg" viewbox="0 0 24 24">
+  <title>heiseframe_title</title>
+  <path d="M15,20.9c0,1.6-1.3,2.9-3,3c-1.6-0.1-2.9-1.4-3-3h1.7c0,0,0,0,0,0.1c0,0.7,0.6,1.3,1.3,1.3 c0.7,0,1.3-0.6,1.3-1.3c0,0,0,0,0-0.1H15z M21.9,17.2v1.7H2.1v-1.7C6.9,15.6,4.2,6.7,8.9,4c0.6-0.4,1-1.1,1-1.8l0,0 c0-1,0.7-2,1.7-2.2C11.9,0,12.1,0,12.4,0c1,0.2,1.7,1.1,1.7,2.1l0,0c0,0.7,0.4,1.4,1,1.8C19.7,6.7,17.1,15.6,21.9,17.2z M19.2,16.9 c-4-2-1.4-9.6-5.8-12.2c-0.1-0.1-0.2-0.1-0.4-0.2c-0.3-0.2-0.6-0.3-1-0.3c-0.3,0-0.6,0.1-0.9,0.2c-0.2,0.1-0.3,0.1-0.5,0.2 C6.1,7.4,8.8,14.9,4.8,16.9H19.2z"></path>
+</svg>
+
+
+
+    
+      <span class="a-u-hide-from-tablet">
+        Push
+      </span>
+      <span class="a-u-show-from-tablet">
+        Push-Nachrichten
+      </span>
+    
+</a>
+
+
+</div>
+
+
+      
+<nav class="sitemap sitemap-group--in-navigation" aria-label="Sitemap">
+
+  
+
+<a-collapse class="sitemap-group " has-indicator="" media="(max-width: 929px)" toggle-attr-on-media="disabled">
+    
+    <div class="
+        sitemap-group__header
+        navigation__head
+      " data-collapse-trigger="">
+      IT News
+    </div>
+    
+
+    <div class="sitemap-group__content" data-collapse-target="">
+      <ul class="sitemap-group__items ">
+        
+          <li class="sitemap-group__item sitemap-group__item--newsticker">
+            <a href="/newsticker/" title="heise online" name="header.ho.sitemap.newsticker" data-google-interstitial="false" class="sitemap-group__link ">
+              Newsticker
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--developer">
+            <a href="/developer/" title="heise Developer – Informationen für Entwickler" name="header.ho.sitemap.developer" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Developer
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--netze">
+            <a href="/thema/netze/" title="Themenseite Netze" name="header.ho.sitemap.netze" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Netze
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--open">
+            <a href="/thema/linux-und-open-source/" title="Themenseite Linux und Open Source" name="header.ho.sitemap.open" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Open Source
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--security">
+            <a href="/security/" title="heise Security – News, Dienste und Foren zum Thema Computer-Sicherheit" name="header.ho.sitemap.security" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Security
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </a-collapse>
+
+
+  
+
+<a-collapse class="sitemap-group " has-indicator="" media="(max-width: 929px)" toggle-attr-on-media="disabled">
+    
+    <div class="
+        sitemap-group__header
+        navigation__head
+      " data-collapse-trigger="">
+      Online-Magazine
+    </div>
+    
+
+    <div class="sitemap-group__content" data-collapse-target="">
+      <ul class="sitemap-group__items ">
+        
+          <li class="sitemap-group__item sitemap-group__item--heiseplus">
+            <a href="/plus/" title="heise+ - Immer mehr Wissen." name="header.ho.sitemap.heiseplus" data-google-interstitial="false" class="sitemap-group__link sitemap-group__link--heiseplus">
+              heise<span class="sitemap_group__heiseplus-icon">+</span>
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--tp">
+            <a href="/tp/" title="Telepolis" name="header.ho.sitemap.tp" data-google-interstitial="false" class="sitemap-group__link ">
+              Telepolis
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--autos">
+            <a href="/autos/" title="heise Autos – News, Tests, Technik, Service rund ums Auto" name="header.ho.sitemap.autos" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Autos
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--techstage">
+            <a href="https://www.techstage.de/" title="TechStage – News, Tests &amp; Praxis zu Smartphones und Tablets mit Android, iOS, Windows Phone &amp; Co." name="header.ho.sitemap.techstage" data-google-interstitial="false" class="sitemap-group__link ">
+              TechStage
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--tipps-tricks">
+            <a href="/tipps-tricks/" title="tipps+tricks" name="header.ho.sitemap.tipps-tricks" data-google-interstitial="false" class="sitemap-group__link ">
+              tipps+tricks
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </a-collapse>
+
+
+  
+
+<a-collapse class="sitemap-group sitemap-group--2-col" has-indicator="" media="(max-width: 929px)" toggle-attr-on-media="disabled">
+    
+    <div class="
+        sitemap-group__header
+        navigation__head
+      " data-collapse-trigger="">
+      Services
+    </div>
+    
+
+    <div class="sitemap-group__content" data-collapse-target="">
+      <ul class="sitemap-group__items ">
+        
+          <li class="sitemap-group__item sitemap-group__item--jobs">
+            <a href="/jobs/" title="heise jobs – Jobbörse für qualifizierte Fach- und Führungskräfte aus der IT-Branche" name="header.ho.sitemap.jobs" data-google-interstitial="false" class="sitemap-group__link ">
+              Stellenmarkt heise Jobs
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--bildung">
+            <a href="https://bildung.heise.de/" title="Weiterbildung für alle - Entdecken Sie, was möglich ist" name="header.ho.sitemap.bildung" data-google-interstitial="false" class="sitemap-group__link ">
+              Weiterbildung
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--download">
+            <a href="/download/" title="heise Download – Software zum Download für Windows, Mac, Linux, iPhone, Symbian, Android" name="header.ho.sitemap.download" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Download
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--produkte">
+            <a href="/preisvergleich/" title="Preisvergleich – Günstige Preise, Meinungen und Bewertungen zu vielen Produkten" name="header.ho.sitemap.produkte" data-google-interstitial="false" class="sitemap-group__link ">
+              Preisvergleich
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--whitepapers">
+            <a href="https://business-services.heise.de/" title="heise Business Services – Produkte und Lösungen namhafter IT-Hersteller" name="header.ho.sitemap.whitepapers" data-google-interstitial="false" class="sitemap-group__link ">
+              Whitepaper/Webcasts
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--tarifrechner">
+            <a href="https://tarifrechner.heise.de/dsl/" title="DSL-Vergleich" name="header.ho.sitemap.tarifrechner" data-google-interstitial="false" class="sitemap-group__link ">
+              DSL-Vergleich
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--tools">
+            <a href="/tools/" title="Netzwerk-Tools" name="header.ho.sitemap.tools" data-google-interstitial="false" class="sitemap-group__link ">
+              Netzwerk-Tools
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--spiele">
+            <a href="https://spiele.heise.de" title="Spielen bei Heise" name="header.ho.sitemap.spiele" data-google-interstitial="false" class="sitemap-group__link ">
+              Spielen bei Heise
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--loseblattwerke">
+            <a href="/loseblattwerke/" title="Loseblattwerke" name="header.ho.sitemap.loseblattwerke" data-google-interstitial="false" class="sitemap-group__link ">
+              Loseblattwerke
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--imonitor">
+            <a href="/netze/netzwerk-tools/imonitor-internet-stoerungen/" title="heise iMonitor" name="header.ho.sitemap.imonitor" data-google-interstitial="false" class="sitemap-group__link ">
+              iMonitor
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--itmarkt">
+            <a href="/itmarkt/" title="IT-Markt – Branchenverzeichnis der IT-Fachhändler" name="header.ho.sitemap.itmarkt" data-google-interstitial="false" class="sitemap-group__link ">
+              IT-Markt
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </a-collapse>
+
+
+  
+
+<a-collapse class="sitemap-group " has-indicator="" media="(max-width: 929px)" toggle-attr-on-media="disabled">
+    
+    <div class="
+        sitemap-group__header
+        navigation__head
+      " data-collapse-trigger="">
+      Heise Medien
+    </div>
+    
+
+    <div class="sitemap-group__content" data-collapse-target="">
+      <ul class="sitemap-group__items ">
+        
+          <li class="sitemap-group__item sitemap-group__item--shop">
+            <a href="https://shop.heise.de" title="heise Shop – IT Fachzeitschriften, Bücher, CD/DVD/Blu-ray" name="header.ho.sitemap.shop" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Shop
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--abo">
+            <a href="https://abo.heise.de/" title="Abo – c't, iX, MIT Technology Review, c't Fotografie, Mac &amp; i, Make" name="header.ho.sitemap.abo" data-google-interstitial="false" class="sitemap-group__link ">
+              Abo
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--events">
+            <a href="/events/" title="heise Events – Konferenzen, Seminare, Workshops" name="header.ho.sitemap.events" data-google-interstitial="false" class="sitemap-group__link ">
+              Veranstaltungen
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--hmg">
+            <a href="https://heise-gruppe.de/-1812545" title="Arbeiten bei heise – Heise als Arbeitgeber" name="header.ho.sitemap.hmg" data-google-interstitial="false" class="sitemap-group__link ">
+              Arbeiten bei Heise
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--mediadaten">
+            <a href="/mediadaten/" title="Mediadaten Heise Medien" name="header.ho.sitemap.mediadaten" data-google-interstitial="false" class="sitemap-group__link ">
+              Mediadaten
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--presse">
+            <a href="https://www.heise-gruppe.de/presse/" title="Presse Informationen" name="header.ho.sitemap.presse" data-google-interstitial="false" class="sitemap-group__link ">
+              Presse
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </a-collapse>
+
+</nav>
+
+
+      <div class="header__login">
+        <svg class="header__login-icon">
+          <use href="/icons/common-icons.svg#login"></use>
+        </svg>
+        <a-login label="" class="header__login-link"></a-login>
+      </div>
+
+    </div>
+  </a-collapse>
+    
+
+
+</header>
+
+            
+          </div>
+        </div>
+        <script>
+          performance.mark('HEADER Ende');
+          performance.measure('HEADER', 'HEADER Anfang', 'HEADER Ende');
+        </script>
+
+      
+
+        
+        <div class="
+            a-layout__container">
+            <div class="
+                  a-layout__item
+                
+              ">
+          
+            <script>performance.mark('CONTENT Anfang');</script>
+            
+<a-module data-component="TeasersModule" class="shadow-modules md:shadow-none ho-bg ho-text block jd-module px-4 md:px-6 py-6" content-base="https://www.heise.de/content/content-web" type="teaser" module-id="3259407"><section class="grid place-items-center py-2" data-component="TeaserListLayout" data-layout="TeaserListLayout"><section data-component="ArticleTeaserList" class="grid gap-6 md:place-content-center gap-6 md:gap-y-12 max-w-3xl mb-12"><article data-component="TeaserContainer" data-cid="6353395" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6353395"><a data-component="TeaserLinkContainer" href="/ratgeber/Das-iPhone-mit-CarPlay-im-Auto-nutzen-Augen-geradeaus-6353395.html" class="group md:flex" data-google-interstitial="false" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="1920" height="1079" src="https://www.heise.de/imgs/18/3/2/7/2/1/5/3/mi_01_22_jes_carplay_aufmacher_kopie.jpg-4603ba95feef6949.jpeg" alt=", Bild: Apple, freepik.com; Montage: Mac &amp; i" style="aspect-ratio:1920 / 1079"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="1920" height="1079" alt=", Bild: Apple, freepik.com; Montage: Mac &amp; i" style="aspect-ratio:1920 / 1079;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Praxisratgeber: Das iPhone mit CarPlay im Auto nutzen</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Die Integration von Apple-Smartphones in Fahrzeuge hat zwar etwas länger gebraucht, wird aber nun von vielen Marken angeboten. Wie ist der Stand und was geht?</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><svg class="h-4" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 194 60" preserveaspectratio="xMinYMin"><title>heise_plus_positiv</title><path d="M0 0h130v60H0z"></path><path fill="#0056a4" d="M134 0h60v60h-60z"></path><path d="M13.64 46V12.11h5.52v8.74L19 25.41a19.24 19.24 0 013.29-2.47 8.11 8.11 0 014.25-1.08c2.53 0 4.37.8 5.52 2.42s1.73 3.93 1.73 6.94V46h-5.55V31.94a7.28 7.28 0 00-.87-4.13 3.24 3.24 0 00-2.83-1.2 5 5 0 00-2.71.74 17.74 17.74 0 00-2.67 2.19V46zm36.87.58a12.24 12.24 0 01-4.51-.84 10.82 10.82 0 01-3.7-2.43 11 11 0 01-2.47-3.86 14.33 14.33 0 01-.89-5.21 14.1 14.1 0 01.91-5.18 11.81 11.81 0 012.43-3.89 10.79 10.79 0 013.48-2.45 9.84 9.84 0 014-.86 10.28 10.28 0 014.22.81A8.16 8.16 0 0157 25a10.08 10.08 0 011.85 3.55 15.37 15.37 0 01.63 4.45 15 15 0 01-.07 1.54 9.34 9.34 0 01-.17 1.15h-15a7.6 7.6 0 002.26 4.91 6.68 6.68 0 004.73 1.7 8.78 8.78 0 002.85-.45 13.14 13.14 0 002.62-1.27L58.57 44a16.89 16.89 0 01-3.74 1.83 13.06 13.06 0 01-4.32.75zM44.22 32h10.46a7 7 0 00-1.17-4.29 4.25 4.25 0 00-3.63-1.56 5.19 5.19 0 00-3.69 1.49A7 7 0 0044.22 32zm20.54 14V22.43h5.52V46zm2.79-27.7a3.51 3.51 0 01-2.45-.86 2.9 2.9 0 01-1-2.26 3 3 0 011-2.28 3.85 3.85 0 014.9 0 3 3 0 011 2.28 2.9 2.9 0 01-1 2.26 3.51 3.51 0 01-2.45.86zm16.37 28.28a13.17 13.17 0 01-4.83-.94A15.45 15.45 0 0175 43.31l2.59-3.55a15 15 0 003.14 1.94 8.13 8.13 0 003.39.7 4.23 4.23 0 002.83-.79 2.58 2.58 0 00.91-2 2 2 0 00-.43-1.27 4.18 4.18 0 00-1.15-1 11.24 11.24 0 00-1.63-.79l-1.83-.74c-.77-.29-1.55-.63-2.35-1a10 10 0 01-2.14-1.39 7.19 7.19 0 01-1.53-1.9 5.22 5.22 0 01-.6-2.57 6.41 6.41 0 012.3-5.09 9.38 9.38 0 016.29-2 10.86 10.86 0 014.42.86 16.43 16.43 0 013.4 2l-2.54 3.36a13.08 13.08 0 00-2.52-1.47 6.78 6.78 0 00-2.67-.61 3.85 3.85 0 00-2.62.75 2.35 2.35 0 00-.84 1.84 1.92 1.92 0 00.41 1.23 3.9 3.9 0 001.08.89 12.79 12.79 0 001.56.72l1.85.67c.8.29 1.6.61 2.4 1a10.16 10.16 0 012.18 1.37 5.93 5.93 0 012.18 4.8 6.85 6.85 0 01-.6 2.86 6.59 6.59 0 01-1.75 2.3A8.43 8.43 0 0187.85 46a12.5 12.5 0 01-3.93.58zm24.19 0a12.24 12.24 0 01-4.56-.84 10.82 10.82 0 01-3.7-2.43 11 11 0 01-2.47-3.86 14.33 14.33 0 01-.89-5.21 14.1 14.1 0 01.91-5.18 11.81 11.81 0 012.43-3.89 10.79 10.79 0 013.48-2.45 9.84 9.84 0 014-.86 10.28 10.28 0 014.22.81 8.16 8.16 0 013 2.31 10.08 10.08 0 011.85 3.55 15.37 15.37 0 01.62 4.51 15 15 0 01-.07 1.54 9.34 9.34 0 01-.17 1.15h-15a7.6 7.6 0 002.23 4.87 6.68 6.68 0 004.73 1.7 8.78 8.78 0 002.85-.45 13.14 13.14 0 002.62-1.27l1.98 3.42a16.89 16.89 0 01-3.74 1.83 13.06 13.06 0 01-4.32.75zM101.82 32h10.46a7 7 0 00-1.17-4.29 4.25 4.25 0 00-3.63-1.56 5.19 5.19 0 00-3.69 1.49 7 7 0 00-1.97 4.36zM160 33h-12.5a3.5 3.5 0 010-7H160V13.5a3.5 3.5 0 017 0v32a3.5 3.5 0 01-7 0zm12.5-7h7a3.5 3.5 0 010 7h-7a3.5 3.5 0 010-7z" fill="#fff" fill-rule="evenodd"></path></svg><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T08:30:00.000Z"><span class="mr-1">11.2.2022</span><span class="">09:30 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>21</span><span data-component="Branding" class="flex leading-none whitespace-nowrap theme-mac-and-i"><span class="inline-block mr-2 bg-brand-branding" style="width:.1875em;margin-right:.375em"></span>Mac &amp; i</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6440274" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6440274"><a data-component="TeaserLinkContainer" href="/news/Kommentar-Apples-Minitracker-Airtags-gefaehrlich-oder-nutzlos-also-einstellen-6440274.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="3997" height="2245" src="https://www.heise.de/imgs/18/3/2/9/0/6/4/6/nikita-ognev-p4ammwR83NI-unsplash.jpg-ed2cab2e9511d928.jpeg" style="aspect-ratio:3997 / 2245"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="3997" height="2245" style="aspect-ratio:3997 / 2245;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Kommentar: Apples Minitracker Airtags – gefährlich oder nutzlos, also einstellen</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Die Minitracker sind eines der spannendsten Produkte, die Apple seit Jahren auf den Markt gebracht hat. Die Stalking-Gefahr zerstört jedoch ihre Nützlichkeit.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T08:25:00.000Z"><span class="mr-1">11.2.2022</span><span class="">09:25 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>109</span><span data-component="Branding" class="flex leading-none whitespace-nowrap theme-mac-and-i"><span class="inline-block mr-2 bg-brand-branding" style="width:.1875em;margin-right:.375em"></span>Mac &amp; i</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6369743" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6369743"><a data-component="TeaserLinkContainer" href="/hintergrund/Abgasbetrug-Kein-Restschadenersatz-BGH-bestaetigt-Verjaehrung-der-Ansprueche-6369743.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="1600" height="899" src="https://www.heise.de/imgs/18/3/2/8/6/7/7/8/pji90gn9.jpg-7042d719d40b42b6.jpeg" style="aspect-ratio:1600 / 899"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="1600" height="899" style="aspect-ratio:1600 / 899;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Abgasbetrug: Kein Restschadenersatz, BGH bestätigt Verjährung der Ansprüche</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Ein Restschadenersatz steht Gebrauchtwagenkäufern, die wegen manipulierter Motorensoftware zu spät gegen Volkswagen geklagt haben, laut BGH nicht zu.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T08:24:00.000Z"><span class="mr-1">11.2.2022</span><span class="">09:24 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>10</span><span data-component="Branding" class="flex leading-none whitespace-nowrap theme-autos"><span class="inline-block mr-2 bg-brand-branding" style="width:.1875em;margin-right:.375em"></span>heise Autos</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6443786" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6443786"><a data-component="TeaserLinkContainer" href="/news/Tesla-Kalifornische-Behoerde-klagt-wegen-Rassismus-und-Benachteiligung-6443786.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="2222" height="1249" src="https://www.heise.de/imgs/18/3/2/9/4/1/0/7/tesla.jpg-67e9e07562722b31.jpeg" style="aspect-ratio:2222 / 1249"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="2222" height="1249" style="aspect-ratio:2222 / 1249;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Tesla wegen Rassismus und Benachteiligung von kalifornischer Behörde verklagt</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Tesla soll jahrelang ignoriert haben, dass Schwarze in seiner Fabrik rassistisch beleidigt werden. Auch würden sie in der Belegschaft stark benachteiligt.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T07:53:00.000Z"><span class="mr-1">11.2.2022</span><span class="">08:53 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>41</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6370462" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6370462"><a data-component="TeaserLinkContainer" href="/hintergrund/Schlauer-Zwerg-Maschinelles-Lernen-mit-dem-Raspberry-Pi-Pico-Teil-3-Tuning-6370462.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="4200" height="2360" src="https://www.heise.de/imgs/18/3/2/8/7/4/1/1/KI-02.jpg-a5a5cb7952dcb7df.jpeg" alt="Künstliche Intelligenz, KI" style="aspect-ratio:4200 / 2360"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="4200" height="2360" alt="Künstliche Intelligenz, KI" style="aspect-ratio:4200 / 2360;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Schlauer Zwerg: Maschinelles Lernen mit dem Raspberry Pi Pico, Teil 3: Tuning</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Machine-Learning-Modelle lassen sich auf unterschiedliche Weise anpassen, um die Ergebnisse zu optimieren.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T07:32:00.000Z"><span class="mr-1">11.2.2022</span><span class="">08:32 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>5</span><span data-component="Branding" class="flex leading-none whitespace-nowrap theme-developer"><span class="inline-block mr-2 bg-brand-branding" style="width:.1875em;margin-right:.375em"></span>heise Developer</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6371193" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6371193"><a data-component="TeaserLinkContainer" href="/hintergrund/Omikron-Verwandte-Virus-Varianten-im-New-Yorker-Abwasser-geben-Raetsel-auf-6371193.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="4820" height="2708" src="https://www.heise.de/imgs/18/3/2/8/8/0/5/1/jon-flobrant-s6L0uQyprpE-unsplash.jpg-326fee17f3d23240.jpeg" style="aspect-ratio:4820 / 2708"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="4820" height="2708" style="aspect-ratio:4820 / 2708;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Omikron-Verwandte: Virus-Varianten im New Yorker Abwasser geben Rätsel auf</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Beim Screening des New Yorker Abwassers haben Forschende Varianten entdeckt, deren Ursprung sie sich nicht erklären können. Zwei Theorien dazu.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T07:11:00.000Z"><span class="mr-1">11.2.2022</span><span class="">08:11 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>67</span><span data-component="Branding" class="flex leading-none whitespace-nowrap theme-tr"><span class="inline-block mr-2 bg-brand-branding" style="width:.1875em;margin-right:.375em"></span>MIT Technology Review</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6363924" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6363924"><a data-component="TeaserLinkContainer" href="/news/Preiswerte-Thermokamera-fuer-Experimente-6363924.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="5120" height="2877" src="https://www.heise.de/imgs/18/3/2/8/1/1/7/0/hero-case.jpg-b5bacf4d80d77137.jpeg" alt="Thermokamera in 3D-gedrucktem Gehäuse" style="aspect-ratio:5120 / 2877"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="5120" height="2877" alt="Thermokamera in 3D-gedrucktem Gehäuse" style="aspect-ratio:5120 / 2877;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Preiswerte Thermokamera für Experimente</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Das Adafruit-Board mit Thermokamera lässt sich einfach in eigene Projekte integrieren und verschafft interessante Einblicke.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T07:07:00.000Z"><span class="mr-1">11.2.2022</span><span class="">08:07 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>13</span><span data-component="Branding" class="flex leading-none whitespace-nowrap theme-make"><span class="inline-block mr-2 bg-brand-branding" style="width:.1875em;margin-right:.375em"></span>Make Magazin</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6371147" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6371147"><a data-component="TeaserLinkContainer" href="/news/Team-up-Workshops-Psychologische-Sicherheit-und-Gewaltfreie-Kommunikation-6371147.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="1280" height="720" src="https://www.heise.de/imgs/18/3/2/8/8/0/0/9/teamupkonf-f60259d846744bbc.PNG" alt="Team Up Konferenz 31. März 2022" style="aspect-ratio:1280 / 720"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="1280" height="720" alt="Team Up Konferenz 31. März 2022" style="aspect-ratio:1280 / 720;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Team-up-Workshops: Psychologische Sicherheit und Gewaltfreie Kommunikation</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Die Zusammenarbeit im Team hängt am Umgang mit Konflikten. Zwei Workshops der Online-Konferenz Team up! vermitteln Empathie und schulen im Umgang mit Triggern. </p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><span class="font-bold">heise-Angebot</span><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T07:05:00.000Z"><span class="mr-1">11.2.2022</span><span class="">08:05 Uhr</span></time><span data-component="Branding" class="flex leading-none whitespace-nowrap theme-developer"><span class="inline-block mr-2 bg-brand-branding" style="width:.1875em;margin-right:.375em"></span>heise Developer</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6330449" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6330449"><a data-component="TeaserLinkContainer" href="/hintergrund/Warum-sind-Motorraeder-so-ineffizient-6330449.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="1600" height="899" src="https://www.heise.de/imgs/18/3/2/5/8/7/8/8/DSC03629.jpg-d6c7450ba7717444.jpeg" style="aspect-ratio:1600 / 899"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="1600" height="899" style="aspect-ratio:1600 / 899;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Warum sind Motorräder so ineffizient?</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Sollten Motorräder nicht viel sparsamer fahren als Autos, fragen Leser immer wieder. Die Antworten darauf sind nur oberflächlich banal.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T07:00:00.000Z"><span class="mr-1">11.2.2022</span><span class="">08:00 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>418</span><span data-component="Branding" class="flex leading-none whitespace-nowrap theme-autos"><span class="inline-block mr-2 bg-brand-branding" style="width:.1875em;margin-right:.375em"></span>heise Autos</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6370280" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6370280"><a data-component="TeaserLinkContainer" href="/ratgeber/Zinsen-fuer-Kryptowaehrungen-So-funktioniert-Staking-und-so-gewinnbringend-ist-es-6370280.html" class="group md:flex" data-google-interstitial="false" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="3650" height="2051" src="https://www.heise.de/imgs/18/3/2/8/7/2/4/6/shutterstock_1466689460.jpg-86f8a34c8e4e3610.jpeg" style="aspect-ratio:3650 / 2051"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="3650" height="2051" style="aspect-ratio:3650 / 2051;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Zinsen für Kryptowährungen: So funktioniert Staking und so gewinnbringend ist es</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Das Staking von Kryptowährung verspricht Geldvermehrung ohne eigenen Aufwand. Wir zeigen, welche Möglichkeiten es für Anleger gibt und was die Risiken sind.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><svg class="h-4" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 194 60" preserveaspectratio="xMinYMin"><title>heise_plus_positiv</title><path d="M0 0h130v60H0z"></path><path fill="#0056a4" d="M134 0h60v60h-60z"></path><path d="M13.64 46V12.11h5.52v8.74L19 25.41a19.24 19.24 0 013.29-2.47 8.11 8.11 0 014.25-1.08c2.53 0 4.37.8 5.52 2.42s1.73 3.93 1.73 6.94V46h-5.55V31.94a7.28 7.28 0 00-.87-4.13 3.24 3.24 0 00-2.83-1.2 5 5 0 00-2.71.74 17.74 17.74 0 00-2.67 2.19V46zm36.87.58a12.24 12.24 0 01-4.51-.84 10.82 10.82 0 01-3.7-2.43 11 11 0 01-2.47-3.86 14.33 14.33 0 01-.89-5.21 14.1 14.1 0 01.91-5.18 11.81 11.81 0 012.43-3.89 10.79 10.79 0 013.48-2.45 9.84 9.84 0 014-.86 10.28 10.28 0 014.22.81A8.16 8.16 0 0157 25a10.08 10.08 0 011.85 3.55 15.37 15.37 0 01.63 4.45 15 15 0 01-.07 1.54 9.34 9.34 0 01-.17 1.15h-15a7.6 7.6 0 002.26 4.91 6.68 6.68 0 004.73 1.7 8.78 8.78 0 002.85-.45 13.14 13.14 0 002.62-1.27L58.57 44a16.89 16.89 0 01-3.74 1.83 13.06 13.06 0 01-4.32.75zM44.22 32h10.46a7 7 0 00-1.17-4.29 4.25 4.25 0 00-3.63-1.56 5.19 5.19 0 00-3.69 1.49A7 7 0 0044.22 32zm20.54 14V22.43h5.52V46zm2.79-27.7a3.51 3.51 0 01-2.45-.86 2.9 2.9 0 01-1-2.26 3 3 0 011-2.28 3.85 3.85 0 014.9 0 3 3 0 011 2.28 2.9 2.9 0 01-1 2.26 3.51 3.51 0 01-2.45.86zm16.37 28.28a13.17 13.17 0 01-4.83-.94A15.45 15.45 0 0175 43.31l2.59-3.55a15 15 0 003.14 1.94 8.13 8.13 0 003.39.7 4.23 4.23 0 002.83-.79 2.58 2.58 0 00.91-2 2 2 0 00-.43-1.27 4.18 4.18 0 00-1.15-1 11.24 11.24 0 00-1.63-.79l-1.83-.74c-.77-.29-1.55-.63-2.35-1a10 10 0 01-2.14-1.39 7.19 7.19 0 01-1.53-1.9 5.22 5.22 0 01-.6-2.57 6.41 6.41 0 012.3-5.09 9.38 9.38 0 016.29-2 10.86 10.86 0 014.42.86 16.43 16.43 0 013.4 2l-2.54 3.36a13.08 13.08 0 00-2.52-1.47 6.78 6.78 0 00-2.67-.61 3.85 3.85 0 00-2.62.75 2.35 2.35 0 00-.84 1.84 1.92 1.92 0 00.41 1.23 3.9 3.9 0 001.08.89 12.79 12.79 0 001.56.72l1.85.67c.8.29 1.6.61 2.4 1a10.16 10.16 0 012.18 1.37 5.93 5.93 0 012.18 4.8 6.85 6.85 0 01-.6 2.86 6.59 6.59 0 01-1.75 2.3A8.43 8.43 0 0187.85 46a12.5 12.5 0 01-3.93.58zm24.19 0a12.24 12.24 0 01-4.56-.84 10.82 10.82 0 01-3.7-2.43 11 11 0 01-2.47-3.86 14.33 14.33 0 01-.89-5.21 14.1 14.1 0 01.91-5.18 11.81 11.81 0 012.43-3.89 10.79 10.79 0 013.48-2.45 9.84 9.84 0 014-.86 10.28 10.28 0 014.22.81 8.16 8.16 0 013 2.31 10.08 10.08 0 011.85 3.55 15.37 15.37 0 01.62 4.51 15 15 0 01-.07 1.54 9.34 9.34 0 01-.17 1.15h-15a7.6 7.6 0 002.23 4.87 6.68 6.68 0 004.73 1.7 8.78 8.78 0 002.85-.45 13.14 13.14 0 002.62-1.27l1.98 3.42a16.89 16.89 0 01-3.74 1.83 13.06 13.06 0 01-4.32.75zM101.82 32h10.46a7 7 0 00-1.17-4.29 4.25 4.25 0 00-3.63-1.56 5.19 5.19 0 00-3.69 1.49 7 7 0 00-1.97 4.36zM160 33h-12.5a3.5 3.5 0 010-7H160V13.5a3.5 3.5 0 017 0v32a3.5 3.5 0 01-7 0zm12.5-7h7a3.5 3.5 0 010 7h-7a3.5 3.5 0 010-7z" fill="#fff" fill-rule="evenodd"></path></svg><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T06:30:00.000Z"><span class="mr-1">11.2.2022</span><span class="">07:30 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>23</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6443591" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6443591"><a data-component="TeaserLinkContainer" href="/news/Brandenburger-Justizministerin-will-Luca-App-zur-Strafverfolgung-benutzen-6443591.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="6000" height="3371" src="https://www.heise.de/imgs/18/3/2/9/3/9/2/1/shutterstock_1927666157.jpg-c5eb5f2c8d98a9be.jpeg" style="aspect-ratio:6000 / 3371"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="6000" height="3371" style="aspect-ratio:6000 / 3371;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Brandenburger Justizministerin will Luca-App zur Strafverfolgung benutzen</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Kontaktdaten der Luca-App sollen zur Verfolgung schwerer Straftaten genutzt werden, fordert Justizministerin Susanne Hoffmann. Kritiker sehen Datenmissbrauch.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T06:26:00.000Z"><span class="mr-1">11.2.2022</span><span class="">07:26 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>146</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6443417" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6443417"><a data-component="TeaserLinkContainer" href="/news/Cloud-Dienste-Regierungsstratege-fordert-souveraenen-nationalen-Hyperscaler-6443417.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="5500" height="3090" src="https://www.heise.de/imgs/18/3/2/9/3/7/5/1/shutterstock_1024337068.jpg-33126c9ed34da140.jpeg" style="aspect-ratio:5500 / 3090"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="5500" height="3090" style="aspect-ratio:5500 / 3090;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Cloud-Dienste: IT-Bundesbeauftragter fordert &quot;souveränen nationalen Hyperscaler&quot;</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Um in der Cloud technologisch souverän agieren zu können, braucht Deutschland eine ebenbürtige Alternative zu Microsoft &amp; Co., meint ein IT-Bundesbeauftragter.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T06:00:00.000Z"><span class="mr-1">11.2.2022</span><span class="">07:00 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>9</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6442954" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6442954"><a data-component="TeaserLinkContainer" href="/news/Freitag-Android-13-mit-mehr-Privatsphaere-Twitter-mit-mehr-Nutzern-6442954.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="1920" height="1079" src="https://www.heise.de/imgs/18/3/2/9/3/2/9/4/weekend.webp-90c053b5b793d206.jpeg" alt="Buch auf Blumenwiese" style="aspect-ratio:1920 / 1079"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="1920" height="1079" alt="Buch auf Blumenwiese" style="aspect-ratio:1920 / 1079;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Freitag: Android 13 mit mehr Privatsphäre, Twitter mit mehr Nutzern</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Erste Version von Android 13 + Twitter mit mehr Nutzern, weniger Gewinn + Notfall-Patch für iPhones, iPads &amp; Macs + Stalking-Schutz für AirTags + Tesla-Update</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T05:30:00.000Z"><span class="mr-1">11.2.2022</span><span class="">06:30 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>8</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6352194" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6352194"><a data-component="TeaserLinkContainer" href="/ratgeber/Digitales-Buch-E-Books-als-Alternative-zum-Papierbuch-eine-Entscheidungshilfe-6352194.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="1920" height="1079" src="https://www.heise.de/imgs/18/3/2/7/1/1/3/1/ct0522e1_book_r_117880_mil_readereinleitunga_digitale_variante.jpg-7a10ce7f4b7dea4c.jpeg" alt=", " style="aspect-ratio:1920 / 1079"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="1920" height="1079" alt=", " style="aspect-ratio:1920 / 1079;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Digitales Buch: E-Books als Alternative zum Papierbuch - eine Entscheidungshilfe</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Wer Bücher digital als E-Book lesen will, braucht einen Bücherdienst und ein digitales Lesegerät. Eine Entscheidungshilfe für Bücherwürmer und Leseratten.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T05:30:00.000Z"><span class="mr-1">11.2.2022</span><span class="">06:30 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>55</span><span data-component="Branding" class="flex leading-none whitespace-nowrap theme-ct"><span class="inline-block mr-2 bg-brand-branding" style="width:.1875em;margin-right:.375em"></span>c&#x27;t Magazin</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6443008" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6443008"><a data-component="TeaserLinkContainer" href="/news/Atomkraft-Frankreich-plant-14-neue-AKW-und-laengere-Laufzeiten-fuer-alte-6443008.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="1282" height="720" src="https://www.heise.de/imgs/18/3/2/9/3/3/4/6/annotation_2022-02-10_184747.jpg-f0058dab6d422937.jpeg" style="aspect-ratio:1282 / 720"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="1282" height="720" style="aspect-ratio:1282 / 720;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Atomkraft: Frankreich plant 14 neue AKW und längere Laufzeiten für alte</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Als &quot;Renaissance der französischen Atomkraft&quot; bezeichnet Frankreichs Präsident seine Pläne. Er setzt auch auf Erneuerbare Energien und Kernfusion.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T05:01:00.000Z"><span class="mr-1">11.2.2022</span><span class="">06:01 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>386</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6336588" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6336588"><a data-component="TeaserLinkContainer" href="/hintergrund/Auslegungssache-56-Datenschutz-fuer-Websites-6336588.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="3840" height="2158" src="https://www.heise.de/imgs/18/3/2/6/2/4/6/0/auslegungssache_56.jpg-2f4ed5ca6bbe2a9c.jpeg" style="aspect-ratio:3840 / 2158"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="3840" height="2158" style="aspect-ratio:3840 / 2158;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Auslegungssache 56: Datenschutz für Websites</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Wer eine Website betreibt, muss die Vorgaben des Datenschutzes beachten. Wie das geht, besprechen wir im c&#x27;t-Datenschutz-Podcast Auslegungssache.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T05:00:00.000Z"><span class="mr-1">11.2.2022</span><span class="">06:00 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>5</span><span data-component="Branding" class="flex leading-none whitespace-nowrap theme-ct"><span class="inline-block mr-2 bg-brand-branding" style="width:.1875em;margin-right:.375em"></span>c&#x27;t Magazin</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6442084" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6442084"><a data-component="TeaserLinkContainer" href="/news/Android-13-Erste-Developer-Preview-mit-Updates-zu-Privatsphaere-und-Icon-Design-6442084.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="1991" height="1119" src="https://www.heise.de/imgs/18/3/2/9/2/4/3/2/Android_Ladestation-a354a01bcceadd04.jpeg" alt="Android-Figur mit Ladekabeln für Handys" style="aspect-ratio:1991 / 1119"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="1991" height="1119" alt="Android-Figur mit Ladekabeln für Handys" style="aspect-ratio:1991 / 1119;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Android 13: Erste Developer-Preview mit Updates zu Privatsphäre und Icon-Design</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Googles kommende Betriebssystemversion bringt mehr Einstellungen zu Datenschutz, Design und Textdarstellung. Eine stabile Beta wird für Juni versprochen.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T03:52:00.000Z"><span class="mr-1">11.2.2022</span><span class="">04:52 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>10</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6441936" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6441936"><a data-component="TeaserLinkContainer" href="/news/Tesla-Autos-duerfen-nicht-mehr-furzen-Rueckruf-in-den-USA-6441936.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="6000" height="3371" src="https://www.heise.de/imgs/18/3/2/9/2/2/8/7/shutterstock_1837170067.jpg-0c536183c44951e9.jpeg" alt="Tesla-Fahrzeuge vor dem Firmenschild" style="aspect-ratio:6000 / 3371"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="6000" height="3371" alt="Tesla-Fahrzeuge vor dem Firmenschild" style="aspect-ratio:6000 / 3371;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Tesla-Autos dürfen nicht mehr furzen – Rückruf in den USA</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Tesla muss rund 580.000 Fahrzeuge updaten. Sie sollen während der Fahrt keine ungewöhnlichen Töne in die Umgebung projizieren, weil das die Unfallgefahr erhöht.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T01:24:00.000Z"><span class="mr-1">11.2.2022</span><span class="">02:24 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>288</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6441733" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6441733"><a data-component="TeaserLinkContainer" href="/news/Twitter-hat-mehr-Nutzer-schreibt-weniger-Gewinn-6441733.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="5184" height="2913" src="https://www.heise.de/imgs/18/3/2/9/2/0/8/7/brett-jordan-ulRlAm1ITMU-unsplash-472a56418b6cdc36.jpeg" alt="Twitter-Icon auf Touchscreen" style="aspect-ratio:5184 / 2913"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="5184" height="2913" alt="Twitter-Icon auf Touchscreen" style="aspect-ratio:5184 / 2913;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Twitter hat mehr Nutzer, schreibt weniger Gewinn</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Twitter macht mit mehr Usern mehr Umsatz, doch steigen die Kosten deutlich stärker. Das schmälert den Profit. Im laufenden Quartal droht Verlust.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-11T00:31:00.000Z"><span class="mr-1">11.2.2022</span><span class="">01:31 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>2</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6440831" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6440831"><a data-component="TeaserLinkContainer" href="/news/AirTags-Apple-stellt-besseren-Stalking-Schutz-in-Aussicht-6440831.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="2449" height="1376" src="https://www.heise.de/imgs/18/3/2/9/1/1/9/6/shutterstock_1985779751.jpg-27a862d90580007a.jpeg" alt="Ein AirTag von Apple" style="aspect-ratio:2449 / 1376"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="2449" height="1376" alt="Ein AirTag von Apple" style="aspect-ratio:2449 / 1376;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">AirTags: Apple stellt besseren Stalking-Schutz in Aussicht</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Genauere Suche, frühere Sicherheitshinweise und lautere Töne sollen ungewolltes Tracking per AirTag in Zukunft erschweren. Missbrauch sei selten, sagt Apple.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-10T23:00:00.000Z"><span class="mr-1">11.2.2022</span><span class="">00:00 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>1</span><span data-component="Branding" class="flex leading-none whitespace-nowrap theme-mac-and-i"><span class="inline-block mr-2 bg-brand-branding" style="width:.1875em;margin-right:.375em"></span>Mac &amp; i</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6440372" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6440372"><a data-component="TeaserLinkContainer" href="/news/Notfall-Patch-fuer-iPhones-iPads-und-Macs-iOS-15-3-1-und-macOS-12-2-1-verfuegbar-6440372.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="6000" height="3371" src="https://www.heise.de/imgs/18/3/2/9/0/7/4/2/shutterstock_1739408351.jpg-b5889fad6de9477f.jpeg" alt="Eine Hand halt ein iPhone über eine Laptoptastatur" style="aspect-ratio:6000 / 3371"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="6000" height="3371" alt="Eine Hand halt ein iPhone über eine Laptoptastatur" style="aspect-ratio:6000 / 3371;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserKicker" class="text-base flex items-center leading-none space-x-2 flex mb-2"><span data-component="AlertBadge" class="bg-[#e42322] overflow-hidden relative pr-1 pl-3.5 text-white px-1 py-0.5 font-bold text-xs uppercase tracking-widest inline-flex items-center leading-none rounded flex-nowrap"><svg class="absolute top-0 h-4 mr-1 -left-1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 200 200"><circle cx="100" cy="100" r="100" fill="#e42322"></circle><path class="animate-pulse-slow" d="M152.25 77.74c-1.41 53.15-55.85 48.59-59.11 61.32q-.7 3.23-1.54 6.72s.47-2.55 1.54-6.72c14.21-64.77-24.09-109.39-31.46-114.3C67 80.29 26 114.06 26 143.56c0 34.1 47.67 56.44 75.53 56.44s48.35-11.76 60.1-28c20.01-27.67 7.57-84.3-9.38-94.26z" fill="#fecc0b"></path><path class="animate-pulse" d="M83.79 99.6C85 143.25 102 123.5 104.63 134c.39 1.77-8.12 19.43-9 16C84 96.76 124.42 60.12 130.47 56.08c-4.36 45.61 26.12 73.34 26.12 97.57 0 28-36 46.35-58.85 46.35S58 190.35 48.38 177C32 154.28 69.87 107.77 83.79 99.6z" fill="#fdf8cd"></path><path class="animate-pulse-fast" d="M116.38 149.36c-.58 22-23.13 20.12-24.49 25.4-.19.89-.4 1.81-.63 2.78 0 0 .19-1.06.63-2.78 5.89-26.83-10-45.32-13-47.35 2.2 23-18.63 42.29-18.63 54.51 0 14.13 23.6 18.08 35.14 18.08s20-4.87 24.9-11.6c8.25-11.46 3.1-34.92-3.92-39.04z" fill="#f3971b"></path></svg>Alert</span><span data-component="UpdateBadge" class="text-gray-600 dark:text-gray-200 dark:bg-gray-700 bg-gray-50 px-1 py-0.5 font-bold text-xs uppercase tracking-widest inline-flex items-center leading-none rounded flex-nowrap">Update</span></span><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Notfall-Patch für iPhones, iPads und Macs: iOS 15.3.1 und macOS 12.2.1 verfügbar</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Apple schließt eine Lücke, die offenbar aktiv für Angriffe ausgenutzt wird. Außerdem beseitigt der Hersteller Bugs, darunter Bluetooth-Probleme bei Intel-Macs.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-10T22:27:00.000Z"><span class="mr-1">10.2.2022</span><span class="">23:27 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>74</span><span data-component="Branding" class="flex leading-none whitespace-nowrap theme-mac-and-i"><span class="inline-block mr-2 bg-brand-branding" style="width:.1875em;margin-right:.375em"></span>Mac &amp; i</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6439153" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6439153"><a data-component="TeaserLinkContainer" href="https://www.techstage.de/ratgeber/3d-druckauflagen-besser-und-zuverlassiger-drucken-ab-10-euro/l71s8sv" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="645" height="362" src="https://www.heise.de/imgs/18/3/2/8/9/5/6/5/9b74450f69c279c7.jpeg" style="aspect-ratio:645 / 362"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="645" height="362" style="aspect-ratio:645 / 362;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">3D-Druckauflagen: besser und zuverlässiger drucken ab 10 Euro</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Ein Problem bei 3D-Druckern ist unzureichende Haftung des Filaments. Wer Fehlschläge vermeiden will, sollte die Unterschiede von Druckauflagen kennen. </p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-10T19:00:00.000Z"><span class="mr-1">10.2.2022</span><span class="">20:00 Uhr</span></time><span data-component="Branding" class="flex leading-none whitespace-nowrap theme-techstage"><span class="inline-block mr-2 bg-brand-branding" style="width:.1875em;margin-right:.375em"></span>TechStage</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6439650" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6439650"><a data-component="TeaserLinkContainer" href="/news/Mobilfunkfrequenzen-EU-Kommission-macht-mehr-Spektrum-fuer-5G-verfuegbar-6439650.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="8586" height="4824" src="https://www.heise.de/imgs/18/3/2/9/0/0/4/2/shutterstock_1407775373.jpg-04b977f38f3fe5d7.jpeg" style="aspect-ratio:8586 / 4824"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="8586" height="4824" style="aspect-ratio:8586 / 4824;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Mobilfunkfrequenzen: EU-Kommission macht mehr Spektrum für 5G verfügbar</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Die 900-MHz- und 1800-MHz-Bänder können künftig auch für 5G-Anwendungen genutzt werden. 2G, 3G und 4G sollen mittelfristig weichen. 5GHz-WLAN wird gestärkt.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-10T18:30:00.000Z"><span class="mr-1">10.2.2022</span><span class="">19:30 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>26</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6439223" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6439223"><a data-component="TeaserLinkContainer" href="/news/Groesster-Kauf-in-der-Firmengeschichte-AMD-schliesst-Xilinx-Uebernahme-ab-6439223.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="1605" height="902" src="https://www.heise.de/imgs/18/3/2/8/9/6/3/0/f44d19ac-8e4c-4f1a-b746-bdd048c4cd43.jpg-5da6705566dcbf56.jpeg" style="aspect-ratio:1605 / 902"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="1605" height="902" style="aspect-ratio:1605 / 902;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Größter Kauf in der Firmengeschichte: AMD schließt Xilinx-Übernahme ab</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Die Chiphersteller AMD und Xilinx haben ein Valentins-Date: Am 14. Februar 2022 schließt AMD die Übernahme des FPGA-Riesen ab.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-10T18:14:00.000Z"><span class="mr-1">10.2.2022</span><span class="">19:14 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>20</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6439718" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6439718"><a data-component="TeaserLinkContainer" href="/news/Ransomware-Wachsende-Bedrohung-durch-Professionalisierung-6439718.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="6000" height="3371" src="https://www.heise.de/imgs/18/3/2/9/0/1/0/7/shutterstock_470031542.jpg-6bf26f4aa2af2f9f.jpeg" style="aspect-ratio:6000 / 3371"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="6000" height="3371" style="aspect-ratio:6000 / 3371;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Ransomware: Wachsende Bedrohung durch Professionalisierung</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Das Geschäftsmodell der Erpresser entwickelt sich weiter, warnen Sicherheitsbehörden. Um &quot;Ransomware-as-a-Service&quot; entwickelt sich ein Dienstleistungssektor.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-10T18:10:00.000Z"><span class="mr-1">10.2.2022</span><span class="">19:10 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>28</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6316647" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6316647"><a data-component="TeaserLinkContainer" href="/ratgeber/Anleitung-Brille-aus-Federstahl-biegen-6316647.html" class="group md:flex" data-google-interstitial="false" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="1024" height="576" src="https://www.heise.de/imgs/18/3/2/4/9/9/0/1/aufma_6_03_brille.mbr_digital.jpg-8bde871015755b1c.jpeg" alt="Beschriftetes Foto aller Einzelteile, die für die Brille gebraucht werden: in Form gebogene Draht-Teile, Schrauben, Gläser und Nasenpads." style="aspect-ratio:1024 / 576"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="1024" height="576" alt="Beschriftetes Foto aller Einzelteile, die für die Brille gebraucht werden: in Form gebogene Draht-Teile, Schrauben, Gläser und Nasenpads." style="aspect-ratio:1024 / 576;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Anleitung: Brille aus Federstahl biegen</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Stahl ist universell einsetzbar. Draht mit den erforderlichen Eigenschaften ermöglicht die Verwirklichung einer alltagstauglichen Brille im eigenen Design. </p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><svg class="h-4" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 194 60" preserveaspectratio="xMinYMin"><title>heise_plus_positiv</title><path d="M0 0h130v60H0z"></path><path fill="#0056a4" d="M134 0h60v60h-60z"></path><path d="M13.64 46V12.11h5.52v8.74L19 25.41a19.24 19.24 0 013.29-2.47 8.11 8.11 0 014.25-1.08c2.53 0 4.37.8 5.52 2.42s1.73 3.93 1.73 6.94V46h-5.55V31.94a7.28 7.28 0 00-.87-4.13 3.24 3.24 0 00-2.83-1.2 5 5 0 00-2.71.74 17.74 17.74 0 00-2.67 2.19V46zm36.87.58a12.24 12.24 0 01-4.51-.84 10.82 10.82 0 01-3.7-2.43 11 11 0 01-2.47-3.86 14.33 14.33 0 01-.89-5.21 14.1 14.1 0 01.91-5.18 11.81 11.81 0 012.43-3.89 10.79 10.79 0 013.48-2.45 9.84 9.84 0 014-.86 10.28 10.28 0 014.22.81A8.16 8.16 0 0157 25a10.08 10.08 0 011.85 3.55 15.37 15.37 0 01.63 4.45 15 15 0 01-.07 1.54 9.34 9.34 0 01-.17 1.15h-15a7.6 7.6 0 002.26 4.91 6.68 6.68 0 004.73 1.7 8.78 8.78 0 002.85-.45 13.14 13.14 0 002.62-1.27L58.57 44a16.89 16.89 0 01-3.74 1.83 13.06 13.06 0 01-4.32.75zM44.22 32h10.46a7 7 0 00-1.17-4.29 4.25 4.25 0 00-3.63-1.56 5.19 5.19 0 00-3.69 1.49A7 7 0 0044.22 32zm20.54 14V22.43h5.52V46zm2.79-27.7a3.51 3.51 0 01-2.45-.86 2.9 2.9 0 01-1-2.26 3 3 0 011-2.28 3.85 3.85 0 014.9 0 3 3 0 011 2.28 2.9 2.9 0 01-1 2.26 3.51 3.51 0 01-2.45.86zm16.37 28.28a13.17 13.17 0 01-4.83-.94A15.45 15.45 0 0175 43.31l2.59-3.55a15 15 0 003.14 1.94 8.13 8.13 0 003.39.7 4.23 4.23 0 002.83-.79 2.58 2.58 0 00.91-2 2 2 0 00-.43-1.27 4.18 4.18 0 00-1.15-1 11.24 11.24 0 00-1.63-.79l-1.83-.74c-.77-.29-1.55-.63-2.35-1a10 10 0 01-2.14-1.39 7.19 7.19 0 01-1.53-1.9 5.22 5.22 0 01-.6-2.57 6.41 6.41 0 012.3-5.09 9.38 9.38 0 016.29-2 10.86 10.86 0 014.42.86 16.43 16.43 0 013.4 2l-2.54 3.36a13.08 13.08 0 00-2.52-1.47 6.78 6.78 0 00-2.67-.61 3.85 3.85 0 00-2.62.75 2.35 2.35 0 00-.84 1.84 1.92 1.92 0 00.41 1.23 3.9 3.9 0 001.08.89 12.79 12.79 0 001.56.72l1.85.67c.8.29 1.6.61 2.4 1a10.16 10.16 0 012.18 1.37 5.93 5.93 0 012.18 4.8 6.85 6.85 0 01-.6 2.86 6.59 6.59 0 01-1.75 2.3A8.43 8.43 0 0187.85 46a12.5 12.5 0 01-3.93.58zm24.19 0a12.24 12.24 0 01-4.56-.84 10.82 10.82 0 01-3.7-2.43 11 11 0 01-2.47-3.86 14.33 14.33 0 01-.89-5.21 14.1 14.1 0 01.91-5.18 11.81 11.81 0 012.43-3.89 10.79 10.79 0 013.48-2.45 9.84 9.84 0 014-.86 10.28 10.28 0 014.22.81 8.16 8.16 0 013 2.31 10.08 10.08 0 011.85 3.55 15.37 15.37 0 01.62 4.51 15 15 0 01-.07 1.54 9.34 9.34 0 01-.17 1.15h-15a7.6 7.6 0 002.23 4.87 6.68 6.68 0 004.73 1.7 8.78 8.78 0 002.85-.45 13.14 13.14 0 002.62-1.27l1.98 3.42a16.89 16.89 0 01-3.74 1.83 13.06 13.06 0 01-4.32.75zM101.82 32h10.46a7 7 0 00-1.17-4.29 4.25 4.25 0 00-3.63-1.56 5.19 5.19 0 00-3.69 1.49 7 7 0 00-1.97 4.36zM160 33h-12.5a3.5 3.5 0 010-7H160V13.5a3.5 3.5 0 017 0v32a3.5 3.5 0 01-7 0zm12.5-7h7a3.5 3.5 0 010 7h-7a3.5 3.5 0 010-7z" fill="#fff" fill-rule="evenodd"></path></svg><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-10T17:45:00.000Z"><span class="mr-1">10.2.2022</span><span class="">18:45 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>20</span><span data-component="Branding" class="flex leading-none whitespace-nowrap theme-make"><span class="inline-block mr-2 bg-brand-branding" style="width:.1875em;margin-right:.375em"></span>Make Magazin</span></footer></section></a></article><hr class="md:hidden border-gray-100"><article data-component="TeaserContainer" data-cid="6439377" class=" flex flex-col ho-text" data-teaser-name="HorizontalTeaser" data-upscore-object-id="6439377"><a data-component="TeaserLinkContainer" href="/news/Tesla-Chefdesigner-Keine-Inspiration-mehr-durch-Apple-6439377.html" class="group md:flex" data-google-interstitial="true" data-upscore-url="true"><figure data-component="Image" class="mb-4 md:mb-0 md:w-2/5 md:mr-4 float-right w-[28%] ml-4 md:float-none md:ml-0"><a-img width="6000" height="3371" src="https://www.heise.de/imgs/18/3/2/8/9/7/7/6/shutterstock_1837170067.jpg-0c536183c44951e9.jpeg" style="aspect-ratio:6000 / 3371"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNjk2cHgiIGhlaWdodD0iMzkxcHgiIHZpZXdCb3g9IjAgMCA2OTYgMzkxIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGcgc3Ryb2tlPSJub25lIiBmaWxsPSIjZjJmMmYyIiBmaWxsLW9wYWNpdHk9IjEiPgogICAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2OTYiIGhlaWdodD0iMzkxIj48L3JlY3Q+CiAgICA8L2c+Cjwvc3ZnPg==" width="6000" height="3371" style="aspect-ratio:6000 / 3371;object-fit:cover"></a-img></figure><section data-component="TeaserLinkContainer" class="transform -translate-y-1.5 md:w-3/5"><header data-component="TeaserHeader"><h2 class="flex flex-col"><span data-component="TeaserHeadline" class="text-lg leading-snug md:text-xl md:leading-snug font-bold max-w-prose group-hover:text-brand-branding" data-upscore-title="true">Tesla-Chefdesigner: Apple inspiriert nicht mehr</span></h2></header><p data-component="TeaserSynopsis" class="mt-3 text-base hyphens-auto hidden md:block">Statt neuen Design-Ikonen liefert Apple nach Ansicht des Tesla-Managers nur noch &quot;kleine Verfeinerungen des immer gleichen Dings&quot; ab.</p><footer data-component="TeaserMeta" class="ho-text-muted flex items-center leading-none flex-wrap gap-3 text-sm mt-4"><time data-component="TeaserDateTime" class="whitespace-nowrap" datetime="2022-02-10T17:28:00.000Z"><span class="mr-1">10.2.2022</span><span class="">18:28 Uhr</span></time><span class="flex items-center "><svg class="h-4 mr-1 text-current fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M12 2C5.37 2 0 6.48 0 12a8.87 8.87 0 002.27 5.83L0 22l5.12-1.84A13.64 13.64 0 0012 22c6.63 0 12-4.48 12-10S18.63 2 12 2zm0 18a11.6 11.6 0 01-6.28-1.78l-2.52.91 1.1-2A7.05 7.05 0 012 12c0-4.42 4.48-8 10-8s10 3.58 10 8-4.48 8-10 8z"></path></svg>81</span><span data-component="Branding" class="flex leading-none whitespace-nowrap theme-mac-and-i"><span class="inline-block mr-2 bg-brand-branding" style="width:.1875em;margin-right:.375em"></span>Mac &amp; i</span></footer></section></a></article></section><div class="flex space-x-4 leading-none tracking-widest uppercase ho-text"><a data-component="PaginationPager" href="/heise-online-3259407.html?p=2" class="hover:text-brand flex items-center space-x-2 group"><svg class="group-hover:-translate-x-1 h-3 transition-transform fill-current  transform" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 8 8"><path d="M4 8l.7-.7-2.79-2.8H8v-1H1.91L4.71.7 4 0 0 4z"></path></svg><span>Vorherige</span></a><a data-component="PaginationPager" href="/heise-online-3259407.html?p=4" class="hover:text-brand flex items-center space-x-2 group"><span>Nächste</span><svg class="group-hover:translate-x-1 h-3 transition-transform fill-current  transform" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 8 8"><path d="M4 0l-.7.7 2.79 2.8H0v1h6.09l-2.8 2.8L4 8l4-4z"></path></svg></a></div></section><script type="application/ld+json">{"@context":"https://schema.org","@id":"3259407","@type":"ItemList","name":"","description":"TeasersModule","itemListElement":[{"@type":"ListItem","position":0,"item":{"@id":"3272153","@type":"Article","containerId":6353395,"url":"/ratgeber/Das-iPhone-mit-CarPlay-im-Auto-nutzen-Augen-geradeaus-6353395.html","headline":"Praxisratgeber: Das iPhone mit CarPlay im Auto nutzen","isAccessibleForFree":true,"branding":"MAC_AND_I","isAlert":false}},{"@type":"ListItem","position":1,"item":{"@id":"3290646","@type":"Article","containerId":6440274,"url":"/news/Kommentar-Apples-Minitracker-Airtags-gefaehrlich-oder-nutzlos-also-einstellen-6440274.html","headline":"Kommentar: Apples Minitracker Airtags – gefährlich oder nutzlos, also einstellen","isAccessibleForFree":false,"branding":"MAC_AND_I","isAlert":false}},{"@type":"ListItem","position":2,"item":{"@id":"3286778","@type":"Article","containerId":6369743,"url":"/hintergrund/Abgasbetrug-Kein-Restschadenersatz-BGH-bestaetigt-Verjaehrung-der-Ansprueche-6369743.html","headline":"Abgasbetrug: Kein Restschadenersatz, BGH bestätigt Verjährung der Ansprüche","isAccessibleForFree":false,"branding":"AUTOS","isAlert":false}},{"@type":"ListItem","position":3,"item":{"@id":"3294107","@type":"Article","containerId":6443786,"url":"/news/Tesla-Kalifornische-Behoerde-klagt-wegen-Rassismus-und-Benachteiligung-6443786.html","headline":"Tesla wegen Rassismus und Benachteiligung von kalifornischer Behörde verklagt","isAccessibleForFree":false,"branding":"HEISE_ONLINE","isAlert":false}},{"@type":"ListItem","position":4,"item":{"@id":"3287411","@type":"Article","containerId":6370462,"url":"/hintergrund/Schlauer-Zwerg-Maschinelles-Lernen-mit-dem-Raspberry-Pi-Pico-Teil-3-Tuning-6370462.html","headline":"Schlauer Zwerg: Maschinelles Lernen mit dem Raspberry Pi Pico, Teil 3: Tuning","isAccessibleForFree":false,"branding":"DEVELOPER","isAlert":false}},{"@type":"ListItem","position":5,"item":{"@id":"3288051","@type":"Article","containerId":6371193,"url":"/hintergrund/Omikron-Verwandte-Virus-Varianten-im-New-Yorker-Abwasser-geben-Raetsel-auf-6371193.html","headline":"Omikron-Verwandte: Virus-Varianten im New Yorker Abwasser geben Rätsel auf","isAccessibleForFree":false,"branding":"TECHNOLOGY_REVIEW","isAlert":false}},{"@type":"ListItem","position":6,"item":{"@id":"3281170","@type":"Article","containerId":6363924,"url":"/news/Preiswerte-Thermokamera-fuer-Experimente-6363924.html","headline":"Preiswerte Thermokamera für Experimente","isAccessibleForFree":false,"branding":"MAKE","isAlert":false}},{"@type":"ListItem","position":7,"item":{"@id":"3288009","@type":"Article","containerId":6371147,"url":"/news/Team-up-Workshops-Psychologische-Sicherheit-und-Gewaltfreie-Kommunikation-6371147.html","headline":"Team-up-Workshops: Psychologische Sicherheit und Gewaltfreie Kommunikation","isAccessibleForFree":false,"branding":"DEVELOPER","isAlert":false}},{"@type":"ListItem","position":8,"item":{"@id":"3258788","@type":"Article","containerId":6330449,"url":"/hintergrund/Warum-sind-Motorraeder-so-ineffizient-6330449.html","headline":"Warum sind Motorräder so ineffizient?","isAccessibleForFree":false,"branding":"AUTOS","isAlert":false}},{"@type":"ListItem","position":9,"item":{"@id":"3287246","@type":"Article","containerId":6370280,"url":"/ratgeber/Zinsen-fuer-Kryptowaehrungen-So-funktioniert-Staking-und-so-gewinnbringend-ist-es-6370280.html","headline":"Zinsen für Kryptowährungen: So funktioniert Staking und so gewinnbringend ist es","isAccessibleForFree":true,"branding":"HEISE_ONLINE","isAlert":false}},{"@type":"ListItem","position":10,"item":{"@id":"3293921","@type":"Article","containerId":6443591,"url":"/news/Brandenburger-Justizministerin-will-Luca-App-zur-Strafverfolgung-benutzen-6443591.html","headline":"Brandenburger Justizministerin will Luca-App zur Strafverfolgung benutzen","isAccessibleForFree":false,"branding":"HEISE_ONLINE","isAlert":false}},{"@type":"ListItem","position":11,"item":{"@id":"3293751","@type":"Article","containerId":6443417,"url":"/news/Cloud-Dienste-Regierungsstratege-fordert-souveraenen-nationalen-Hyperscaler-6443417.html","headline":"Cloud-Dienste: IT-Bundesbeauftragter fordert \"souveränen nationalen Hyperscaler\"","isAccessibleForFree":false,"branding":"HEISE_ONLINE","isAlert":false}},{"@type":"ListItem","position":12,"item":{"@id":"3293294","@type":"Article","containerId":6442954,"url":"/news/Freitag-Android-13-mit-mehr-Privatsphaere-Twitter-mit-mehr-Nutzern-6442954.html","headline":"Freitag: Android 13 mit mehr Privatsphäre, Twitter mit mehr Nutzern","isAccessibleForFree":false,"branding":"HEISE_ONLINE","isAlert":false}},{"@type":"ListItem","position":13,"item":{"@id":"3271131","@type":"Article","containerId":6352194,"url":"/ratgeber/Digitales-Buch-E-Books-als-Alternative-zum-Papierbuch-eine-Entscheidungshilfe-6352194.html","headline":"Digitales Buch: E-Books als Alternative zum Papierbuch - eine Entscheidungshilfe","isAccessibleForFree":false,"branding":"CT","isAlert":false}},{"@type":"ListItem","position":14,"item":{"@id":"3293346","@type":"Article","containerId":6443008,"url":"/news/Atomkraft-Frankreich-plant-14-neue-AKW-und-laengere-Laufzeiten-fuer-alte-6443008.html","headline":"Atomkraft: Frankreich plant 14 neue AKW und längere Laufzeiten für alte","isAccessibleForFree":false,"branding":"HEISE_ONLINE","isAlert":false}},{"@type":"ListItem","position":15,"item":{"@id":"3262460","@type":"Article","containerId":6336588,"url":"/hintergrund/Auslegungssache-56-Datenschutz-fuer-Websites-6336588.html","headline":"Auslegungssache 56: Datenschutz für Websites","isAccessibleForFree":false,"branding":"CT","isAlert":false}},{"@type":"ListItem","position":16,"item":{"@id":"3292432","@type":"Article","containerId":6442084,"url":"/news/Android-13-Erste-Developer-Preview-mit-Updates-zu-Privatsphaere-und-Icon-Design-6442084.html","headline":"Android 13: Erste Developer-Preview mit Updates zu Privatsphäre und Icon-Design","isAccessibleForFree":false,"branding":"HEISE_ONLINE","isAlert":false}},{"@type":"ListItem","position":17,"item":{"@id":"3292287","@type":"Article","containerId":6441936,"url":"/news/Tesla-Autos-duerfen-nicht-mehr-furzen-Rueckruf-in-den-USA-6441936.html","headline":"Tesla-Autos dürfen nicht mehr furzen – Rückruf in den USA","isAccessibleForFree":false,"branding":"HEISE_ONLINE","isAlert":false}},{"@type":"ListItem","position":18,"item":{"@id":"3292087","@type":"Article","containerId":6441733,"url":"/news/Twitter-hat-mehr-Nutzer-schreibt-weniger-Gewinn-6441733.html","headline":"Twitter hat mehr Nutzer, schreibt weniger Gewinn","isAccessibleForFree":false,"branding":"HEISE_ONLINE","isAlert":false}},{"@type":"ListItem","position":19,"item":{"@id":"3291196","@type":"Article","containerId":6440831,"url":"/news/AirTags-Apple-stellt-besseren-Stalking-Schutz-in-Aussicht-6440831.html","headline":"AirTags: Apple stellt besseren Stalking-Schutz in Aussicht","isAccessibleForFree":false,"branding":"MAC_AND_I","isAlert":false}},{"@type":"ListItem","position":20,"item":{"@id":"3290742","@type":"Article","containerId":6440372,"url":"/news/Notfall-Patch-fuer-iPhones-iPads-und-Macs-iOS-15-3-1-und-macOS-12-2-1-verfuegbar-6440372.html","headline":"Notfall-Patch für iPhones, iPads und Macs: iOS 15.3.1 und macOS 12.2.1 verfügbar","isAccessibleForFree":false,"branding":"MAC_AND_I","isAlert":true}},{"@type":"ListItem","position":21,"item":{"@id":"3289565","@type":"Article","containerId":6439153,"url":"https://www.techstage.de/ratgeber/3d-druckauflagen-besser-und-zuverlassiger-drucken-ab-10-euro/l71s8sv","headline":"3D-Druckauflagen: besser und zuverlässiger drucken ab 10 Euro","isAccessibleForFree":true,"branding":"TECH_STAGE","isAlert":false}},{"@type":"ListItem","position":22,"item":{"@id":"3290042","@type":"Article","containerId":6439650,"url":"/news/Mobilfunkfrequenzen-EU-Kommission-macht-mehr-Spektrum-fuer-5G-verfuegbar-6439650.html","headline":"Mobilfunkfrequenzen: EU-Kommission macht mehr Spektrum für 5G verfügbar","isAccessibleForFree":false,"branding":"HEISE_ONLINE","isAlert":false}},{"@type":"ListItem","position":23,"item":{"@id":"3289630","@type":"Article","containerId":6439223,"url":"/news/Groesster-Kauf-in-der-Firmengeschichte-AMD-schliesst-Xilinx-Uebernahme-ab-6439223.html","headline":"Größter Kauf in der Firmengeschichte: AMD schließt Xilinx-Übernahme ab","isAccessibleForFree":false,"branding":"HEISE_ONLINE","isAlert":false}},{"@type":"ListItem","position":24,"item":{"@id":"3290107","@type":"Article","containerId":6439718,"url":"/news/Ransomware-Wachsende-Bedrohung-durch-Professionalisierung-6439718.html","headline":"Ransomware: Wachsende Bedrohung durch Professionalisierung","isAccessibleForFree":false,"branding":"HEISE_ONLINE","isAlert":false}},{"@type":"ListItem","position":25,"item":{"@id":"3249901","@type":"Article","containerId":6316647,"url":"/ratgeber/Anleitung-Brille-aus-Federstahl-biegen-6316647.html","headline":"Anleitung: Brille aus Federstahl biegen","isAccessibleForFree":true,"branding":"MAKE","isAlert":false}},{"@type":"ListItem","position":26,"item":{"@id":"3289776","@type":"Article","containerId":6439377,"url":"/news/Tesla-Chefdesigner-Keine-Inspiration-mehr-durch-Apple-6439377.html","headline":"Tesla-Chefdesigner: Apple inspiriert nicht mehr","isAccessibleForFree":false,"branding":"MAC_AND_I","isAlert":false}}]}</script></a-module>
+
+
+            <script>
+              performance.mark('CONTENT Ende');
+              performance.measure('CONTENT', 'CONTENT Anfang', 'CONTENT Ende');
+            </script>
+          
+            </div>
+        </div>
+          
+
+      
+
+      </div>
+
+      
+
+      
+        
+          <div class="a-layout" data-uprec-id="article-page-free"></div>
+        
+      
+
+      <div class="a-layout">
+        <div class="a-layout__container">
+          <div class="a-layout__item">
+            
+
+
+
+
+
+  <a-ad width="970" height="500" layout="responsive" instant="" safeframe="" class="a-ad a-ad--wide" sizes="970x250,960x250,800x250,500x500,300x250,695x110,fluid" targeting="{&quot;cms&quot;:3753660,&quot;kw&quot;:[],&quot;mpos&quot;:[&quot;bottom&quot;],&quot;pos&quot;:[&quot;bottom&quot;],&quot;textad&quot;:[&quot;3&quot;],&quot;themenhub&quot;:&quot;yes&quot;}" unit="/6514/www.heise.de/homepage" type="gpt" preload-distance="200" media="(min-width: 1024px)"></a-ad>
+
+
+
+
+
+
+  <a-ad width="695" height="600" layout="responsive" instant="" safeframe="" class="a-ad a-ad--wide" sizes="300x250,300x600,500x500,695x110,fluid" targeting="{&quot;cms&quot;:3753660,&quot;kw&quot;:[],&quot;mpos&quot;:[&quot;bottom&quot;],&quot;pos&quot;:[&quot;bottom&quot;],&quot;textad&quot;:[&quot;3&quot;],&quot;themenhub&quot;:&quot;yes&quot;}" unit="/6514/www.heise.de/homepage" type="gpt" preload-distance="200" media="(min-width: 768px) and (max-width: 1023px)"></a-ad>
+
+
+
+
+
+
+  <a-ad width="320" height="500" layout="responsive" instant="" safeframe="" class="a-ad a-ad--wide" sizes="300x50,300x75,300x100,300x150,300x250,300x600,320x50,320x75,320x100,320x250,fluid" targeting="{&quot;cms&quot;:3753660,&quot;kw&quot;:[],&quot;mpos&quot;:[&quot;bottom&quot;],&quot;pos&quot;:[&quot;bottom&quot;],&quot;textad&quot;:[&quot;3&quot;],&quot;themenhub&quot;:&quot;yes&quot;}" unit="/6514/www.heise.de/homepage" type="gpt" preload-distance="200" media="(min-width: 320px) and (max-width: 767px)"></a-ad>
+
+
+          </div>
+        </div>
+        <div class="a-layout__container">
+          <div class="a-layout__item">
+              <div class="bottom_up">
+                <!-- RSPEAK_STOP -->
+                <a href="#bottom-up" name="ticker.ho.bottom.up">
+                <span class="arrow"></span>nach oben</a>
+              </div>
+           </div>
+        </div>
+      </div>
+
+      <div class="a-layout a-u-no-margin-bottom">
+        <div class=" a-layout__container a-layout__container--full-width">
+          <div class="a-layout__item a-layout__item--full-width">
+              <div class="nav-bottom">
+
+  <a-collapse class="sitemap-group nav-bottom__collapse-trigger" has-indicator="" media="(max-width: 929px)" toggle-attr-on-media="disabled">
+    <header class="nav-bottom__collapse-toggle a-u-grid-pushin-mobile" data-collapse-trigger="">
+      Alle Angebote
+    </header>
+
+    <div data-collapse-target="" class="nav-bottom__content">
+
+      
+
+      
+<nav class="sitemap nav-bottom__sitemap" aria-label="Sitemap">
+
+  
+
+<a-collapse class="sitemap-group " has-indicator="" media="(max-width: 929px)" toggle-attr-on-media="disabled">
+    
+    <div class="
+        sitemap-group__header
+        a-u-grid-pushin-mobile
+      " data-collapse-trigger="">
+      IT News
+    </div>
+    
+
+    <div class="sitemap-group__content" data-collapse-target="">
+      <ul class="sitemap-group__items ">
+        
+          <li class="sitemap-group__item sitemap-group__item--newsticker">
+            <a href="/newsticker/" title="heise online" name="footer.ho.sitemap.newsticker" data-google-interstitial="false" class="sitemap-group__link ">
+              Newsticker
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--developer">
+            <a href="/developer/" title="heise Developer – Informationen für Entwickler" name="footer.ho.sitemap.developer" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Developer
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--netze">
+            <a href="/thema/netze/" title="Themenseite Netze" name="footer.ho.sitemap.netze" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Netze
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--open">
+            <a href="/thema/linux-und-open-source/" title="Themenseite Linux und Open Source" name="footer.ho.sitemap.open" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Open Source
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--security">
+            <a href="/security/" title="heise Security – News, Dienste und Foren zum Thema Computer-Sicherheit" name="footer.ho.sitemap.security" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Security
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </a-collapse>
+
+
+  
+
+<a-collapse class="sitemap-group " has-indicator="" media="(max-width: 929px)" toggle-attr-on-media="disabled">
+    
+    <div class="
+        sitemap-group__header
+        a-u-grid-pushin-mobile
+      " data-collapse-trigger="">
+      Online-Magazine
+    </div>
+    
+
+    <div class="sitemap-group__content" data-collapse-target="">
+      <ul class="sitemap-group__items ">
+        
+          <li class="sitemap-group__item sitemap-group__item--heiseplus">
+            <a href="/plus/" title="heise+ - Immer mehr Wissen." name="footer.ho.sitemap.heiseplus" data-google-interstitial="false" class="sitemap-group__link sitemap-group__link--heiseplus">
+              heise<span class="sitemap_group__heiseplus-icon">+</span>
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--tp">
+            <a href="/tp/" title="Telepolis" name="footer.ho.sitemap.tp" data-google-interstitial="false" class="sitemap-group__link ">
+              Telepolis
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--autos">
+            <a href="/autos/" title="heise Autos – News, Tests, Technik, Service rund ums Auto" name="footer.ho.sitemap.autos" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Autos
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--techstage">
+            <a href="https://www.techstage.de/" title="TechStage – News, Tests &amp; Praxis zu Smartphones und Tablets mit Android, iOS, Windows Phone &amp; Co." name="footer.ho.sitemap.techstage" data-google-interstitial="false" class="sitemap-group__link ">
+              TechStage
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--tipps-tricks">
+            <a href="/tipps-tricks/" title="tipps+tricks" name="footer.ho.sitemap.tipps-tricks" data-google-interstitial="false" class="sitemap-group__link ">
+              tipps+tricks
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </a-collapse>
+
+
+  
+
+<a-collapse class="sitemap-group sitemap-group--2-col" has-indicator="" media="(max-width: 929px)" toggle-attr-on-media="disabled">
+    
+    <div class="
+        sitemap-group__header
+        a-u-grid-pushin-mobile
+      " data-collapse-trigger="">
+      Services
+    </div>
+    
+
+    <div class="sitemap-group__content" data-collapse-target="">
+      <ul class="sitemap-group__items ">
+        
+          <li class="sitemap-group__item sitemap-group__item--jobs">
+            <a href="/jobs/" title="heise jobs – Jobbörse für qualifizierte Fach- und Führungskräfte aus der IT-Branche" name="footer.ho.sitemap.jobs" data-google-interstitial="false" class="sitemap-group__link ">
+              Stellenmarkt heise Jobs
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--bildung">
+            <a href="https://bildung.heise.de/" title="Weiterbildung für alle - Entdecken Sie, was möglich ist" name="footer.ho.sitemap.bildung" data-google-interstitial="false" class="sitemap-group__link ">
+              Weiterbildung
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--download">
+            <a href="/download/" title="heise Download – Software zum Download für Windows, Mac, Linux, iPhone, Symbian, Android" name="footer.ho.sitemap.download" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Download
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--produkte">
+            <a href="/preisvergleich/" title="Preisvergleich – Günstige Preise, Meinungen und Bewertungen zu vielen Produkten" name="footer.ho.sitemap.produkte" data-google-interstitial="false" class="sitemap-group__link ">
+              Preisvergleich
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--whitepapers">
+            <a href="https://business-services.heise.de/" title="heise Business Services – Produkte und Lösungen namhafter IT-Hersteller" name="footer.ho.sitemap.whitepapers" data-google-interstitial="false" class="sitemap-group__link ">
+              Whitepaper/Webcasts
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--tarifrechner">
+            <a href="https://tarifrechner.heise.de/dsl/" title="DSL-Vergleich" name="footer.ho.sitemap.tarifrechner" data-google-interstitial="false" class="sitemap-group__link ">
+              DSL-Vergleich
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--tools">
+            <a href="/tools/" title="Netzwerk-Tools" name="footer.ho.sitemap.tools" data-google-interstitial="false" class="sitemap-group__link ">
+              Netzwerk-Tools
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--spiele">
+            <a href="https://spiele.heise.de" title="Spielen bei Heise" name="footer.ho.sitemap.spiele" data-google-interstitial="false" class="sitemap-group__link ">
+              Spielen bei Heise
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--loseblattwerke">
+            <a href="/loseblattwerke/" title="Loseblattwerke" name="footer.ho.sitemap.loseblattwerke" data-google-interstitial="false" class="sitemap-group__link ">
+              Loseblattwerke
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--imonitor">
+            <a href="/netze/netzwerk-tools/imonitor-internet-stoerungen/" title="heise iMonitor" name="footer.ho.sitemap.imonitor" data-google-interstitial="false" class="sitemap-group__link ">
+              iMonitor
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--itmarkt">
+            <a href="/itmarkt/" title="IT-Markt – Branchenverzeichnis der IT-Fachhändler" name="footer.ho.sitemap.itmarkt" data-google-interstitial="false" class="sitemap-group__link ">
+              IT-Markt
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </a-collapse>
+
+
+  
+
+<a-collapse class="sitemap-group " has-indicator="" media="(max-width: 929px)" toggle-attr-on-media="disabled">
+    
+    <div class="
+        sitemap-group__header
+        a-u-grid-pushin-mobile
+      " data-collapse-trigger="">
+      Heise Medien
+    </div>
+    
+
+    <div class="sitemap-group__content" data-collapse-target="">
+      <ul class="sitemap-group__items ">
+        
+          <li class="sitemap-group__item sitemap-group__item--shop">
+            <a href="https://shop.heise.de" title="heise Shop – IT Fachzeitschriften, Bücher, CD/DVD/Blu-ray" name="footer.ho.sitemap.shop" data-google-interstitial="false" class="sitemap-group__link ">
+              heise Shop
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--abo">
+            <a href="https://abo.heise.de/" title="Abo – c't, iX, MIT Technology Review, c't Fotografie, Mac &amp; i, Make" name="footer.ho.sitemap.abo" data-google-interstitial="false" class="sitemap-group__link ">
+              Abo
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--events">
+            <a href="/events/" title="heise Events – Konferenzen, Seminare, Workshops" name="footer.ho.sitemap.events" data-google-interstitial="false" class="sitemap-group__link ">
+              Veranstaltungen
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--hmg">
+            <a href="https://heise-gruppe.de/-1812545" title="Arbeiten bei heise – Heise als Arbeitgeber" name="footer.ho.sitemap.hmg" data-google-interstitial="false" class="sitemap-group__link ">
+              Arbeiten bei Heise
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--mediadaten">
+            <a href="/mediadaten/" title="Mediadaten Heise Medien" name="footer.ho.sitemap.mediadaten" data-google-interstitial="false" class="sitemap-group__link ">
+              Mediadaten
+            </a>
+          </li>
+        
+          <li class="sitemap-group__item sitemap-group__item--presse">
+            <a href="https://www.heise-gruppe.de/presse/" title="Presse Informationen" name="footer.ho.sitemap.presse" data-google-interstitial="false" class="sitemap-group__link ">
+              Presse
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </a-collapse>
+
+</nav>
+
+
+      
+
+
+
+<div class="
+    notification-links
+    nav-bottom__notification-links a-u-grid-pushin-mobile
+  ">
+  
+
+<a href="/newsletter/" class="
+    link
+    notification-links__link
+  " name="footer.ho.sitemap.newsletter" data-google-interstitial="false">
+      
+
+
+<svg class="link__svg" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="xMinYMin" viewbox="0 0 24 24">
+  <path id="paper-plane-outline" d="M24,3,0,10l7.92,4.4L8,20l3.78-3.46L18,20ZM17,17.34l-5.48-3L20.85,6.4ZM20.46,5.9,9.6,13.25,4.66,10.51Z" transform="translate(0)"></path>
+</svg>
+
+
+
+    
+      <span>
+        Newsletter
+      </span>
+</a>
+
+    
+
+<a href="/benachrichtigungen/heise-bot/" class="
+    link
+    notification-links__link
+  " name="footer.ho.sitemap.heisebotti" data-google-interstitial="false">
+      
+
+
+
+
+<svg id="logo-botti" xmlns="http://www.w3.org/2000/svg" class="link__svg" viewbox="0 0 24 24">
+  <title>heiseframe_title</title>
+  <path d="M9.3,17.66c-.24.56-.62,1.21-1.32,1.21A.89.89,0,0,1,7.05,18a3,3,0,0,1,.36-1.14l3.18-7.26c.24-.55.55-.95,1.18-.95a.86.86,0,0,1,.89.89A3.36,3.36,0,0,1,12.25,11Zm2.76,1.21c.71,0,1.08-.63,1.34-1.2L14.58,15A3.74,3.74,0,0,0,15,13.59a.86.86,0,0,0-.89-.89c-.64,0-.94.43-1.19,1l-1.42,3.2A2.65,2.65,0,0,0,11.16,18,.86.86,0,0,0,12.06,18.87ZM23.64,8.3a1,1,0,0,0-1.53,1.08A9.42,9.42,0,0,1,19,10.68c-.52-4.49-4.34-7.14-8.87-7.14A10.33,10.33,0,0,0,4.4,5.22,11.49,11.49,0,0,1,2.09,1.78,1,1,0,0,0,2.51.91,1,1,0,0,0,.56,1a1,1,0,0,0,1,.91,15.71,15.71,0,0,1,1,4.84,10.36,10.36,0,0,0-2.58,7c0,5.77,4.64,9.85,10.27,9.85a10.08,10.08,0,0,0,7.47-3.53l-.42-.63a7.92,7.92,0,0,1-1,.86,10.65,10.65,0,0,1-6.16,1.94A7.51,7.51,0,0,1,2.7,14.53c0-4.82,1.92-9.13,7.37-9.13,4.07,0,7.37,2.74,7.37,7a6.65,6.65,0,0,1-1.46,4l.72.62a7.79,7.79,0,0,0,2.23-3.91,16,16,0,0,1,3.51-3.27,1,1,0,0,0,1.35-.17A1,1,0,0,0,23.64,8.3ZM10.08,21c.39.09.18-.36.48-.56s.75-.39.81-.69a1.58,1.58,0,0,1-.93.05,6.43,6.43,0,0,1-1.27-.49,2,2,0,0,0,.15,1A1,1,0,0,0,10.08,21Z" transform="translate(0 0)"></path>
+</svg>
+
+
+
+    
+      <span>
+        heise-Bot
+      </span>
+</a>
+
+    
+
+<a href="/benachrichtigungen" class="
+    link
+    notification-links__link
+  " name="footer.ho.sitemap.pushnachrichten" data-google-interstitial="false">
+      
+
+
+
+
+<svg id="cp-bell-outline" xmlns="http://www.w3.org/2000/svg" class="link__svg" viewbox="0 0 24 24">
+  <title>heiseframe_title</title>
+  <path d="M15,20.9c0,1.6-1.3,2.9-3,3c-1.6-0.1-2.9-1.4-3-3h1.7c0,0,0,0,0,0.1c0,0.7,0.6,1.3,1.3,1.3 c0.7,0,1.3-0.6,1.3-1.3c0,0,0,0,0-0.1H15z M21.9,17.2v1.7H2.1v-1.7C6.9,15.6,4.2,6.7,8.9,4c0.6-0.4,1-1.1,1-1.8l0,0 c0-1,0.7-2,1.7-2.2C11.9,0,12.1,0,12.4,0c1,0.2,1.7,1.1,1.7,2.1l0,0c0,0.7,0.4,1.4,1,1.8C19.7,6.7,17.1,15.6,21.9,17.2z M19.2,16.9 c-4-2-1.4-9.6-5.8-12.2c-0.1-0.1-0.2-0.1-0.4-0.2c-0.3-0.2-0.6-0.3-1-0.3c-0.3,0-0.6,0.1-0.9,0.2c-0.2,0.1-0.3,0.1-0.5,0.2 C6.1,7.4,8.8,14.9,4.8,16.9H19.2z"></path>
+</svg>
+
+
+
+    
+      <span class="a-u-hide-from-tablet">
+        Push
+      </span>
+      <span class="a-u-show-from-tablet">
+        Push-Nachrichten
+      </span>
+    
+</a>
+
+
+</div>
+
+
+    </div>
+
+  </a-collapse>
+
+</div>
+
+              
+
+<footer class="footer">
+  <ul class="footer__list">
+
+    
+      
+      
+      <li class="footer__item">
+        <a href="/Datenschutzerklaerung-der-Heise-Medien-GmbH-Co-KG-4860.html" class="footer__link" data-google-interstitial="false">
+          Datenschutz
+        </a>
+      </li>
+    
+      
+      
+      <li class="footer__item">
+        <a href="javascript:window._sp_.loadPrivacyManagerModal(556922);" class="footer__link" data-google-interstitial="false">
+          Cookies &amp; Tracking
+        </a>
+      </li>
+    
+      
+      
+      <li class="footer__item">
+        <a href="/impressum.html" class="footer__link" data-google-interstitial="false">
+          Impressum
+        </a>
+      </li>
+    
+      
+      
+      <li class="footer__item">
+        <a href="/kontakt/" class="footer__link" data-google-interstitial="false">
+          Kontakt
+        </a>
+      </li>
+    
+      
+      
+      <li class="footer__item">
+        <a href="https://www.heise.de/kontakt/?frage=3212474" class="footer__link" data-google-interstitial="false">
+          Barriere melden
+        </a>
+      </li>
+    
+      
+      
+      <li class="footer__item">
+        <a href="https://mediadaten.heise.de/" class="footer__link" data-google-interstitial="false">
+          Mediadaten
+        </a>
+      </li>
+    
+  </ul>
+
+  <ul class="footer__list footer__list--additional">
+    <li class="footer__item">
+      <a href="http://www.interred.de/" target="_blank" class="footer__link">
+        Content Management by
+        <strong class="interred">
+  Inter<span class="interred__red">Red</span>
+</strong>
+
+      </a>
+    </li>
+
+    
+      
+      <li class="footer__item">
+        <a href="https://www.plusline.net/" class="footer__link" data-google-interstitial="false">
+          Hosted by Plus.line
+        </a>
+      </li>
+    
+      
+      <li class="footer__item">
+        <a href="https://www.heise-gruppe.de/heise-medien.html" class="footer__link" data-google-interstitial="false">
+          Copyright © 2022 Heise Medien
+        </a>
+      </li>
+    
+
+  </ul>
+</footer>
+
+          </div>
+        </div>
+        <div id="webperfinfos" hidden="">
+          <p></p>
+          <button onclick="javascript:navigator.clipboard.writeText(document.querySelector('#webperfinfos p').innerText);">kopieren</button>
+        </div>
+      </div>
+
+      
+
+<style type="text/css">
+  #consent-edit {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    height: 58px;
+    max-width: 58px;
+  }
+  #consent-edit:empty {
+    display: none;
+  }
+</style>
+
+<div id="consent-edit"></div>
+
+    <script>performance.mark('JS-Footer Anfang');</script>
+    
+  
+    <script async="" src="/assets/heise/ho/js/ho.js?.ltc.b03d2dcf56d359aea8a9"></script>
+  
+
+
+  <a-script async="" src="/assets/heise/hobell/js/hobell.js?.ltc.2f79ca58f9d0d69aedcd" name="CleverPush" needs-consent=""></a-script>
+
+
+    <script>
+      performance.mark('JS-Footer Ende');
+      performance.measure('JS-Footer', 'JS-Footer Anfang', 'JS-Footer Ende');
+    </script>
+    
+      <div style="display: inline;"><img id="ivw_pixel_intern" src="/ivw-bin/ivw/CP?url=" width="1" height="1" alt=""></div>
+
+
+    
+
+<a-analytics type="pingdom">
+  <script type="application/json">
+    {
+      "vars": {
+        "pageId": "522482d7abe53d8730000000"
+      },
+      "options": {
+        "quota": 0.003
+      }
+    }
+  </script>
+</a-analytics>
+
+
+
+    <!--JSON-D treenode: 5 -->
+    <script>
+      performance.mark('BODY Ende');
+      performance.measure('BODY', 'BODY Anfang', 'BODY Ende');
+    </script>
+  </body>
+</html>
+<!-- Created with InterRed V21.3.6, http://www.interred.de/, by InterRed GmbH -->
+<!-- BID: 3123, iBID: 3013354, CID: 3753660, iCID: 4978956 -->
+<!-- Link: $(LB3123:Linktext)$ $(LC3753660:Linktext)$ -->
+<!-- Generiert: 2021-11-30 16:59:56 -->
+
