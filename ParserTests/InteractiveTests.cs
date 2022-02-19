@@ -1,8 +1,6 @@
 namespace ParserTests
 {
-    using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
     using HtmlAgilityPack;
     using Newtonsoft.Json;
     using NSubstitute;
@@ -35,15 +33,10 @@ namespace ParserTests
             htmlDocument.LoadHtml(File.ReadAllText(FileName));
             browser.GetPage(default).ReturnsForAnyArgs(htmlDocument);
 
-            var parser = new Parser(browser);
+            // change plugin while debugging
+            var plugin = new Parser.Plugins.Heise();
 
-            // change method name while debugging
-            var methodName = nameof(parser.GetHeiseNews);
-            var method = parser.GetType().GetMethods()
-                .Single(x => x.Name == methodName && x.GetParameters().Count() == 0);
-            Assert.IsNotNull(method, methodName);
-            var actualNewsEntries = (ICollection<NewsEntry>)method.Invoke(parser, null);
-
+            var actualNewsEntries = plugin.GetNews(browser);
             var serializedNewsEntries = JsonConvert.SerializeObject(actualNewsEntries, Formatting.Indented);
             File.WriteAllText(FileName + ".json", serializedNewsEntries);
         }
@@ -56,8 +49,7 @@ namespace ParserTests
             var url = "https://www.tagesschau.de/multimedia/bilder/gruener-pass-italien-101~_v-gross20x9.jpg";
             var newsEntry = new NewsEntry(null, null, null, url);
 
-            var parser = new Parser(browser);
-            parser.GetAndSetImage(newsEntry);
+            newsEntry.GetAndSetImage(browser);
         }
     }
 }

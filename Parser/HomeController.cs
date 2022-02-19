@@ -9,10 +9,9 @@ namespace Parser
         public IActionResult Index()
         {
             var database = this.HttpContext.RequestServices.GetService<Database>();
-            var parser = this.HttpContext.RequestServices.GetService<Parser>();
+            var browser = this.HttpContext.RequestServices.GetService<Browser>();
 
-            var relevantEntries = database.ParseEntries(parser);
-            // var relevantEntries = database.GetEntries();
+            var relevantEntries = database.ParseEntries(browser);
 
             return this.Content(relevantEntries.ToHtml(), "text/html;charset=utf-8");
         }

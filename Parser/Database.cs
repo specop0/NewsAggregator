@@ -29,23 +29,15 @@ namespace Parser
             return this.ExistingEntries.Take(70).ToList();
         }
 
-        public ICollection<NewsEntry> ParseEntries(Parser parser)
+        public ICollection<NewsEntry> ParseEntries(IBrowser browser)
         {
             var allParsedEntries = new List<NewsEntry>();
-            var newsWebsites = new Func<ICollection<NewsEntry>>[]
-            {
-                () => parser.GetTagesschauNews(),
-                () => parser.GetComputerBaseNews(),
-                () => parser.GetHeiseNews(),
-                () => parser.GetRadioHochstiftNews(),
-                () => parser.GetRadioLippeNews(),
-                () => parser.GetWdrBielefeldNews(),
-            };
-            foreach (var newsWebsite in newsWebsites)
+            var plugins = Plugins.Plugins.GetPlugins();
+            foreach (var plugin in plugins)
             {
                 try
                 {
-                    allParsedEntries.AddRange(newsWebsite());
+                    allParsedEntries.AddRange(plugin.GetNews(browser));
                 }
                 catch (Exception exception)
                 {
@@ -66,7 +58,7 @@ namespace Parser
                 }
 
                 // load image and set it as base64 encoded image
-                parser.GetAndSetImage(newEntry);
+                newEntry.GetAndSetImage(browser);
 
                 // return new entry
                 if (isFirstNewEntry)

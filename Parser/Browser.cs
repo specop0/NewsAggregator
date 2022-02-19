@@ -19,7 +19,6 @@ namespace Parser
             if (response.IsSuccessStatusCode)
             {
                 var content = response.Content.ReadAsStringAsync().Result;
-                // System.IO.File.WriteAllText(System.DateTime.Now.Ticks + ".html", content);
                 var document = new HtmlDocument();
                 document.LoadHtml(content);
                 return document;

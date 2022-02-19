@@ -1,7 +1,12 @@
 namespace Parser
 {
+    using System;
     using System.Collections.Generic;
+    using System.IO;
     using HtmlAgilityPack;
+    using SixLabors.ImageSharp;
+    using SixLabors.ImageSharp.Formats.Jpeg;
+    using SixLabors.ImageSharp.Processing;
     public static class ExtensionMethods
     {
         public static bool TryGetValue(this HtmlAttributeCollection attributes, string key, out string value)
@@ -36,7 +41,7 @@ namespace Parser
             builder.AppendLine("body { background: lightgray; }");
             builder.AppendLine("div { margin: 50px; }");
             builder.AppendLine("a { text-decoration: none; }");
-            builder.AppendLine("img { max-width: 60%; min-width: 600px; }");
+            builder.AppendLine("img { max-width: 60%; min-width: 400px; }");
             builder.AppendLine(".title { font-weight: bold; }");
             builder.AppendLine("@media only screen and (min-width: 1000px) { p { width: 50%; } }");
             builder.AppendLine("</style>");
@@ -61,6 +66,72 @@ namespace Parser
             builder.AppendLine("</body>");
             builder.AppendLine("</html>");
             return builder.ToString();
+        }
+
+        public static void GetAndSetImage(this NewsEntry newsEntry, IBrowser browser)
+        {
+            if (string.IsNullOrWhiteSpace(newsEntry.ImageUrl))
+            {
+                return;
+            }
+
+            try
+            {
+                var imageData = browser.GetData(newsEntry.ImageUrl);
+                if (imageData == null)
+                {
+                    return;
+                }
+
+                var resizedImageData = imageData.ResizeImageIfTooLarge(450);
+
+                var serializedImageData = System.Convert.ToBase64String(resizedImageData);
+                newsEntry.ImageData = $"data:image/jpg;base64,{serializedImageData}";
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
+        }
+
+        public static byte[] ResizeImageIfTooLarge(this byte[] imageData, int maxWidthOrHeight)
+        {
+            if (imageData == null)
+            {
+                return null;
+            }
+
+            using (var inputStream = new MemoryStream(imageData))
+            using (var inputImage = Image.Load(inputStream))
+            using (var outputStream = new MemoryStream())
+            {
+                var width = inputImage.Width;
+                var height = inputImage.Height;
+
+                var maxLength = Math.Max(width, height);
+                if (maxLength < maxWidthOrHeight)
+                {
+                    return imageData;
+                }
+
+                var scalingFactor = (double)maxWidthOrHeight / maxLength;
+                var newSize = new Size(
+                    (int)Math.Round(width * scalingFactor),
+                    (int)Math.Round(height * scalingFactor));
+
+                using (var resizedImage = inputImage.Clone(imageContext => imageContext.Resize(newSize)))
+                {
+                    resizedImage.Save(
+                        outputStream,
+                        new JpegEncoder
+                        {
+                            Quality = 70
+                        }
+                    );
+                    var convertedImageData = outputStream.ToArray();
+                    return convertedImageData;
+                }
+            }
         }
     }
 }

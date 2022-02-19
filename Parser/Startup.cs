@@ -19,7 +19,7 @@ namespace Parser
         {
             services.AddMvc(options => options.EnableEndpointRouting = false);
 
-            services.AddSingleton(new Parser(new Browser()));
+            services.AddSingleton(new Browser());
             services.AddSingleton(new Database());
         }
 
