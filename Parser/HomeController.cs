@@ -36,13 +36,15 @@ namespace Parser
 
             var newEntries = new List<NewsEntry>();
 
-            foreach (var newEntry in this.GetLatestNews().Reverse())
+            var oldEntryIndex = 0;
+            foreach (var newEntry in this.GetLatestNews())
             {
                 if (oldEntriesSet.TryGetValue(newEntry, out var oldEntry))
                 {
                     // reorder old entry (has image and should not be removed)
                     oldEntries.Remove(oldEntry);
-                    oldEntries.Insert(0, oldEntry);
+                    oldEntries.Insert(oldEntryIndex, oldEntry);
+                    oldEntryIndex++;
                 }
                 else
                 {
