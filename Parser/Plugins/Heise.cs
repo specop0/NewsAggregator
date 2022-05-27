@@ -18,7 +18,7 @@ namespace Parser.Plugins
                 var url = "https://www.heise.de/";
                 if (i > 1)
                 {
-                    url += $"heise-online-3259407.html?p={i}";
+                    url += $"heise-online-5128.html?p={i}";
                 }
                 foreach (var news in this.GetNews(browser, url))
                 {
@@ -37,6 +37,7 @@ namespace Parser.Plugins
                 .Descendants("article")
                 .Select(this.ParseArticle)
                 .OfType<NewsEntry>()
+                .Distinct()
                 .ToList();
             return articles;
         }
