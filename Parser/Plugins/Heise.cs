@@ -99,6 +99,11 @@ namespace Parser.Plugins
                 imageUrl = "https://www.heise.de" + imageUrl;
             }
 
+            if (!string.IsNullOrEmpty(imageUrl))
+            {
+                imageUrl = imageUrl.Replace("https://www.heise.de", "https://heise.cloudimg.io/v7/_www-heise-de_") + "?width=516";
+            }
+
             var newsEntry = new NewsEntry(
                 url,
                 title,

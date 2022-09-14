@@ -52,6 +52,9 @@ namespace ParserTests
 
             // Assert
             CollectionAssert.AreEqual(expectedNewsEntries, actualNewsEntries);
+            CollectionAssert.AreEqual(
+                expectedNewsEntries.Select(x => x.ImageUrl).ToArray(),
+                actualNewsEntries.Select(x => x.ImageUrl).ToArray());
         }
 
         [TestCase("heise-1.html", "heise-1.json")]
@@ -71,6 +74,9 @@ namespace ParserTests
             // Assert
             var actualNewsEntries = testee.GetNews(this.Browser, string.Empty);
             CollectionAssert.AreEqual(expectedNewsEntries, actualNewsEntries);
+            CollectionAssert.AreEqual(
+                expectedNewsEntries.Select(x => x.ImageUrl).ToArray(),
+                actualNewsEntries.Select(x => x.ImageUrl).ToArray());
         }
 
         [TestCase("computerbase.html", "computerbase.json", "computerbase")]
