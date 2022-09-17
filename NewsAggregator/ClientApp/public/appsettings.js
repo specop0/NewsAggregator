@@ -1,0 +1,3 @@
+window.configuration = {
+    "backendUrl" : "/news"
+}
