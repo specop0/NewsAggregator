@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using NewsAggregator.Database;
 using NewsAggregator.Model;
 using NewsAggregator.Parser;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace NewsAggregator.Controllers;
 
@@ -28,15 +29,13 @@ public class NewsController : ControllerBase
         };
     }
 
-    /// <summary>
-    /// Gets the news.
-    /// </summary>
-    /// <param name="isLatest"><c>true</c> if latest news shall be returned, <c>false</c> otherwise. Default is <c>true</c>.</param>
-    /// <response code="200">Returns the news.</response>
     [HttpGet]
-    [OperationId("getNews")]
-    [ProducesResponseType(typeof(IEnumerable<News>), StatusCodes.Status200OK)]
-    public async Task<IActionResult> Get([FromQuery] bool? isLatest)
+    [SwaggerOperation(
+        OperationId = "getNews",
+        Summary = "Gets the news.")]
+    [SwaggerResponse(StatusCodes.Status200OK, "Returns the news.", typeof(IEnumerable<News>))]
+    public async Task<IActionResult> Get(
+        [FromQuery, SwaggerParameter("'true' if latest news shall be returned, 'false' otherwise. Default is 'true'")] bool? isLatest)
     {
         List<NewsEntry> relevantEntries;
         const int newsCount = 260;

@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "news-aggregator",
+    "title": "NewsAggregator",
     "version": "1.0"
   },
   "servers": [
@@ -12,16 +12,14 @@
   "paths": {
     "/api/News": {
       "get": {
-        "tags": [
-          "News"
-        ],
+        "tags": ["News"],
         "summary": "Gets the news.",
         "operationId": "getNews",
         "parameters": [
           {
             "name": "isLatest",
             "in": "query",
-            "description": "`true` if latest news shall be returned, `false` otherwise. Default is `true`.",
+            "description": "'true' if latest news shall be returned, 'false' otherwise. Default is 'true'",
             "schema": {
               "type": "boolean"
             }

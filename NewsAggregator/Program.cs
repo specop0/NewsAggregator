@@ -23,24 +23,7 @@ public class Program
         builder.Services.AddControllers();
         builder.Services.AddSwaggerGen(swagger =>
         {
-            swagger.CustomOperationIds(apiDescription =>
-            {
-                var operationId = string.Empty;
-                if (apiDescription.ActionDescriptor is ControllerActionDescriptor actionDescriptor)
-                {
-                    operationId = actionDescriptor.MethodInfo.GetCustomAttribute<OperationIdAttribute>()?.Id;
-                }
-
-                if (string.IsNullOrEmpty(operationId))
-                {
-                    logger?.LogError("OperationId missing: {}", apiDescription.ActionDescriptor.DisplayName);
-                }
-
-                return operationId;
-            });
-
-            var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-            swagger.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+            swagger.EnableAnnotations();
         });
         builder.Services.AddSingleton<Browser>();
         builder.Services.AddSingleton<DatabaseService>();
