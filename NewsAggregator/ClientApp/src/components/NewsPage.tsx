@@ -6,30 +6,38 @@ import { useToolBarDispatch } from "./ToolBarProvider";
 
 const NewsPage: React.FC = () => {
   const [isLatest, setIsLatest] = React.useState<boolean>(false);
-  const { data, isLoading, error, refetch, isRefetching } = useGetNews({
-    queryParams: {
-      isLatest,
-    },
-  });
+  const { data, isLoading, error, mutate } = useGetNews();
   const newsEntries = data ?? [];
 
   const toolBarDispatch = useToolBarDispatch();
+
+  React.useEffect(() => {
+    mutate({
+      body: {
+        isLatest: isLatest,
+      },
+    });
+  }, [isLatest]);
 
   React.useEffect(() => {
     const onRefresh = async () => {
       if (!isLatest) {
         setIsLatest(true);
       } else {
-        refetch();
+        mutate({
+          body: {
+            isLatest: isLatest,
+          },
+        });
       }
     };
 
     toolBarDispatch({
       onRefresh,
     });
-  }, [toolBarDispatch, isLatest, refetch]);
+  }, [toolBarDispatch, isLatest, mutate]);
 
-  if (isLoading || isRefetching) {
+  if (isLoading) {
     return (
       <Box
         display="flex"

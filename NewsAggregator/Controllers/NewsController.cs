@@ -29,17 +29,16 @@ public class NewsController : ControllerBase
         };
     }
 
-    [HttpGet]
+    [HttpPost]
     [SwaggerOperation(
         OperationId = "getNews",
         Summary = "Gets the news.")]
     [SwaggerResponse(StatusCodes.Status200OK, "Returns the news.", typeof(IEnumerable<News>))]
-    public async Task<IActionResult> Get(
-        [FromQuery, SwaggerParameter("'true' if latest news shall be returned, 'false' otherwise. Default is 'true'")] bool? isLatest)
+    public async Task<IActionResult> Get([FromBody, SwaggerRequestBody] GetNewsRequest request)
     {
         List<NewsEntry> relevantEntries;
         const int newsCount = 260;
-        if (isLatest == false)
+        if (request?.IsLatest == false)
         {
             var databaseService = this.HttpContext.RequestServices.GetRequiredService<DatabaseService>();
             relevantEntries = (await databaseService.GetEntries()).Take(newsCount).ToList();

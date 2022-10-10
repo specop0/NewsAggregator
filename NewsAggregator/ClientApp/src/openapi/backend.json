@@ -11,20 +11,29 @@
   ],
   "paths": {
     "/api/News": {
-      "get": {
+      "post": {
         "tags": ["News"],
         "summary": "Gets the news.",
         "operationId": "getNews",
-        "parameters": [
-          {
-            "name": "isLatest",
-            "in": "query",
-            "description": "'true' if latest news shall be returned, 'false' otherwise. Default is 'true'",
-            "schema": {
-              "type": "boolean"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetNewsRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetNewsRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetNewsRequest"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "Returns the news.",
@@ -45,6 +54,17 @@
   },
   "components": {
     "schemas": {
+      "GetNewsRequest": {
+        "type": "object",
+        "properties": {
+          "isLatest": {
+            "type": "boolean",
+            "description": "'true' if latest news shall be returned, 'false' otherwise. Default is 'true'",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "News": {
         "type": "object",
         "properties": {

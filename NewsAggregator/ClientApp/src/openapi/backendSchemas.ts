@@ -3,6 +3,13 @@
  *
  * @version 1.0
  */
+export type GetNewsRequest = {
+  /**
+   * 'true' if latest news shall be returned, 'false' otherwise. Default is 'true'
+   */
+  isLatest?: boolean | null;
+};
+
 export type News = {
   url?: string | null;
   title?: string | null;

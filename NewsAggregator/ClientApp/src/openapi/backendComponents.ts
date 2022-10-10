@@ -9,52 +9,48 @@ import type * as Fetcher from "./backendFetcher";
 import { backendFetch } from "./backendFetcher";
 import type * as Schemas from "./backendSchemas";
 
-export type GetNewsQueryParams = {
-  /**
-   * `true` if latest news shall be returned, `false` otherwise. Default is `true`.
-   */
-  isLatest?: boolean;
-};
-
 export type GetNewsError = Fetcher.ErrorWrapper<undefined>;
 
 export type GetNewsResponse = Schemas.News[];
 
 export type GetNewsVariables = {
-  queryParams?: GetNewsQueryParams;
+  body?: Schemas.GetNewsRequest;
 } & BackendContext["fetcherOptions"];
 
 export const fetchGetNews = (variables: GetNewsVariables) =>
   backendFetch<
     GetNewsResponse,
     GetNewsError,
-    undefined,
+    Schemas.GetNewsRequest,
     {},
-    GetNewsQueryParams,
+    {},
     {}
-  >({ url: "/api/News", method: "get", ...variables });
+  >({ url: "/api/News", method: "post", ...variables });
 
-export const useGetNews = <TData = GetNewsResponse>(
-  variables: GetNewsVariables,
+export const useGetNews = (
   options?: Omit<
-    reactQuery.UseQueryOptions<GetNewsResponse, GetNewsError, TData>,
-    "queryKey" | "queryFn"
+    reactQuery.UseMutationOptions<
+      GetNewsResponse,
+      GetNewsError,
+      GetNewsVariables
+    >,
+    "mutationFn"
   >
 ) => {
-  const { fetcherOptions, queryOptions, queryKeyFn } =
-    useBackendContext(options);
-  return reactQuery.useQuery<GetNewsResponse, GetNewsError, TData>(
-    queryKeyFn({ path: "/api/News", operationId: "getNews", variables }),
-    () => fetchGetNews({ ...fetcherOptions, ...variables }),
-    {
-      ...options,
-      ...queryOptions,
-    }
+  const { fetcherOptions } = useBackendContext();
+  return reactQuery.useMutation<
+    GetNewsResponse,
+    GetNewsError,
+    GetNewsVariables
+  >(
+    (variables: GetNewsVariables) =>
+      fetchGetNews({ ...fetcherOptions, ...variables }),
+    options
   );
 };
 
 export type QueryOperation = {
-  path: "/api/News";
-  operationId: "getNews";
-  variables: GetNewsVariables;
+  path: string;
+  operationId: never;
+  variables: unknown;
 };
