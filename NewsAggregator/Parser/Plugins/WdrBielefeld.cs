@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using HtmlAgilityPack;
 using NewsAggregator.Database;
 
@@ -11,10 +12,10 @@ public class WdrBielefeld : Plugin
     {
     }
 
-    public override ICollection<NewsEntry> GetNews(IBrowser browser)
+    public override async Task<ICollection<NewsEntry>> GetNews(IBrowser browser)
     {
         var url = "https://www1.wdr.de/nachrichten/bielefeld-nachrichten-100.html";
-        var page = browser.GetPage(url);
+        var page = await browser.GetPage(url);
 
         var newsEntries = page.DocumentNode
             .Descendants("div")

@@ -61,7 +61,7 @@ public class NewsController : ControllerBase
     private async Task<(ICollection<NewsEntry> New, ICollection<NewsEntry> Old)> GetNews()
     {
         var database = this.HttpContext.RequestServices.GetRequiredService<DatabaseService>();
-        var browser = this.HttpContext.RequestServices.GetRequiredService<Browser>();
+        var browser = this.HttpContext.RequestServices.GetRequiredService<IBrowser>();
 
         var oldEntries = (await database.GetEntries()).ToList();
         var oldEntriesSet = new HashSet<NewsEntry>(oldEntries);
@@ -69,7 +69,7 @@ public class NewsController : ControllerBase
         var newEntries = new List<NewsEntry>();
 
         var oldEntryIndex = 0;
-        foreach (var newEntry in this.GetLatestNews())
+        foreach (var newEntry in await this.GetLatestNews())
         {
             if (oldEntriesSet.TryGetValue(newEntry, out var oldEntry))
             {
@@ -81,7 +81,7 @@ public class NewsController : ControllerBase
             else
             {
                 // load image and set it as base64 encoded image
-                newEntry.GetAndSetImage(browser);
+                await newEntry.GetAndSetImage(browser);
 
                 newEntries.Add(newEntry);
             }
@@ -93,9 +93,9 @@ public class NewsController : ControllerBase
         return (newEntries, oldEntries);
     }
 
-    private ICollection<NewsEntry> GetLatestNews()
+    private async Task<ICollection<NewsEntry>> GetLatestNews()
     {
-        var browser = this.HttpContext.RequestServices.GetRequiredService<Browser>();
+        var browser = this.HttpContext.RequestServices.GetRequiredService<IBrowser>();
 
         var allParsedEntries = new List<NewsEntry>();
         var plugins = NewsAggregator.Parser.Plugins.Plugins.GetPlugins();
@@ -103,7 +103,7 @@ public class NewsController : ControllerBase
         {
             try
             {
-                allParsedEntries.AddRange(plugin.GetNews(browser));
+                allParsedEntries.AddRange(await plugin.GetNews(browser));
             }
             catch (Exception exception)
             {

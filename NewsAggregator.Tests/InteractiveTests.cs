@@ -1,8 +1,10 @@
 using System.IO;
+using System.Net.Http;
+using System.Threading.Tasks;
 using HtmlAgilityPack;
+using Microsoft.Extensions.Configuration;
 using NewsAggregator.Database;
 using NewsAggregator.Parser;
-using NewsAggregator.Tests;
 using Newtonsoft.Json;
 using NSubstitute;
 using NUnit.Framework;
@@ -14,14 +16,27 @@ public class InteractiveTests : TestsBase
 {
     public const string FileName = "InteractiveTests.html";
 
-    [Test]
-    public void DownloadHtml()
+    public IBrowser CreateBrowser()
     {
-        var browser = new Browser();
+        var httpClientFactory = Substitute.For<IHttpClientFactory>();
+        httpClientFactory.CreateClient(default).ReturnsForAnyArgs(new HttpClient());
+
+        var configuration = Substitute.For<IConfiguration>();
+        var urlSection = Substitute.For<IConfigurationSection>();
+        configuration.GetSection("Browser:Url").Returns(urlSection);
+        urlSection.Value.Returns("http://localhost:5022/mine");
+
+        return new ExternalBrowser(httpClientFactory, configuration);
+    }
+
+    [Test]
+    public async Task DownloadHtml()
+    {
+        var browser = this.CreateBrowser();
 
         // change URL while debugging
         var url = "https://www.heise.de/heise-online-5128.html?p=2";
-        var htmlDocument = browser.GetPage(url);
+        var htmlDocument = await browser.GetPage(url);
 
         htmlDocument.Save(FileName);
     }
@@ -44,13 +59,13 @@ public class InteractiveTests : TestsBase
     }
 
     [Test]
-    public void GetAndSetImage()
+    public async Task GetAndSetImage()
     {
-        var browser = new Browser();
+        var browser = this.CreateBrowser();
 
         var url = "https://www.tagesschau.de/multimedia/bilder/gruener-pass-italien-101~_v-gross20x9.jpg";
         var newsEntry = new NewsEntry(null, null, null, url);
 
-        newsEntry.GetAndSetImage(browser);
+        await newsEntry.GetAndSetImage(browser);
     }
 }

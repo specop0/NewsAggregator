@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using HtmlAgilityPack;
 using NewsAggregator.Database;
 
@@ -11,7 +12,7 @@ public class Heise : Plugin
     {
     }
 
-    public override ICollection<NewsEntry> GetNews(IBrowser browser)
+    public override async Task<ICollection<NewsEntry>> GetNews(IBrowser browser)
     {
         var newsEntries = new HashSet<NewsEntry>();
         for (var i = 1; i <= 3; i++)
@@ -21,7 +22,7 @@ public class Heise : Plugin
             {
                 url += $"heise-online-5128.html?p={i}";
             }
-            foreach (var news in this.GetNews(browser, url))
+            foreach (var news in await this.GetNews(browser, url))
             {
                 newsEntries.Add(news);
             }
@@ -30,9 +31,11 @@ public class Heise : Plugin
         return newsEntries;
     }
 
-    public ICollection<NewsEntry> GetNews(IBrowser browser, string url)
+    public async Task<ICollection<NewsEntry>> GetNews(
+        IBrowser browser,
+        string url)
     {
-        var page = browser.GetPage(url);
+        var page = await browser.GetPage(url);
 
         var articles = page.DocumentNode
             .Descendants("article")

@@ -1,9 +1,10 @@
+using System.Threading.Tasks;
 using HtmlAgilityPack;
 
 namespace NewsAggregator.Parser;
 
 public interface IBrowser
 {
-    HtmlDocument GetPage(string? url);
-    byte[] GetData(string? url);
+    Task<HtmlDocument> GetPage(string? url);
+    Task<byte[]> GetImageData(string? url);
 }

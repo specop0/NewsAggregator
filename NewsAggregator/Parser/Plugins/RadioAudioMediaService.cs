@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using HtmlAgilityPack;
 using NewsAggregator.Database;
 
@@ -16,9 +17,9 @@ public abstract class RadioAudoMediaService : Plugin
     public string BaseUrl { get; }
     public string NewsUrl { get; }
 
-    public override ICollection<NewsEntry> GetNews(IBrowser browser)
+    public override async Task<ICollection<NewsEntry>> GetNews(IBrowser browser)
     {
-        var page = browser.GetPage(this.NewsUrl);
+        var page = await browser.GetPage(this.NewsUrl);
 
         var newsEntries = page.DocumentNode
             .Descendants("div")

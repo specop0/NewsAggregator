@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using NewsAggregator.Database;
 using NewsAggregator.Parser;
 using SixLabors.ImageSharp;
@@ -10,7 +11,7 @@ namespace NewsAggregator;
 
 public static class ExtensionMethods
 {
-    public static void GetAndSetImage(this NewsEntry newsEntry, IBrowser browser)
+    public static async Task GetAndSetImage(this NewsEntry newsEntry, IBrowser browser)
     {
         if (string.IsNullOrWhiteSpace(newsEntry.ImageUrl))
         {
@@ -19,7 +20,7 @@ public static class ExtensionMethods
 
         try
         {
-            var imageData = browser.GetData(newsEntry.ImageUrl);
+            var imageData = await browser.GetImageData(newsEntry.ImageUrl);
             if (imageData == null)
             {
                 return;

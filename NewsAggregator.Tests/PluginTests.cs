@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using HtmlAgilityPack;
 using NewsAggregator.Database;
 using NewsAggregator.Parser;
@@ -32,7 +33,7 @@ public class PluginTests : TestsBase
         {
             var htmlDocument = new HtmlDocument();
             htmlDocument.LoadHtml(htmlContent);
-            return htmlDocument;
+            return Task.FromResult(htmlDocument);
         }).ToList();
 
         this.Browser.GetPage(null).ReturnsForAnyArgs(
@@ -40,7 +41,7 @@ public class PluginTests : TestsBase
             htmlPages.Skip(1).ToArray());
     }
 
-    protected void AssertParsing(IPlugin testee, string inputHtmlName, string expectedJsonName)
+    protected async Task AssertParsing(IPlugin testee, string inputHtmlName, string expectedJsonName)
     {
         // Arrange
         var expectedNewsEntries = JsonConvert.DeserializeObject<NewsEntry[]>(this.GetResource(expectedJsonName));
@@ -49,7 +50,7 @@ public class PluginTests : TestsBase
         this.SustitutePages(this.GetResource(inputHtmlName));
 
         // Act
-        var actualNewsEntries = testee.GetNews(this.Browser);
+        var actualNewsEntries = await testee.GetNews(this.Browser);
 
         // Assert
         CollectionAssert.AreEqual(expectedNewsEntries, actualNewsEntries);
@@ -61,7 +62,7 @@ public class PluginTests : TestsBase
     [TestCase("heise-1.html", "heise-1.json")]
     [TestCase("heise-2.html", "heise-2.json")]
     [TestCase("heise-3.html", "heise-3.json")]
-    public void TestHeise(string inputHtmlName, string expectedJsonName)
+    public async Task TestHeise(string inputHtmlName, string expectedJsonName)
     {
         // Arrange
         var expectedNewsEntries = JsonConvert.DeserializeObject<NewsEntry[]>(this.GetResource(expectedJsonName));
@@ -73,7 +74,7 @@ public class PluginTests : TestsBase
         var testee = new Heise();
 
         // Assert
-        var actualNewsEntries = testee.GetNews(this.Browser, string.Empty);
+        var actualNewsEntries = await testee.GetNews(this.Browser, string.Empty);
         CollectionAssert.AreEqual(expectedNewsEntries, actualNewsEntries);
         CollectionAssert.AreEqual(
             expectedNewsEntries.Select(x => x.ImageUrl).ToArray(),
@@ -85,25 +86,25 @@ public class PluginTests : TestsBase
     [TestCase("wdr-bielefeld.html", "wdr-bielefeld.json", "wdrbielefeld")]
     [TestCase("radiohochstift.html", "radiohochstift.json", "radiohochstift")]
     [TestCase("radiolippe.html", "radiolippe.json", "radiolippe")]
-    public void TestPlugin(string inputHtmlName, string expectedJsonName, string pluginId)
+    public async Task TestPlugin(string inputHtmlName, string expectedJsonName, string pluginId)
     {
         var testee = Plugins.GetPlugins().Single(x => x.Id == pluginId);
-        this.AssertParsing(testee, inputHtmlName, expectedJsonName);
+        await this.AssertParsing(testee, inputHtmlName, expectedJsonName);
     }
 
     [Test]
-    public void TestGetAndSetImage()
+    public async Task TestGetAndSetImage()
     {
         // Arrange
         var jImage = JObject.Parse(this.GetResource("image.json"));
         var inputString = jImage.Value<string>("input") ?? throw new NullReferenceException();
         var inputData = System.Convert.FromBase64String(inputString);
-        this.Browser.GetData(null).ReturnsForAnyArgs(inputData);
+        this.Browser.GetImageData(null).ReturnsForAnyArgs(Task.FromResult(inputData));
 
         var newsEntry = new NewsEntry(null, null, null, "image url");
 
         // Act
-        newsEntry.GetAndSetImage(this.Browser);
+        await newsEntry.GetAndSetImage(this.Browser);
 
         // Assert
         var outputString = jImage.Value<string>("output");
