@@ -1,4 +1,11 @@
-import { BackendContext } from "./backendContext";
+export type BackendFetcherExtraProps = {
+  /**
+   * You can add some extra props to your generated fetchers.
+   *
+   * Note: You need to re-gen after adding the first property to
+   * have the `BackendFetcherExtraProps` injected in `BackendComponents.ts`
+   **/
+};
 
 export type ErrorWrapper<TError> =
   | TError
@@ -12,7 +19,8 @@ export type BackendFetcherOptions<TBody, THeaders, TQueryParams, TPathParams> =
     headers?: THeaders;
     queryParams?: TQueryParams;
     pathParams?: TPathParams;
-  } & BackendContext["fetcherOptions"];
+    signal?: AbortSignal;
+  } & BackendFetcherExtraProps;
 
 export async function backendFetch<
   TData,
@@ -28,6 +36,7 @@ export async function backendFetch<
   headers,
   pathParams,
   queryParams,
+  signal,
 }: BackendFetcherOptions<
   TBody,
   THeaders,
@@ -40,6 +49,7 @@ export async function backendFetch<
     const response = await window.fetch(
       `${baseUrl}${resolveUrl(url, queryParams, pathParams)}`,
       {
+        signal,
         method: method.toUpperCase(),
         body: body ? JSON.stringify(body) : undefined,
         headers: {
@@ -52,11 +62,12 @@ export async function backendFetch<
       try {
         error = await response.json();
       } catch (e) {
+        const message = await response.text()
         error = {
           status: "unknown" as const,
           payload:
-            e instanceof Error
-              ? `Unexpected error (${e.message})`
+            message !== null
+              ? `Unexpected error (${message})`
               : "Unexpected error",
         };
       }
@@ -67,7 +78,7 @@ export async function backendFetch<
     if (response.headers.get("content-type")?.includes("json")) {
       return await response.json();
     } else {
-      // if it is not a json response, asume it is a blob and cast it to TData
+      // if it is not a json response, assume it is a blob and cast it to TData
       return (await response.blob()) as unknown as TData;
     }
   } catch (e) {

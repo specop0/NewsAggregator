@@ -17,7 +17,10 @@ export type GetNewsVariables = {
   body?: Schemas.GetNewsRequest;
 } & BackendContext["fetcherOptions"];
 
-export const fetchGetNews = (variables: GetNewsVariables) =>
+export const fetchGetNews = (
+  variables: GetNewsVariables,
+  signal?: AbortSignal
+) =>
   backendFetch<
     GetNewsResponse,
     GetNewsError,
@@ -25,7 +28,7 @@ export const fetchGetNews = (variables: GetNewsVariables) =>
     {},
     {},
     {}
-  >({ url: "/api/News", method: "post", ...variables });
+  >({ url: "/api/News", method: "post", ...variables, signal });
 
 export const useGetNews = (
   options?: Omit<

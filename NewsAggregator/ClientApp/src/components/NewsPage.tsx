@@ -17,7 +17,7 @@ const NewsPage: React.FC = () => {
         isLatest: isLatest,
       },
     });
-  }, [isLatest]);
+  }, [isLatest, mutate]);
 
   React.useEffect(() => {
     const onRefresh = async () => {
@@ -57,8 +57,8 @@ const NewsPage: React.FC = () => {
   return (
     <Grid container spacing={2} justifyContent="center">
       {newsEntries.map((news, i) => (
-        <Grid item>
-          <NewsCard key={i} news={news} />
+        <Grid item key={i}>
+          <NewsCard news={news} />
         </Grid>
       ))}
     </Grid>
