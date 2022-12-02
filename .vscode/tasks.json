@@ -1,0 +1,62 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "npm start",
+            "command": "npm",
+            "type": "process",
+            "args": [
+                "start"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/NewsAggregator/ClientApp"
+            },
+            "problemMatcher": "$eslint-compact",
+            "group": "build"
+        },
+        {
+            "label": "dotnet run",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "run",
+                "NewsAggregator.csproj",
+                "--environment",
+                "Development"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/NewsAggregator"
+            },
+            "problemMatcher": "$msCompile",
+            "group": "build"
+        },
+        {
+            "label": "dotnet test",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "NewsAggregator.Tests.csproj"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/NewsAggregator.Tests"
+            },
+            "problemMatcher": "$msCompile",
+            "group": "test"
+        },
+        {
+            "label": "dotnet publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/NewsAggregator/NewsAggregator.csproj",
+                "--configuration",
+                "Release",
+                "--output",
+                "${workspaceFolder}/publish"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
