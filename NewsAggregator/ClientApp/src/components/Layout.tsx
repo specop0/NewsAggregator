@@ -1,9 +1,15 @@
 import React from "react";
-import { AppBar, Box, IconButton, Toolbar } from "@mui/material";
+import { AppBar, Box, Fab, Toolbar } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import RefreshIcon from "@mui/icons-material/Refresh";
+import styled from "@emotion/styled";
 import { useToolBar } from "./ToolBarProvider";
+
+const StyledFab = styled(Fab)({
+  top: -64,
+  margin: '0 auto',
+});
 
 const Layout = () => {
   const [isRefreshPending, setIsRefreshPending] =
@@ -26,21 +32,20 @@ const Layout = () => {
     <React.Fragment>
       <Box component="main">
         <Outlet />
-        <Toolbar />
       </Box>
-      <AppBar component="nav" position="fixed" sx={{ top: "auto", bottom: 0 }}>
+      <AppBar
+        component="nav"
+        position="fixed"
+        color="transparent"
+        sx={{top: 'auto', bottom: -56, boxShadow: 'none'}}>
         <Toolbar>
-          <IconButton
-            color="inherit"
-            onClick={onRefresh}
-            disabled={isRefreshPending}
-          >
+          <StyledFab color="primary" onClick={onRefresh} disabled={isRefreshPending}>
             <RefreshIcon />
-          </IconButton>
-          <Box sx={{ flexGrow: 1 }} />
-          <IconButton color="inherit" onClick={onScrollToTop}>
+          </StyledFab>
+          <Box flexGrow={1} />
+          <StyledFab color="primary" onClick={onScrollToTop}>
             <KeyboardArrowUpIcon />
-          </IconButton>
+          </StyledFab>
         </Toolbar>
       </AppBar>
     </React.Fragment>
