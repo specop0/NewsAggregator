@@ -40,13 +40,10 @@ public class Tageschau : Plugin
         var title = string.Join(" - ", titleNodeA.InnerText, titleNodeB.InnerText);
         var summary = summaryNode.InnerText;
 
-        var urlElement = article.Descendants("a").FirstOrDefault();
-        if (urlElement == null)
-        {
-            return null;
-        }
+        var url = article.Descendants("a")
+            .Select(x => x.GetAttributeValue("href", string.Empty))
+            .FirstOrDefault(x => x?.EndsWith(".mp3") == false);
 
-        var url = urlElement.GetAttributeValue("href", string.Empty);
         if (string.IsNullOrWhiteSpace(url))
         {
             return null;
