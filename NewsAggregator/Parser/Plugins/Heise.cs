@@ -98,6 +98,12 @@ public class Heise : Plugin
             url = "https://www.heise.de" + url;
         }
 
+        // ignore Telepolis
+        if (url.Contains("heise.de/tp/"))
+        {
+            return null;
+        }
+
         if (imageUrl.StartsWith("/"))
         {
             imageUrl = "https://www.heise.de" + imageUrl;
