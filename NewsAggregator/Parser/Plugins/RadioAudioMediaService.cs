@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,6 +24,8 @@ public abstract class RadioAudoMediaService : Plugin
 
         var newsEntries = page.DocumentNode
             .Descendants("div")
+            .First(x => x.HasClass("content-full"))
+            .Descendants("div")
             .Where(x => x.HasClass("row"))
             .Select(x => this.ParseArticle(x))
             .OfType<NewsEntry>()
@@ -46,7 +49,7 @@ public abstract class RadioAudoMediaService : Plugin
         }
         if (!url.StartsWith("https"))
         {
-            url = this.BaseUrl + url;
+            url = new Uri(new Uri(this.BaseUrl), url).ToString();
         }
 
         var title = titleNode.InnerText;
@@ -64,6 +67,10 @@ public abstract class RadioAudoMediaService : Plugin
 
         var image = article.Descendants("img").FirstOrDefault();
         var imageUrl = image?.GetAttributeValue("src", string.Empty) ?? string.Empty;
+        if (imageUrl.StartsWith("//"))
+        {
+            imageUrl = $"https:{imageUrl}";
+        }
 
         var newsEntry = new NewsEntry(
             url,
