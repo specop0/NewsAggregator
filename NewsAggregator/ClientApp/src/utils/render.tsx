@@ -18,11 +18,6 @@ export const render = (
         },
       },
     },
-    logger: {
-      log(...args: any[]) {},
-      warn(...args: any[]) {},
-      error(...args: any[]) {},
-    },
   });
 
   server.resetHandlers(...(options?.mocks ?? []));

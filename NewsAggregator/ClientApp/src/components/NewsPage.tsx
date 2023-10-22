@@ -6,7 +6,7 @@ import { useToolBarDispatch } from "./ToolBarProvider";
 
 const NewsPage: React.FC = () => {
   const [isLatest, setIsLatest] = React.useState<boolean>(false);
-  const { data, isLoading, error, mutate } = useGetNews();
+  const { data, isPending : isLoading, error, mutate } = useGetNews();
   const newsEntries = data ?? [];
 
   const toolBarDispatch = useToolBarDispatch();

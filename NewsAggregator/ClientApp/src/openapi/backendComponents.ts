@@ -45,11 +45,11 @@ export const useGetNews = (
     GetNewsResponse,
     GetNewsError,
     GetNewsVariables
-  >(
-    (variables: GetNewsVariables) =>
+  >({
+    mutationFn: (variables: GetNewsVariables) =>
       fetchGetNews({ ...fetcherOptions, ...variables }),
-    options
-  );
+    ...options,
+  });
 };
 
 export type QueryOperation = {
