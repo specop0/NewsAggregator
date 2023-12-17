@@ -2,6 +2,18 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "build & run",
+            "type": "shell",
+            "command": "docker compose up --build --wait",
+            "group": "build"
+        },
+        {
+            "label": "test",
+            "type": "shell",
+            "command": "docker build . --target test --tag newsaggregator-test && docker run --rm -it newsaggregator-test",
+            "group": "test"
+        },
+        {
             "label": "npm start",
             "command": "npm",
             "type": "process",
@@ -43,20 +55,6 @@
             },
             "problemMatcher": "$msCompile",
             "group": "test"
-        },
-        {
-            "label": "dotnet publish",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "publish",
-                "${workspaceFolder}/NewsAggregator/NewsAggregator.csproj",
-                "--configuration",
-                "Release",
-                "--output",
-                "${workspaceFolder}/publish"
-            ],
-            "problemMatcher": "$msCompile"
         }
     ]
 }

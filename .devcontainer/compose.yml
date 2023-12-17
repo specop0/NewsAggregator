@@ -1,0 +1,19 @@
+services:
+  newsaggregator:
+    build:
+      context: .
+    volumes:
+      - ../..:/workspaces:cached
+    command: sleep infinity
+
+    networks:
+      - localrestserver
+      - seleniumminer
+
+networks:
+  localrestserver:
+    name: localrestserver
+    external: true
+  seleniumminer:
+    name: seleniumminer
+    external: true

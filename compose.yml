@@ -1,0 +1,19 @@
+services:
+  newsaggregator:
+    build:
+      context: .
+    restart: always
+    networks:
+      - newsaggregator
+      - localrestserver
+      - seleniumminer
+
+networks:
+  newsaggregator:
+    name: newsaggregator
+  localrestserver:
+    name: localrestserver
+    external: true
+  seleniumminer:
+    name: seleniumminer
+    external: true

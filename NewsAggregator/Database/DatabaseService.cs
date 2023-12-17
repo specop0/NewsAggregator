@@ -16,10 +16,13 @@ public class DatabaseService : RestServiceBase
 
     private static string GetBaseUrl(IConfiguration configuration)
     {
-        var port = configuration.GetValue<string>("database:Port");
-        var authorization = configuration.GetValue<string>("database:Authorization");
+        var url = configuration.GetValue<string>("database:Url");
+        if (!url.EndsWith("/"))
+        {
+            url = $"{url}/";
+        }
 
-        return $"http://localhost:{port}/data/{authorization}/";
+        return url;
     }
 
     public async Task<ICollection<NewsEntry>> GetEntries()
