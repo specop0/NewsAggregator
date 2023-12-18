@@ -5,17 +5,18 @@ RUN bash -E $(curl -fsSL https://deb.nodesource.com/setup_18.x | bash - ); apt i
 # Build Preperation
 FROM build-with-node as build
 WORKDIR /src
+COPY NewsAggregator/NewsAggregator.csproj NewsAggregator/NewsAggregator.csproj
+COPY NewsAggregator.Tests/NewsAggregator.Tests.csproj NewsAggregator.Tests/NewsAggregator.Tests.csproj
+COPY NewsAggregator.sln NewsAggregator.sln
+RUN dotnet restore NewsAggregator.sln
 COPY NewsAggregator NewsAggregator
-RUN dotnet restore NewsAggregator/NewsAggregator.csproj
 
 # Test
 FROM build AS test
 WORKDIR /src
-COPY NewsAggregator.Tests/NewsAggregator.Tests.csproj NewsAggregator.Tests/
-RUN dotnet restore NewsAggregator.Tests/NewsAggregator.Tests.csproj
 COPY NewsAggregator.Tests NewsAggregator.Tests
-RUN dotnet build NewsAggregator.Tests/NewsAggregator.Tests.csproj --no-restore
-ENTRYPOINT [ "dotnet", "test", "NewsAggregator.Tests/NewsAggregator.Tests.csproj", "--logger:trx", "--no-build" ]
+RUN dotnet build NewsAggregator.sln --no-restore
+ENTRYPOINT [ "dotnet", "test", "--logger:trx", "--no-build" ]
 
 # Publish
 FROM build as publish
