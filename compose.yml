@@ -3,6 +3,7 @@ services:
     build:
       context: .
     restart: always
+    user: www-data
     networks:
       - newsaggregator
       - localrestserver
