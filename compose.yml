@@ -8,6 +8,8 @@ services:
       - newsaggregator
       - localrestserver
       - seleniumminer
+    environment:
+      - ASPNETCORE_URLS=
 
 networks:
   newsaggregator:
