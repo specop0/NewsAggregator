@@ -15,20 +15,20 @@ public class NewsEntryTests : TestsBase
         var summary = this.GetUniqueName("Summary");
         var imageUrl = this.GetUniqueName("https://img.");
 
-        var expected = new NewsEntry(url, title, summary, imageUrl);
-        Assert.AreEqual(url, expected.Url);
-        Assert.AreEqual(title, expected.Title);
-        Assert.AreEqual(summary, expected.Summary);
-        Assert.AreEqual(imageUrl, expected.ImageUrl);
+        var original = new NewsEntry(url, title, summary, imageUrl);
+        Assert.That(original.Url, Is.EqualTo(url));
+        Assert.That(original.Title, Is.EqualTo(title));
+        Assert.That(original.Summary, Is.EqualTo(summary));
+        Assert.That(original.ImageUrl, Is.EqualTo(imageUrl));
 
-        var json = JsonConvert.SerializeObject(expected);
-        var actual = JsonConvert.DeserializeObject<NewsEntry>(json) ?? throw new NullReferenceException();
-        Assert.AreEqual(url, actual.Url);
-        Assert.AreEqual(title, actual.Title);
-        Assert.AreEqual(summary, actual.Summary);
-        Assert.AreEqual(imageUrl, actual.ImageUrl);
+        var json = JsonConvert.SerializeObject(original);
+        var copy = JsonConvert.DeserializeObject<NewsEntry>(json) ?? throw new NullReferenceException();
+        Assert.That(copy.Url, Is.EqualTo(url));
+        Assert.That(copy.Title, Is.EqualTo(title));
+        Assert.That(copy.Summary, Is.EqualTo(summary));
+        Assert.That(copy.ImageUrl, Is.EqualTo(imageUrl));
 
-        Assert.AreEqual(expected, actual);
+        Assert.That(copy, Is.EqualTo(original));
     }
 
     [Test]
@@ -42,12 +42,12 @@ public class NewsEntryTests : TestsBase
         var left = new NewsEntry(url, title, summary, imageUrl);
         var right = new NewsEntry(url, title, summary, imageUrl);
 
-        Assert.AreEqual(left, right);
-        Assert.IsTrue(left.Equals(right));
-        Assert.IsTrue(left == right);
-        Assert.IsFalse(left != right);
-        Assert.AreEqual(left.ToString(), right.ToString());
-        Assert.AreEqual(left.GetHashCode(), right.GetHashCode());
+        Assert.That(left, Is.EqualTo(right));
+        Assert.That(left.Equals(right), Is.True);
+        Assert.That(left == right, Is.True);
+        Assert.That(left != right, Is.False);
+        Assert.That(left.ToString(), Is.EqualTo(right.ToString()));
+        Assert.That(left.GetHashCode(), Is.EqualTo(right.GetHashCode()));
 
         var propertyNames = new[] {
                 nameof(NewsEntry.Url),
@@ -69,14 +69,14 @@ public class NewsEntryTests : TestsBase
 
             var isEqual = ignoredPropertyNames.Contains(propertyName);
             var assertEqual = isEqual
-                ? new Action<object, object>((a, b) => Assert.AreEqual(a, b))
-                : (a, b) => Assert.AreNotEqual(a, b);
+                ? new Action<object, object>((a, b) => Assert.That(a, Is.EqualTo(b)))
+                : (a, b) => Assert.That(a, Is.Not.EqualTo(b));
             assertEqual(left, other);
-            Assert.AreEqual(isEqual, left.Equals(other));
-            Assert.AreEqual(isEqual, left == other);
-            Assert.AreEqual(!isEqual, left != other);
+            Assert.That(left.Equals(other), Is.EqualTo(isEqual));
+            Assert.That(left == other, Is.EqualTo(isEqual));
+            Assert.That(left != other, Is.EqualTo(!isEqual));
             assertEqual(left.GetHashCode(), other.GetHashCode());
-            Assert.AreNotEqual(left.ToString(), other.ToString());
+            Assert.That(left.ToString(), Is.Not.EqualTo(other.ToString()));
         }
     }
 
@@ -86,20 +86,20 @@ public class NewsEntryTests : TestsBase
         var entry = new NewsEntry(null, null, null, null);
         NewsEntry? nullEntry = null;
 
-        Assert.AreNotEqual(entry, nullEntry);
-        Assert.AreEqual(entry, entry);
-        Assert.AreEqual(nullEntry, nullEntry);
+        Assert.That(entry, Is.Not.EqualTo(nullEntry));
+        Assert.That(entry, Is.EqualTo(entry));
+        Assert.That(nullEntry, Is.EqualTo(nullEntry));
 
 #pragma warning disable CS1718
-        Assert.IsFalse(entry == nullEntry);
-        Assert.IsFalse(nullEntry == entry);
-        Assert.IsTrue(entry == entry);
-        Assert.IsTrue(nullEntry == nullEntry);
+        Assert.That(entry == nullEntry, Is.False);
+        Assert.That(nullEntry == entry, Is.False);
+        Assert.That(entry == entry, Is.True);
+        Assert.That(nullEntry == nullEntry, Is.True);
 
-        Assert.IsTrue(entry != nullEntry);
-        Assert.IsTrue(nullEntry != entry);
-        Assert.IsFalse(entry != entry);
-        Assert.IsFalse(nullEntry != nullEntry);
+        Assert.That(entry != nullEntry, Is.True);
+        Assert.That(nullEntry != entry, Is.True);
+        Assert.That(entry != entry, Is.False);
+        Assert.That(nullEntry != nullEntry, Is.False);
 #pragma warning restore CS1718
     }
 
@@ -114,7 +114,7 @@ public class NewsEntryTests : TestsBase
         var summary = $" {end} {middle}  {first}    ";
         var expectedSummary = $"{end} {middle}  {first}";
         var newsEntry = new NewsEntry(null, title, summary, null);
-        Assert.AreEqual(expectedTitle, newsEntry.Title);
-        Assert.AreEqual(expectedSummary, newsEntry.Summary);
+        Assert.That(newsEntry.Title, Is.EqualTo(expectedTitle));
+        Assert.That(newsEntry.Summary, Is.EqualTo(expectedSummary));
     }
 }

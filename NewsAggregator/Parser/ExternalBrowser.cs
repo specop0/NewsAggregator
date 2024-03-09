@@ -15,7 +15,7 @@ public class ExternalBrowser : IBrowser
     {
         this.Client = clientFactory.CreateClient(nameof(ExternalBrowser));
         this.Client.Timeout = TimeSpan.FromSeconds(30d);
-        var externalBrowserUrl = configuration.GetSection("Browser:Url").Get<string>();
+        var externalBrowserUrl = configuration.GetSection("Browser:Url").Get<string>() ?? string.Empty;
         if (!externalBrowserUrl.EndsWith("/"))
         {
             externalBrowserUrl += "/";

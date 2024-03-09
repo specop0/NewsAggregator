@@ -1,6 +1,6 @@
 # Image with Node.js
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-with-node
-RUN bash -E $(curl -fsSL https://deb.nodesource.com/setup_18.x | bash - ); apt install -y nodejs
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-with-node
+RUN bash -E $(curl -fsSL https://deb.nodesource.com/setup_20.x | bash - ); apt install -y nodejs
 
 # Build Preperation
 FROM build-with-node as build
@@ -24,7 +24,7 @@ WORKDIR /src
 RUN dotnet publish NewsAggregator/NewsAggregator.csproj --configuration Release --output publish
 
 # Run
-FROM mcr.microsoft.com/dotnet/aspnet:6.0
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-jammy-chiseled
 WORKDIR /app
 COPY --from=publish /src/publish .
 ENTRYPOINT ["dotnet", "NewsAggregator.dll"]

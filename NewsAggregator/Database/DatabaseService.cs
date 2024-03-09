@@ -16,7 +16,7 @@ public class DatabaseService : RestServiceBase
 
     private static string GetBaseUrl(IConfiguration configuration)
     {
-        var url = configuration.GetValue<string>("database:Url");
+        var url = configuration.GetValue<string>("database:Url") ?? string.Empty;
         if (!url.EndsWith("/"))
         {
             url = $"{url}/";

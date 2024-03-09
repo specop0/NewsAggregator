@@ -27,6 +27,19 @@
             "group": "build"
         },
         {
+            "label": "npm test",
+            "command": "npm",
+            "type": "process",
+            "args": [
+                "test"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/NewsAggregator/ClientApp"
+            },
+            "problemMatcher": "$eslint-compact",
+            "group": "build"
+        },
+        {
             "label": "dotnet run",
             "command": "dotnet",
             "type": "process",

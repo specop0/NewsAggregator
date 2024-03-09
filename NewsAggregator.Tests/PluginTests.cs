@@ -45,7 +45,7 @@ public class PluginTests : TestsBase
     {
         // Arrange
         var expectedNewsEntries = JsonConvert.DeserializeObject<NewsEntry[]>(this.GetResource(expectedJsonName));
-        CollectionAssert.IsNotEmpty(expectedNewsEntries, "unit test implementation");
+        Assert.That(expectedNewsEntries, Is.Not.Empty, "unit test implementation");
 
         this.SustitutePages(this.GetResource(inputHtmlName));
 
@@ -53,10 +53,10 @@ public class PluginTests : TestsBase
         var actualNewsEntries = await testee.GetNews(this.Browser);
 
         // Assert
-        CollectionAssert.AreEqual(expectedNewsEntries, actualNewsEntries);
-        CollectionAssert.AreEqual(
-            expectedNewsEntries.Select(x => x.ImageUrl).ToArray(),
-            actualNewsEntries.Select(x => x.ImageUrl).ToArray());
+        Assert.That(actualNewsEntries, Is.EqualTo(expectedNewsEntries));
+        Assert.That(
+            actualNewsEntries.Select(x => x.ImageUrl).ToArray(),
+            Is.EqualTo(expectedNewsEntries!.Select(x => x.ImageUrl).ToArray()));
     }
 
     [TestCase("heise-1.html", "heise-1.json")]
@@ -66,7 +66,7 @@ public class PluginTests : TestsBase
     {
         // Arrange
         var expectedNewsEntries = JsonConvert.DeserializeObject<NewsEntry[]>(this.GetResource(expectedJsonName));
-        CollectionAssert.IsNotEmpty(expectedNewsEntries, "unit test implementation");
+        Assert.That(expectedNewsEntries, Is.Not.Empty, "unit test implementation");
 
         this.SustitutePages(this.GetResource(inputHtmlName));
 
@@ -75,10 +75,10 @@ public class PluginTests : TestsBase
 
         // Assert
         var actualNewsEntries = await testee.GetNews(this.Browser, string.Empty);
-        CollectionAssert.AreEqual(expectedNewsEntries, actualNewsEntries);
-        CollectionAssert.AreEqual(
-            expectedNewsEntries.Select(x => x.ImageUrl).ToArray(),
-            actualNewsEntries.Select(x => x.ImageUrl).ToArray());
+        Assert.That(actualNewsEntries, Is.EqualTo(expectedNewsEntries));
+        Assert.That(
+            actualNewsEntries.Select(x => x.ImageUrl).ToArray(),
+            Is.EqualTo(expectedNewsEntries!.Select(x => x.ImageUrl).ToArray()));
     }
 
     [TestCase("computerbase.html", "computerbase.json", "computerbase")]
@@ -109,6 +109,6 @@ public class PluginTests : TestsBase
         // Assert
         var outputString = jImage.Value<string>("output");
         var expectedImageData = $"data:image/jpg;base64,{outputString}";
-        Assert.AreEqual(expectedImageData, newsEntry.ImageData);
+        Assert.That(newsEntry.ImageData, Is.EqualTo(expectedImageData));
     }
 }

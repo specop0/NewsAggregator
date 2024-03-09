@@ -19,7 +19,7 @@ public class InteractiveTests : TestsBase
     public IBrowser CreateBrowser()
     {
         var httpClientFactory = Substitute.For<IHttpClientFactory>();
-        httpClientFactory.CreateClient(default).ReturnsForAnyArgs(new HttpClient());
+        httpClientFactory.CreateClient(string.Empty).ReturnsForAnyArgs(new HttpClient());
 
         var configuration = Substitute.For<IConfiguration>();
         var urlSection = Substitute.For<IConfigurationSection>();
