@@ -11,8 +11,7 @@ import App from "./App";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
-const baseUrl =
-  document.getElementsByTagName("base")[0].getAttribute("href") ?? "";
+const baseUrl = process.env.PUBLIC_URL ?? "";
 
 const queryClient = new QueryClient({
   defaultOptions: {
