@@ -7,13 +7,9 @@ services:
     command: sleep infinity
 
     networks:
-      - localrestserver
-      - seleniumminer
+      - main
 
 networks:
-  localrestserver:
-    name: localrestserver
-    external: true
-  seleniumminer:
-    name: seleniumminer
+  main:
+    name: main
     external: true

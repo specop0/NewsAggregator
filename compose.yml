@@ -4,18 +4,11 @@ services:
       context: .
     restart: always
     networks:
-      - newsaggregator
-      - localrestserver
-      - seleniumminer
+      - main
     environment:
       - ASPNETCORE_URLS=
 
 networks:
-  newsaggregator:
-    name: newsaggregator
-  localrestserver:
-    name: localrestserver
-    external: true
-  seleniumminer:
-    name: seleniumminer
+  main:
+    name: main
     external: true
