@@ -25,17 +25,17 @@ public class Program
         {
             swagger.EnableAnnotations();
         });
-        builder.Services.AddSingleton<DatabaseService>();
+        builder.Services.AddScoped<DatabaseService>();
         builder.Services.AddHttpClient();
 
         var useIntegratedBrowser = builder.Configuration.GetSection("Browser:UseIntegrated").Get<bool>();
         if (useIntegratedBrowser)
         {
-            builder.Services.AddSingleton<IBrowser, IntegratedBrowser>();
+            builder.Services.AddScoped<IBrowser, IntegratedBrowser>();
         }
         else
         {
-            builder.Services.AddSingleton<IBrowser, ExternalBrowser>();
+            builder.Services.AddScoped<IBrowser, ExternalBrowser>();
         }
 
         var app = builder.Build();
