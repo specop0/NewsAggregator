@@ -1,4 +1,4 @@
-import { RequestHandler, rest } from "msw";
+import { RequestHandler, http, HttpResponse } from "msw";
 import { GetNewsResponse } from "../openapi/backendComponents";
 import { NewsMock } from "./mocks";
 
@@ -9,8 +9,8 @@ export const handlerPath = {
 export const createGetNewsHandler = (
   response: GetNewsResponse
 ): RequestHandler => {
-  return rest.post(handlerPath.getNews, (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json<GetNewsResponse>(response));
+  return http.post(handlerPath.getNews, (s) => {
+    return HttpResponse.json<GetNewsResponse>(response, {status: 200});
   });
 };
 
