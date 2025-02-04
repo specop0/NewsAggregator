@@ -1,4 +1,4 @@
-import { RequestHandler, http, HttpResponse } from "msw";
+import { delay, RequestHandler, http, HttpResponse } from "msw";
 import { GetNewsResponse } from "../openapi/backendComponents";
 import { NewsMock } from "./mocks";
 
@@ -9,8 +9,9 @@ export const handlerPath = {
 export const createGetNewsHandler = (
   response: GetNewsResponse
 ): RequestHandler => {
-  return http.post(handlerPath.getNews, (s) => {
-    return HttpResponse.json<GetNewsResponse>(response, {status: 200});
+  return http.post(handlerPath.getNews, async () => {
+    await delay();
+    return HttpResponse.json<GetNewsResponse>(response, { status: 200 });
   });
 };
 
