@@ -24,7 +24,7 @@ public class InteractiveTests : TestsBase
         var configuration = Substitute.For<IConfiguration>();
         var urlSection = Substitute.For<IConfigurationSection>();
         configuration.GetSection("Browser:Url").Returns(urlSection);
-        urlSection.Value.Returns("http://localhost:5022/mine");
+        urlSection.Value.Returns("http://seleniumminer:5022/mine");
 
         return new ExternalBrowser(httpClientFactory, configuration);
     }
