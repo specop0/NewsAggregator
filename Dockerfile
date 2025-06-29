@@ -5,11 +5,15 @@ RUN bash -E $(curl -fsSL https://deb.nodesource.com/setup_22.x | bash - ); apt i
 # Build Preperation
 FROM build-with-node AS build
 WORKDIR /src
+COPY NewsAggregator.App/package.json NewsAggregator.App/package.json
+COPY NewsAggregator.App/package-lock.json NewsAggregator.App/package-lock.json
+RUN cd NewsAggregator.App && npm install
 COPY NewsAggregator/NewsAggregator.csproj NewsAggregator/NewsAggregator.csproj
 COPY NewsAggregator.Tests/NewsAggregator.Tests.csproj NewsAggregator.Tests/NewsAggregator.Tests.csproj
 COPY NewsAggregator.sln NewsAggregator.sln
 RUN dotnet restore NewsAggregator.sln
 COPY NewsAggregator NewsAggregator
+COPY NewsAggregator.App NewsAggregator.App
 
 # Test
 FROM build AS test
