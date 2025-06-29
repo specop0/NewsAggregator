@@ -1,35 +1,21 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 
 namespace NewsAggregator.Database;
 
 public class DatabaseService
 {
-    public DatabaseService(IHttpClientFactory clientFactory, IConfiguration configuration)
+    public DatabaseService(HttpClient client)
     {
-        this.Client = clientFactory.CreateClient(nameof(DatabaseService));
-        this.Client.BaseAddress = new Uri(GetBaseUrl(configuration));
+        this.Client = client;
     }
 
     private HttpClient Client { get; }
 
     private const string NewsKey = "News";
-
-    private static string GetBaseUrl(IConfiguration configuration)
-    {
-        var url = configuration.GetValue<string>("database:Url") ?? string.Empty;
-        if (!url.EndsWith("/"))
-        {
-            url = $"{url}/";
-        }
-
-        return url;
-    }
 
     public async Task<ICollection<NewsEntry>> GetEntries()
     {

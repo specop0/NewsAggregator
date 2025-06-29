@@ -1,9 +1,7 @@
-using System;
 using System.Net.Http;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
-using Microsoft.Extensions.Configuration;
 
 namespace NewsAggregator.Parser;
 
@@ -11,16 +9,9 @@ public class ExternalBrowser : IBrowser
 {
     public HttpClient Client { get; }
 
-    public ExternalBrowser(IHttpClientFactory clientFactory, IConfiguration configuration)
+    public ExternalBrowser(HttpClient httpClient)
     {
-        this.Client = clientFactory.CreateClient(nameof(ExternalBrowser));
-        this.Client.Timeout = TimeSpan.FromSeconds(30d);
-        var externalBrowserUrl = configuration.GetSection("Browser:Url").Get<string>() ?? string.Empty;
-        if (!externalBrowserUrl.EndsWith("/"))
-        {
-            externalBrowserUrl += "/";
-        }
-        this.Client.BaseAddress = new Uri(externalBrowserUrl);
+        this.Client = httpClient;
     }
 
     public async Task<HtmlDocument> GetPage(string? url)

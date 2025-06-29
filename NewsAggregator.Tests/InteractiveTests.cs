@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -18,15 +19,9 @@ public class InteractiveTests : TestsBase
 
     public IBrowser CreateBrowser()
     {
-        var httpClientFactory = Substitute.For<IHttpClientFactory>();
-        httpClientFactory.CreateClient(string.Empty).ReturnsForAnyArgs(new HttpClient());
-
-        var configuration = Substitute.For<IConfiguration>();
-        var urlSection = Substitute.For<IConfigurationSection>();
-        configuration.GetSection("Browser:Url").Returns(urlSection);
-        urlSection.Value.Returns("http://seleniumminer:5022/mine");
-
-        return new ExternalBrowser(httpClientFactory, configuration);
+        var httpClient = new HttpClient();
+        httpClient.BaseAddress = new Uri("http://seleniumminer:5022/mine");
+        return new ExternalBrowser(httpClient);
     }
 
     [Test]

@@ -1,4 +1,3 @@
-using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
@@ -9,10 +8,9 @@ public class IntegratedBrowser : IBrowser
 {
     public HttpClient Client { get; }
 
-    public IntegratedBrowser(IHttpClientFactory clientFactory)
+    public IntegratedBrowser(HttpClient httpClient)
     {
-        this.Client = clientFactory.CreateClient(nameof(IntegratedBrowser));
-        this.Client.Timeout = TimeSpan.FromSeconds(30d);
+        this.Client = httpClient;
     }
 
     public async Task<HtmlDocument> GetPage(string? url)

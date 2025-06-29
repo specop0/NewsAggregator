@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +20,9 @@ public class Program
         ILogger? logger = null;
         var builder = WebApplication.CreateSlimBuilder(args);
 
+        var appSettings = new AppSettings();
+        builder.Configuration.Bind(appSettings);
+
         // Add services to the container.
         builder.Services.AddCors();
         builder.Services.ConfigureHttpJsonOptions(options =>
@@ -30,22 +34,41 @@ public class Program
             options.RemoveServers();
         });
         builder.Services.AddScoped<GetNewsHandler>();
-        builder.Services.AddScoped<DatabaseService>();
-        builder.Services.AddHttpClient();
 
-        var useIntegratedBrowser = builder.Configuration.GetSection("Browser:UseIntegrated").Get<bool>();
+        builder.Services.AddHttpClient<DatabaseService>(client =>
+        {
+            var url = appSettings.Database?.Url ?? string.Empty;
+            if (!url.EndsWith("/"))
+            {
+                url = url + "/";
+            }
+            client.BaseAddress = new Uri(url);
+        });
+
+        var useIntegratedBrowser = appSettings.Browser?.UseIntegrated ?? true;
         if (useIntegratedBrowser)
         {
-            builder.Services.AddScoped<IBrowser, IntegratedBrowser>();
+            builder.Services.AddHttpClient<IBrowser, IntegratedBrowser>(client =>
+            {
+                client.Timeout = TimeSpan.FromSeconds(30d);
+            });
         }
         else
         {
-            builder.Services.AddScoped<IBrowser, ExternalBrowser>();
+            builder.Services.AddHttpClient<IBrowser, ExternalBrowser>(client =>
+           {
+               client.Timeout = TimeSpan.FromSeconds(30d);
+
+               var url = appSettings.Browser?.Url ?? string.Empty;
+               if (!url.EndsWith("/"))
+               {
+                   url = url + "/";
+               }
+               client.BaseAddress = new Uri(url);
+           });
         }
 
         var app = builder.Build();
-        var appSettings = new AppSettings();
-        app.Configuration.Bind(appSettings);
         logger = app.Logger;
 
         var pathBase = appSettings.PathBase;
