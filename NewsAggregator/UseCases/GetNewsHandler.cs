@@ -1,23 +1,25 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 using NewsAggregator.Database;
 using NewsAggregator.Model;
 using NewsAggregator.Parser;
-using Swashbuckle.AspNetCore.Annotations;
 
-namespace NewsAggregator.Controllers;
+namespace NewsAggregator.UseCases;
 
-[ApiController]
-[Route("api/[controller]")]
-[Produces("application/json")]
-public class NewsController : ControllerBase
+public class GetNewsHandler
 {
-    protected News ConvertNews(NewsEntry news)
+    public GetNewsHandler(DatabaseService database, IBrowser browser)
+    {
+        this.Database = database;
+        this.Browser = browser;
+    }
+
+    private DatabaseService Database { get; }
+    private IBrowser Browser { get; }
+
+    private static News ConvertNews(NewsEntry news)
     {
         return new News
         {
@@ -29,23 +31,17 @@ public class NewsController : ControllerBase
         };
     }
 
-    [HttpPost]
-    [SwaggerOperation(
-        OperationId = "getNews",
-        Summary = "Gets the news.")]
-    [SwaggerResponse(StatusCodes.Status200OK, "Returns the news.", typeof(IEnumerable<News>))]
-    public async Task<IActionResult> Get([FromBody, SwaggerRequestBody] GetNewsRequest request)
+    public async Task<News[]> Invoke(bool isLatest)
     {
         List<NewsEntry> relevantEntries;
         const int newsCount = 260;
-        if (request?.IsLatest == false)
+        if (!isLatest)
         {
-            var databaseService = this.HttpContext.RequestServices.GetRequiredService<DatabaseService>();
-            relevantEntries = (await databaseService.GetEntries()).Take(newsCount).ToList();
+            relevantEntries = (await this.Database.GetEntries()).Take(newsCount).ToList();
         }
         else
         {
-            var entries = await this.GetNews();
+            var entries = await GetNews();
 
             // return new entries
             relevantEntries = new List<NewsEntry>(entries.New);
@@ -55,15 +51,13 @@ public class NewsController : ControllerBase
             relevantEntries.AddRange(entries.Old.Take(oldEntriesCount));
         }
 
-        return this.Ok(relevantEntries.Select(this.ConvertNews).ToArray());
+        var news = relevantEntries.Select(ConvertNews).ToArray();
+        return news;
     }
 
     private async Task<(ICollection<NewsEntry> New, ICollection<NewsEntry> Old)> GetNews()
     {
-        var database = this.HttpContext.RequestServices.GetRequiredService<DatabaseService>();
-        var browser = this.HttpContext.RequestServices.GetRequiredService<IBrowser>();
-
-        var oldEntries = (await database.GetEntries()).ToList();
+        var oldEntries = (await this.Database.GetEntries()).ToList();
         var oldEntriesSet = new HashSet<NewsEntry>(oldEntries);
 
         var newEntries = new List<NewsEntry>();
@@ -81,29 +75,27 @@ public class NewsController : ControllerBase
             else
             {
                 // load image and set it as base64 encoded image
-                await newEntry.GetAndSetImage(browser);
+                await newEntry.GetAndSetImage(this.Browser);
 
                 newEntries.Add(newEntry);
             }
         }
 
         // save at most 400 entries
-        await database.SetEntries(newEntries.Concat(oldEntries).Take(400).ToArray());
+        await this.Database.SetEntries(newEntries.Concat(oldEntries).Take(400).ToArray());
 
         return (newEntries, oldEntries);
     }
 
     private async Task<ICollection<NewsEntry>> GetLatestNews()
     {
-        var browser = this.HttpContext.RequestServices.GetRequiredService<IBrowser>();
-
         var allParsedEntries = new List<NewsEntry>();
         var plugins = NewsAggregator.Parser.Plugins.Plugins.GetPlugins();
         foreach (var plugin in plugins)
         {
             try
             {
-                allParsedEntries.AddRange(await plugin.GetNews(browser));
+                allParsedEntries.AddRange(await plugin.GetNews(this.Browser));
             }
             catch (Exception exception)
             {

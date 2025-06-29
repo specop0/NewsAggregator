@@ -1,5 +1,5 @@
 import { delay, RequestHandler, http, HttpResponse } from "msw";
-import { GetNewsResponse } from "../openapi/backendComponents";
+import { GetNewsResponse } from "../openapi/backendSchemas";
 import { NewsMock } from "./mocks";
 
 export const handlerPath = {
@@ -16,5 +16,5 @@ export const createGetNewsHandler = (
 };
 
 export const handlers = [
-  createGetNewsHandler(NewsMock.buildList(3)),
+  createGetNewsHandler({ items: NewsMock.buildList(3) }),
 ];

@@ -1,7 +1,17 @@
-import type { QueryKey, UseQueryOptions } from "@tanstack/react-query";
+import type {
+  DefaultError,
+  Enabled,
+  QueryKey,
+  UseQueryOptions,
+} from "@tanstack/react-query";
 import { QueryOperation } from "./backendComponents";
 
-export type BackendContext = {
+export type BackendContext<
+  TQueryFnData = unknown,
+  TError = DefaultError,
+  TData = TQueryFnData,
+  TQueryKey extends QueryKey = QueryKey,
+> = {
   fetcherOptions: {
     /**
      * Headers to inject in the fetcher
@@ -17,12 +27,8 @@ export type BackendContext = {
      * Set this to `false` to disable automatic refetching when the query mounts or changes query keys.
      * Defaults to `true`.
      */
-    enabled?: boolean;
+    enabled?: Enabled<TQueryFnData, TError, TQueryFnData, TQueryKey>;
   };
-  /**
-   * Query key manager.
-   */
-  queryKeyFn: (operation: QueryOperation) => QueryKey;
 };
 
 /**
@@ -32,38 +38,39 @@ export type BackendContext = {
  */
 export function useBackendContext<
   TQueryFnData = unknown,
-  TError = unknown,
+  TError = DefaultError,
   TData = TQueryFnData,
-  TQueryKey extends QueryKey = QueryKey
+  TQueryKey extends QueryKey = QueryKey,
 >(
   _queryOptions?: Omit<
     UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
     "queryKey" | "queryFn"
-  >
-): BackendContext {
+  >,
+): BackendContext<TQueryFnData, TError, TData, TQueryKey> {
   return {
     fetcherOptions: {},
     queryOptions: {},
-    queryKeyFn: (operation) => {
-      const queryKey: unknown[] = hasPathParams(operation)
-        ? operation.path
-            .split("/")
-            .filter(Boolean)
-            .map((i) => resolvePathParam(i, operation.variables.pathParams))
-        : operation.path.split("/").filter(Boolean);
-
-      if (hasQueryParams(operation)) {
-        queryKey.push(operation.variables.queryParams);
-      }
-
-      if (hasBody(operation)) {
-        queryKey.push(operation.variables.body);
-      }
-
-      return queryKey;
-    },
   };
 }
+
+export const queryKeyFn = (operation: QueryOperation) => {
+  const queryKey: unknown[] = hasPathParams(operation)
+    ? operation.path
+        .split("/")
+        .filter(Boolean)
+        .map((i) => resolvePathParam(i, operation.variables.pathParams))
+    : operation.path.split("/").filter(Boolean);
+
+  if (hasQueryParams(operation)) {
+    queryKey.push(operation.variables.queryParams);
+  }
+
+  if (hasBody(operation)) {
+    queryKey.push(operation.variables.body);
+  }
+
+  return queryKey;
+};
 
 // Helpers
 const resolvePathParam = (key: string, pathParams: Record<string, string>) => {
@@ -74,7 +81,7 @@ const resolvePathParam = (key: string, pathParams: Record<string, string>) => {
 };
 
 const hasPathParams = (
-  operation: QueryOperation
+  operation: QueryOperation,
 ): operation is QueryOperation & {
   variables: { pathParams: Record<string, string> };
 } => {
@@ -82,7 +89,7 @@ const hasPathParams = (
 };
 
 const hasBody = (
-  operation: QueryOperation
+  operation: QueryOperation,
 ): operation is QueryOperation & {
   variables: { body: Record<string, unknown> };
 } => {
@@ -90,7 +97,7 @@ const hasBody = (
 };
 
 const hasQueryParams = (
-  operation: QueryOperation
+  operation: QueryOperation,
 ): operation is QueryOperation & {
   variables: { queryParams: Record<string, unknown> };
 } => {

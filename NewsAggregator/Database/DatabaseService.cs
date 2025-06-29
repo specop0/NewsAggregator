@@ -34,12 +34,18 @@ public class DatabaseService
     public async Task<ICollection<NewsEntry>> GetEntries()
     {
         var serializedEntries = await this.Do(NewsKey, "GET") ?? string.Empty;
-        return JsonSerializer.Deserialize<RestData<NewsEntry[]>>(serializedEntries)?.Data ?? new NewsEntry[0];
+        return JsonSerializer.Deserialize<RestData<NewsEntry[]>>(
+            serializedEntries,
+            AppJsonSerializerContext.Default.RestDataNewsEntryArray
+        )?.Data ?? new NewsEntry[0];
     }
 
     public async Task SetEntries(ICollection<NewsEntry> entries)
     {
-        var serializedEntries = JsonSerializer.Serialize(new RestData<NewsEntry[]> { Data = entries.ToArray() });
+        var serializedEntries = JsonSerializer.Serialize(
+            new RestData<NewsEntry[]> { Data = entries.ToArray() },
+            AppJsonSerializerContext.Default.RestDataNewsEntryArray
+        );
         await this.Do(NewsKey, "PUT", serializedEntries);
     }
 

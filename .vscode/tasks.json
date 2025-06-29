@@ -63,7 +63,7 @@
                 "run",
                 "NewsAggregator.csproj",
                 "--environment",
-                "Development"
+                "DOTNET_ENVIRONMENT=Development"
             ],
             "options": {
                 "cwd": "${workspaceFolder}/NewsAggregator"

@@ -1,9 +1,12 @@
-# Image with Node.js
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-with-node
+# Image with Node.js & AOT requirements
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS base
 RUN bash -E $(curl -fsSL https://deb.nodesource.com/setup_22.x | bash - ); apt install -y nodejs
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+       clang zlib1g-dev
 
 # Build Preperation
-FROM build-with-node AS build
+FROM base AS build
 WORKDIR /src
 COPY NewsAggregator.App/package.json NewsAggregator.App/package.json
 COPY NewsAggregator.App/package-lock.json NewsAggregator.App/package-lock.json
@@ -28,8 +31,8 @@ WORKDIR /src
 RUN dotnet publish NewsAggregator/NewsAggregator.csproj --configuration Release --output publish
 
 # Run
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-jammy-chiseled
+FROM mcr.microsoft.com/dotnet/runtime-deps:9.0-noble-chiseled
 WORKDIR /app
 COPY --from=publish /src/publish .
-ENTRYPOINT ["dotnet", "NewsAggregator.dll"]
+ENTRYPOINT ["./NewsAggregator"]
 EXPOSE 5010

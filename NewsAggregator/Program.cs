@@ -1,14 +1,14 @@
-using System;
-using System.IO;
 using System.Linq;
-using System.Reflection;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NewsAggregator.Database;
+using NewsAggregator.OpenApi;
 using NewsAggregator.Parser;
+using NewsAggregator.Routes;
+using NewsAggregator.UseCases;
 
 namespace NewsAggregator;
 
@@ -17,14 +17,19 @@ public class Program
     public static void Main(string[] args)
     {
         ILogger? logger = null;
-        var builder = WebApplication.CreateBuilder(args);
+        var builder = WebApplication.CreateSlimBuilder(args);
 
         // Add services to the container.
-        builder.Services.AddControllers();
-        builder.Services.AddSwaggerGen(swagger =>
+        builder.Services.AddCors();
+        builder.Services.ConfigureHttpJsonOptions(options =>
         {
-            swagger.EnableAnnotations();
+            options.SerializerOptions.TypeInfoResolverChain.Insert(0, AppJsonSerializerContext.Default);
         });
+        builder.Services.AddOpenApi(options =>
+        {
+            options.RemoveServers();
+        });
+        builder.Services.AddScoped<GetNewsHandler>();
         builder.Services.AddScoped<DatabaseService>();
         builder.Services.AddHttpClient();
 
@@ -39,9 +44,11 @@ public class Program
         }
 
         var app = builder.Build();
+        var appSettings = new AppSettings();
+        app.Configuration.Bind(appSettings);
         logger = app.Logger;
 
-        var pathBase = app.Configuration.GetValue<string>("PathBase");
+        var pathBase = appSettings.PathBase;
         if (!string.IsNullOrEmpty(pathBase))
         {
             app.Logger.LogInformation("PathBase: {}", pathBase);
@@ -49,7 +56,7 @@ public class Program
         }
 
         // allow cross origin requests (e.g., from frontend in development)
-        var allowedCrossOrigin = app.Configuration.GetSection("CORS:AllowedOrigins").Get<string[]>() ?? Array.Empty<string>();
+        var allowedCrossOrigin = appSettings.Cors?.AllowedOrigins ?? [];
         if (allowedCrossOrigin.Any())
         {
             app.Logger.LogInformation("CORS.AllowedOrigins: {}", string.Join(", ", allowedCrossOrigin));
@@ -60,21 +67,25 @@ public class Program
                 cors.AllowCredentials();
                 cors.WithOrigins(allowedCrossOrigin);
             });
+        }
 
-            app.Logger.LogInformation("Swagger available at: {}{}", pathBase, "/swagger");
-            app.UseSwagger();
-            app.UseSwaggerUI(swagger =>
+        if (app.Environment.IsDevelopment())
+        {
+            app.Logger.LogInformation("OpenAPI available at: {}{}", pathBase, "/openapi/v1.json");
+            app.MapOpenApi();
+            app.UseSwaggerUI(options =>
             {
-                swagger.DisplayOperationId();
+                options.RoutePrefix = "openapi";
+                options.DocumentTitle = "OpenAPI UI";
+                options.SwaggerEndpoint("/openapi/v1.json", "v1");
             });
         }
 
-        app.UseStaticFiles();
         app.UseRouting();
 
-        app.MapControllerRoute(
-            name: "default",
-            pattern: "api/{controller}/{action=Index}/{id?}");
+        app.UseStaticFiles();
+
+        app.MapNewsRoutes();
 
         app.MapFallbackToFile("index.html");
 

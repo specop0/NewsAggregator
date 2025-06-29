@@ -9,10 +9,10 @@ describe("<NewsPage />", () => {
     it("should load a news entry", async () => {
         // Arrange
         const newsEntry = NewsMock.build()
-        const mock = createGetNewsHandler([newsEntry])
+        const mock = createGetNewsHandler({ items: [newsEntry] })
 
         // Act
-        render(<NewsPage/>, { mocks: [mock] })
+        render(<NewsPage />, { mocks: [mock] })
         const progressbar = await waitFor(() => {
             const progressbar = screen.queryByRole("progressbar")
             expect(progressbar).toBeInTheDocument()

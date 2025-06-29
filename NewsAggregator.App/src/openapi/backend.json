@@ -1,18 +1,15 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "NewsAggregator",
-    "version": "1.0"
+    "title": "NewsAggregator | v1",
+    "version": "1.0.0"
   },
-  "servers": [
-    {
-      "url": "/news"
-    }
-  ],
   "paths": {
     "/api/News": {
       "post": {
-        "tags": ["News"],
+        "tags": [
+          "News"
+        ],
         "summary": "Gets the news.",
         "operationId": "getNews",
         "requestBody": {
@@ -21,29 +18,16 @@
               "schema": {
                 "$ref": "#/components/schemas/GetNewsRequest"
               }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GetNewsRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/GetNewsRequest"
-              }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Returns the news.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/News"
-                  }
+                  "$ref": "#/components/schemas/GetNewsResponse"
                 }
               }
             }
@@ -59,38 +43,48 @@
         "properties": {
           "isLatest": {
             "type": "boolean",
-            "description": "'true' if latest news shall be returned, 'false' otherwise. Default is 'true'",
+            "description": "'true' if latest news shall be returned, 'false' otherwise. Default is 'false'",
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "nullable": true
+      },
+      "GetNewsResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/News"
+            }
+          }
+        }
       },
       "News": {
         "type": "object",
         "properties": {
           "url": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "title": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "summary": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "imageUrl": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           },
           "imageData": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
-        },
-        "additionalProperties": false
+        }
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "News"
+    }
+  ]
 }
