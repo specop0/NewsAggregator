@@ -24,25 +24,23 @@ public abstract class RadioAudoMediaService : Plugin
 
         var newsEntries = page.DocumentNode
             .Descendants("div")
-            .First(x => x.HasClass("content-full"))
-            .Descendants("div")
-            .Where(x => x.HasClass("row"))
-            .Select(x => this.ParseArticle(x))
+            .Where(x => x.HasClass("news-img-wrap"))
+            .Select(this.ParseArticle)
             .OfType<NewsEntry>()
             .ToList();
 
         return newsEntries;
     }
 
-    protected NewsEntry? ParseArticle(HtmlNode article)
+    private NewsEntry? ParseArticle(HtmlNode node, int arg2)
     {
-        var titleNode = article.Descendants("h4").FirstOrDefault();
+        var titleNode = node.Descendants("a").FirstOrDefault();
         if (titleNode == null)
         {
             return null;
         }
 
-        var url = titleNode.ParentNode.GetAttributeValue("href", string.Empty);
+        var url = titleNode.GetAttributeValue("href", string.Empty);
         if (string.IsNullOrWhiteSpace(url))
         {
             return null;
@@ -52,25 +50,20 @@ public abstract class RadioAudoMediaService : Plugin
             url = new Uri(new Uri(this.BaseUrl), url).ToString();
         }
 
-        var title = titleNode.InnerText;
+        var title = titleNode.GetAttributeValue("title", string.Empty);
         if (string.IsNullOrWhiteSpace(title))
         {
             return null;
         }
 
         var summary = string.Empty;
-        var summaryNode = article.Descendants("p").FirstOrDefault(x => x.HasClass("bodytext"));
-        if (summaryNode != null)
-        {
-            summary = summaryNode.InnerText;
-        }
 
-        var image = article.Descendants("img").FirstOrDefault();
-        var imageUrl = image?.GetAttributeValue("src", string.Empty) ?? string.Empty;
-        if (imageUrl.StartsWith("//"))
-        {
-            imageUrl = $"https:{imageUrl}";
-        }
+        var image = node.Descendants("picture")
+            .SelectMany(
+                x => x.Descendants("source")
+                    .Where(source => source.GetAttributeValue("data-variant", string.Empty) == "medium"))
+            .FirstOrDefault();
+        var imageUrl = image?.GetAttributeValue("srcset", string.Empty) ?? string.Empty;
 
         var newsEntry = new NewsEntry(
             url,

@@ -3,7 +3,6 @@ using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
-using Microsoft.Extensions.Configuration;
 using NewsAggregator.Database;
 using NewsAggregator.Parser;
 using Newtonsoft.Json;
@@ -20,7 +19,7 @@ public class InteractiveTests : TestsBase
     public IBrowser CreateBrowser()
     {
         var httpClient = new HttpClient();
-        httpClient.BaseAddress = new Uri("http://seleniumminer:5022/mine");
+        httpClient.BaseAddress = new Uri("http://seleniumminer:5022/mine/");
         return new ExternalBrowser(httpClient);
     }
 
@@ -48,7 +47,7 @@ public class InteractiveTests : TestsBase
         // change plugin while debugging
         var plugin = new Parser.Plugins.Heise();
 
-        var actualNewsEntries = plugin.GetNews(browser);
+        var actualNewsEntries = plugin.GetNews(browser).Result;
         var serializedNewsEntries = JsonConvert.SerializeObject(actualNewsEntries, Formatting.Indented);
         File.WriteAllText(FileName + ".json", serializedNewsEntries);
     }
