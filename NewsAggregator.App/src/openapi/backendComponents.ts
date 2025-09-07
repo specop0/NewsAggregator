@@ -9,9 +9,14 @@ import {
   BackendContext,
   queryKeyFn,
 } from "./backendContext";
+import { deepMerge } from "./backendUtils";
 import type * as Fetcher from "./backendFetcher";
 import { backendFetch } from "./backendFetcher";
 import type * as Schemas from "./backendSchemas";
+
+type QueryFnOptions = {
+  signal?: AbortController["signal"];
+};
 
 export type GetNewsError = Fetcher.ErrorWrapper<undefined>;
 
@@ -49,7 +54,7 @@ export const useGetNews = (
     GetNewsVariables
   >({
     mutationFn: (variables: GetNewsVariables) =>
-      fetchGetNews({ ...fetcherOptions, ...variables }),
+      fetchGetNews(deepMerge(fetcherOptions, variables)),
     ...options,
   });
 };
@@ -57,5 +62,5 @@ export const useGetNews = (
 export type QueryOperation = {
   path: string;
   operationId: never;
-  variables: unknown;
+  variables: unknown | reactQuery.SkipToken;
 };

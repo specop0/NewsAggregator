@@ -1,6 +1,6 @@
 # Image with Node.js & AOT requirements
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS base
-RUN bash -E $(curl -fsSL https://deb.nodesource.com/setup_22.x | bash - ); apt install -y nodejs
+RUN bash -E $(curl -fsSL https://deb.nodesource.com/setup_24.x | bash - ); apt install -y nodejs
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
        clang zlib1g-dev
