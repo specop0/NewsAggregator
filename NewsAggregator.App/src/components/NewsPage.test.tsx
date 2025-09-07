@@ -5,6 +5,10 @@ import { render } from "../utils/render";
 import { screen, waitFor, waitForElementToBeRemoved } from "@testing-library/react";
 import { NewsMock } from "../mocks/mocks";
 
+vi.mock("../utils/auth", () => new Promise((resolve, _) => resolve({
+    useToken: () => "unit test token",
+})))
+
 describe("<NewsPage />", () => {
     it("should load a news entry", async () => {
         // Arrange

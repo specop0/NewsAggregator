@@ -6,6 +6,7 @@ import {
   type UseQueryOptions,
 } from "@tanstack/react-query";
 import { QueryOperation } from "./backendComponents";
+import { useToken } from "../utils/auth";
 
 export type BackendContext<
   TQueryFnData = unknown,
@@ -22,6 +23,7 @@ export type BackendContext<
      * Query params to inject in the fetcher
      */
     queryParams?: {};
+    token: string
   };
   queryOptions: {
     /**
@@ -48,8 +50,11 @@ export function useBackendContext<
     "queryKey" | "queryFn"
   >,
 ): BackendContext<TQueryFnData, TError, TData, TQueryKey> {
+  const token = useToken()
   return {
-    fetcherOptions: {},
+    fetcherOptions: {
+      token
+    },
     queryOptions: {},
   };
 }
@@ -57,9 +62,9 @@ export function useBackendContext<
 export const queryKeyFn = (operation: QueryOperation): QueryKey => {
   const queryKey: unknown[] = hasPathParams(operation)
     ? operation.path
-        .split("/")
-        .filter(Boolean)
-        .map((i) => resolvePathParam(i, operation.variables.pathParams))
+      .split("/")
+      .filter(Boolean)
+      .map((i) => resolvePathParam(i, operation.variables.pathParams))
     : operation.path.split("/").filter(Boolean);
 
   if (hasQueryParams(operation)) {
@@ -87,7 +92,7 @@ const hasPathParams = (
   variables: { pathParams: Record<string, string> };
 } => {
   if (operation.variables === skipToken) return false;
-  return "variables" in operation && "pathParams" in operation.variables;
+  return "variables" in operation && "pathParams" in (operation.variables as any);
 };
 
 const hasBody = (
@@ -96,7 +101,7 @@ const hasBody = (
   variables: { body: Record<string, unknown> };
 } => {
   if (operation.variables === skipToken) return false;
-  return "variables" in operation && "body" in operation.variables;
+  return "variables" in operation && "body" in (operation.variables as any);
 };
 
 const hasQueryParams = (
@@ -105,5 +110,5 @@ const hasQueryParams = (
   variables: { queryParams: Record<string, unknown> };
 } => {
   if (operation.variables === skipToken) return false;
-  return "variables" in operation && "queryParams" in operation.variables;
+  return "variables" in operation && "queryParams" in (operation.variables as any);
 };

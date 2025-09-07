@@ -12,7 +12,9 @@ public static class NewsRoutes
 {
     public static void MapNewsRoutes(this IEndpointRouteBuilder app)
     {
-        var newsGroups = app.MapGroup("api").WithTags("News");
+        var newsGroups = app.MapGroup("api")
+            .WithTags("News")
+            .RequireAuthorization();
         newsGroups.MapPost("News", Get);
     }
 

@@ -9,6 +9,8 @@ public class AppSettings
     public AppDatabaseSettings? Database { get; set; }
 
     public AppBrowserSettings? Browser { get; set; }
+
+    public AuthenticationSettings? Authentication { get; set; }
 }
 
 public class AppCorsSettings
@@ -27,4 +29,10 @@ public class AppBrowserSettings
 {
     public string? Url { get; set; }
     public bool? UseIntegrated { get; set; }
+}
+
+public class AuthenticationSettings
+{
+    public string? Authority { get; set; }
+    public string? Audience { get; set; }
 }

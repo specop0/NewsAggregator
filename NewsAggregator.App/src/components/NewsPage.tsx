@@ -3,10 +3,13 @@ import { Box, CircularProgress, Grid } from "@mui/material";
 import { useGetNews } from "../openapi/backendComponents";
 import NewsCard from "./NewsCard";
 import { useToolBarDispatch } from "./ToolBarProvider";
+import { useAuth } from "react-oidc-context";
+import { useToken } from "../utils/auth";
 
 const NewsPage: React.FC = () => {
   const [isLatest, setIsLatest] = React.useState<boolean>(false);
-  const { data, isPending : isLoading, error, mutate } = useGetNews();
+  const { data, isPending: isLoading, error, mutate } = useGetNews();
+  const token = useToken()
   const newsEntries = data?.items ?? [];
 
   const toolBarDispatch = useToolBarDispatch();
@@ -16,6 +19,7 @@ const NewsPage: React.FC = () => {
       body: {
         isLatest: isLatest,
       },
+      token,
     });
   }, [isLatest, mutate]);
 
@@ -28,6 +32,7 @@ const NewsPage: React.FC = () => {
           body: {
             isLatest: isLatest,
           },
+          token,
         });
       }
     };
@@ -57,7 +62,7 @@ const NewsPage: React.FC = () => {
   return (
     <Grid container spacing={2} justifyContent="center">
       {newsEntries.map((news, i) => (
-        <Grid item key={i}>
+        <Grid key={i}>
           <NewsCard news={news} />
         </Grid>
       ))}

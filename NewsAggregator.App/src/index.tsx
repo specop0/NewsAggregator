@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
+import { AuthProvider, AuthProviderProps } from "react-oidc-context";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -20,12 +21,27 @@ const queryClient = new QueryClient({
   },
 });
 
+const oidcConfig: AuthProviderProps = {
+  authority: window.configuration.openIdConnect.authority,
+  client_id: window.configuration.openIdConnect.clientId,
+  redirect_uri: window.configuration.openIdConnect.redirectUri,
+  onSigninCallback: () => {
+    window.history.replaceState(
+      {},
+      document.title,
+      window.location.pathname,
+    )
+  }
+};
+
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter basename={baseUrl}>
-        <App />
-      </BrowserRouter>
-    </QueryClientProvider>
+    <AuthProvider {...oidcConfig}>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter basename={baseUrl}>
+          <App />
+        </BrowserRouter>
+      </QueryClientProvider>
+    </AuthProvider>
   </React.StrictMode>
 );

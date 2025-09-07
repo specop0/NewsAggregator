@@ -5,6 +5,7 @@ export type BackendFetcherExtraProps = {
    * Note: You need to re-gen after adding the first property to
    * have the `BackendFetcherExtraProps` injected in `BackendComponents.ts`
    **/
+  token: string
 };
 
 export type ErrorWrapper<TError> =
@@ -37,6 +38,7 @@ export async function backendFetch<
   pathParams,
   queryParams,
   signal,
+  token,
 }: BackendFetcherOptions<
   TBody,
   THeaders,
@@ -54,21 +56,26 @@ export async function backendFetch<
         body: body ? JSON.stringify(body) : undefined,
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
           ...headers,
         },
       }
     );
     if (!response.ok) {
       try {
-        error = await response.json();
+        const content = await response.text()
+        try {
+          error = JSON.parse(content);
+        } catch {
+          error = {
+            status: "unknown" as const,
+            payload: content.length > 0 ? content : response.statusText,
+          }
+        }
       } catch (e) {
-        const message = await response.text()
         error = {
           status: "unknown" as const,
-          payload:
-            message !== null
-              ? `Unexpected error (${message})`
-              : "Unexpected error",
+          payload: JSON.stringify(e)
         };
       }
 

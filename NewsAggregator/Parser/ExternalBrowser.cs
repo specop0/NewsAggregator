@@ -27,7 +27,7 @@ public class ExternalBrowser : IBrowser
         response.EnsureSuccessStatusCode();
 
         var jsonContent = await response.Content.ReadAsStringAsync();
-        var content = JsonNode.Parse(jsonContent)?["pageSource"]?.GetValue<string>();
+        var content = JsonNode.Parse(jsonContent)?["pageSource"]?.GetValue<string>() ?? "";
         var document = new HtmlDocument();
         document.LoadHtml(content);
         return document;

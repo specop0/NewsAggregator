@@ -14,13 +14,7 @@ namespace NewsAggregator.Tests;
 
 public class PluginTests : TestsBase
 {
-    public PluginTests()
-    {
-        // TODO: NUnit setup vs non nullable property
-        this.Browser = Substitute.For<IBrowser>();
-    }
-
-    public IBrowser Browser { get; set; }
+    public required IBrowser Browser { get; set; }
 
     protected override void SetUp()
     {
