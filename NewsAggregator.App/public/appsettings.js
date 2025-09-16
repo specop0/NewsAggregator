@@ -1,8 +1,8 @@
 window.configuration = {
-    backendUrl: "https://specop0.chickenkiller.com/news",
+    backendUrl: "http://localhost:40082/news",
     openIdConnect: {
         authority: "https://specop0.chickenkiller.com/nextcloud",
-        clientId: "jcmQ7YBW1GbZYBqwVAxzzS3YHzWKObDA9P7kjxLznYaO9cZso3WfG3hcSCN68UDZ",
-        redirectUri: "https://specop0.chickenkiller.com/news"
+        clientId: "Z41fX04cBAIHV3jso3Pk6lE3lJ81ilh2ZZk36SBgsoAYrf3QnNSRIi0yXXQB3rX8",
+        redirectUri: "http://localhost:40081/news"
     }
 }

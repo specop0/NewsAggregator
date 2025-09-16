@@ -61,9 +61,7 @@
             "type": "process",
             "args": [
                 "run",
-                "NewsAggregator.csproj",
-                "--environment",
-                "DOTNET_ENVIRONMENT=Development"
+                "NewsAggregator.csproj"
             ],
             "options": {
                 "cwd": "${workspaceFolder}/NewsAggregator"

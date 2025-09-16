@@ -5,8 +5,10 @@ services:
     restart: always
     networks:
       - main
+    volumes:
+     - ./appsettings.js:/app/wwwroot/appsettings.js
     environment:
-      - ASPNETCORE_URLS=
+      - ASPNETCORE_URLS=http://newsaggregator:5010
       # garbage collector: workstation
       - DOTNET_gcServer=0
 
