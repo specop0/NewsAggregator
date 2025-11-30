@@ -29,7 +29,7 @@ public class WdrBielefeld : Plugin
 
     protected NewsEntry? ParseArticle(HtmlNode article)
     {
-        var urlElement = article.Descendants("a").FirstOrDefault();
+        var urlElement = article.Descendants("a").FirstOrDefault(x => x.GetAttributeValue("href", string.Empty).Contains("nachrichten"));
         if (urlElement == null)
         {
             return null;
@@ -44,8 +44,10 @@ public class WdrBielefeld : Plugin
 
         var summaryElement = urlElement.Descendants("p").FirstOrDefault(x => x.HasClass("teasertext"));
         var summary = summaryElement?.InnerText ?? "";
+        summary = summary.Replace("\n", "");
+        summary = summary.Replace("| mehr", "");
 
-        var imageElement = urlElement.Descendants("picture").FirstOrDefault()?.Descendants("img").FirstOrDefault();
+        var imageElement = article.Descendants("picture").FirstOrDefault()?.Descendants("img").FirstOrDefault();
         var imageUrl = imageElement?.GetAttributeValue("src", string.Empty) ?? string.Empty;
 
         if (url.StartsWith("/"))
