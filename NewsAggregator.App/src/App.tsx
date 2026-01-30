@@ -18,19 +18,19 @@ function App() {
     );
   }
 
-  if (!isAuthenticated) {
-    return (
-      <Box>
-        <Typography>Unable to log in.</Typography>
-      </Box>
-    );
-  }
-
   if (error) {
     return (
       <Box>
         <Typography>Error at log in:</Typography>
         <Typography>{error.message}</Typography>
+      </Box>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <Box>
+        <Typography>Unable to log in.</Typography>
       </Box>
     );
   }

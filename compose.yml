@@ -11,6 +11,7 @@ services:
       - ASPNETCORE_URLS=http://newsaggregator:5010
       # garbage collector: workstation
       - DOTNET_gcServer=0
+      - Authentication__Authority=https://specop0.chickenkiller.com/auth/realms/production
 
 networks:
   main:
