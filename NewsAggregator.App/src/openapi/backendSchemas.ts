@@ -7,9 +7,12 @@ export type GetNewsRequest = {
   /**
    * 'true' if latest news shall be returned, 'false' otherwise. Default is 'false'
    */
-  isLatest?: boolean | null;
-} | null;
+  isLatest?: boolean;
+};
 
+/**
+ * The news.
+ */
 export type GetNewsResponse = {
   items?: News[];
 };

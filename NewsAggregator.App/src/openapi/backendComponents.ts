@@ -5,8 +5,8 @@
  */
 import * as reactQuery from "@tanstack/react-query";
 import {
+  type BackendContext,
   useBackendContext,
-  BackendContext,
   queryKeyFn,
 } from "./backendContext";
 import { deepMerge } from "./backendUtils";
@@ -20,8 +20,10 @@ type QueryFnOptions = {
 
 export type GetNewsError = Fetcher.ErrorWrapper<undefined>;
 
+export type GetNewsRequestBody = null | Schemas.GetNewsRequest;
+
 export type GetNewsVariables = {
-  body?: Schemas.GetNewsRequest;
+  body?: GetNewsRequestBody;
 } & BackendContext["fetcherOptions"];
 
 export const fetchGetNews = (
@@ -31,7 +33,7 @@ export const fetchGetNews = (
   backendFetch<
     Schemas.GetNewsResponse,
     GetNewsError,
-    Schemas.GetNewsRequest,
+    GetNewsRequestBody,
     {},
     {},
     {}

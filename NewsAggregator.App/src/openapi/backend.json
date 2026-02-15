@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.1.1",
   "info": {
     "title": "NewsAggregator | v1",
     "version": "1.0.0"
@@ -16,7 +16,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/GetNewsRequest"
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "$ref": "#/components/schemas/GetNewsRequest"
+                  }
+                ]
               }
             }
           }
@@ -43,11 +50,9 @@
         "properties": {
           "isLatest": {
             "type": "boolean",
-            "description": "'true' if latest news shall be returned, 'false' otherwise. Default is 'false'",
-            "nullable": true
+            "description": "'true' if latest news shall be returned, 'false' otherwise. Default is 'false'"
           }
-        },
-        "nullable": true
+        }
       },
       "GetNewsResponse": {
         "type": "object",
@@ -58,7 +63,8 @@
               "$ref": "#/components/schemas/News"
             }
           }
-        }
+        },
+        "description": "The news."
       },
       "News": {
         "type": "object",

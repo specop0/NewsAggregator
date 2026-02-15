@@ -1,5 +1,5 @@
 # Image with Node.js & AOT requirements
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS base
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS base
 RUN bash -E $(curl -fsSL https://deb.nodesource.com/setup_24.x | bash - ); apt install -y nodejs
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -31,7 +31,7 @@ WORKDIR /src
 RUN dotnet publish NewsAggregator/NewsAggregator.csproj --configuration Release --output publish
 
 # Run
-FROM mcr.microsoft.com/dotnet/runtime-deps:9.0-noble-chiseled
+FROM mcr.microsoft.com/dotnet/runtime-deps:10.0-noble-chiseled
 WORKDIR /app
 COPY --from=publish /src/publish .
 ENTRYPOINT ["./NewsAggregator"]
