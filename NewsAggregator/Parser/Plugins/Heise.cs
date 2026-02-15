@@ -99,7 +99,7 @@ public class Heise : Plugin
         }
 
         // ignore Telepolis
-        if (url.Contains("heise.de/tp/"))
+        if (url.Contains("heise.de/tp/") || url.Contains("heise.de/-"))
         {
             return null;
         }
